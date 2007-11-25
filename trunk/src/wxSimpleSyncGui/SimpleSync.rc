@@ -1,0 +1,4 @@
+#include "wx/msw/wx.rc"
+
+
+wxICON_0AAA                      ICON "recources/main.ico"

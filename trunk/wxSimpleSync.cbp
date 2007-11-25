@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxSimpleSyncShell" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="build/SimpleSync" prefix_auto="1" extension_auto="1" />
+				<Option object_output="build/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="`wx-config --cxxflags`" />
+					<Add directory="/home/bosco/wxWidgets-2.8.6/include" />
+				</Compiler>
+				<Linker>
+					<Add option="`wx-config --libs`" />
+				</Linker>
+			</Target>
+			<Target title="Release Windows">
+				<Option output="build/SimpleSync" prefix_auto="1" extension_auto="1" />
+				<Option object_output="build/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="`wx-config --wxcfg=gcc_lib/mswu --cxxflags`" />
+					<Add directory="C:/wxWidgets-2.8.6/include" />
+				</Compiler>
+				<Linker>
+					<Add option="`wx-config --wxcfg=gcc_lib/mswu --libs`" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="src/clogging.h" />
+		<Unit filename="src/csync.cpp" />
+		<Unit filename="src/csync.h" />
+		<Unit filename="src/cxml.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

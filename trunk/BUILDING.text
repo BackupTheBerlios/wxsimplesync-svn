@@ -1,0 +1,31 @@
+BUILDING ON LINUX
+-----------------
+
+
+You need a compiled verison of wxWidgets and the wx-config programm must be present,
+on most systems there is a packet aviable something like wx-common and libwxgtk2.0, libwxgtk2.0-dev (on Ubuntu).
+then just use
+
+make 
+
+in the root directory to compile it, the result is in the build directory.
+
+Another way is to use the demo version of DialogBlocks and set there the path to a wxWidgets version 
+downloaded from the wxwidgets page, Dialogblocks will do all the work for you like compiling wxWidgets.
+If you do a non static build you still need the librarys like libwxgtk2.0
+
+
+BUILDING ON WINDOWS
+-------------------
+
+To build it simple you can just use the demo verison of dialogblocks and configure the wxWidgets Path.
+
+
+To compile wxSimpleSync with Codeblocks you need to have the windows port of wx-config in your PATH
+and a compiled wxWidgets build and the WXWIN var set to you wxWidgets folder, in the current Windows Release
+of the Codeblocks files a gcc_lib build is expected to change this just edit the .cbp files.
+Here is the current parameter:
+compiling:
+`wx-config --wxcfg=gcc_lib/mswu --cxxflags`
+linking:
+`wx-config --wxcfg=gcc_lib/mswu --libs`
