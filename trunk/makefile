@@ -1,5 +1,5 @@
 all: SHELL_VERSION GUI_VERSION build
-	cp src/wxSimpleSyncGui/recources ./build/ -r
+	cp recources ./build/ -r
 	echo "Finished,compiled files should be in ./build directory."
 
 build:
