@@ -56,7 +56,6 @@
 #define ID_AUTOSYNC 10034
 #define ID_AUTOOPENPROFIEL 10035
 #define ID_ONTRAYSTART 10036
-#define ID_UPDATECHECK 10037
 #define ID_LOGGINGON 10038
 #define SYMBOL_SETTINGSDLG_STYLE wxCAPTION|wxRESIZE_BORDER|wxSYSTEM_MENU|wxCLOSE_BOX|wxTAB_TRAVERSAL
 #define SYMBOL_SETTINGSDLG_TITLE _("Settings")
@@ -115,7 +114,6 @@ public:
     wxCheckBox* m_AutoSync;
     wxCheckBox* m_LastProfile;
     wxCheckBox* m_StartasTray;
-    wxCheckBox* m_InetUpdate;
     wxCheckBox* m_WriteLog;
 ////@end SettingsDlg member variables
 };

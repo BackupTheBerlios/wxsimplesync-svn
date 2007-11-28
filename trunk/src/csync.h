@@ -66,7 +66,6 @@ public:
 	bool AutoSync;
 	bool AutoOpenProfile;
 	bool StartasTray;
-	bool InternetUpdateCheck;
 	bool WriteLogfile;
 	wxString LastProfile;
 };

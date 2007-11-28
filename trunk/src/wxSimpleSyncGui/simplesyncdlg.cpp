@@ -6,7 +6,7 @@
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -92,6 +92,8 @@ BEGIN_EVENT_TABLE( SimpleSyncDlg, wxFrame )
     EVT_MENU( ID_MENUITEM, SimpleSyncDlg::OnMenuEditEntryClick )
 
     EVT_MENU( ID_MENUITEM_START_SYNC, SimpleSyncDlg::OnMenuitemStartSyncClick )
+
+    EVT_MENU( ID_MENUITEM_SYNC_SELECTED, SimpleSyncDlg::OnMenuitemSyncSelectedClick )
 
     EVT_MENU( ID_MENUITEM_CANCEL_SYNC, SimpleSyncDlg::OnMenuitemCancelSyncClick )
 
@@ -188,7 +190,6 @@ void SimpleSyncDlg::Init()
 	    logger->LogMessage(_("Could not Load Setting file wxSimpleSyncSettings.xml taking default settings"));
 	    Sync->Settings.AutoOpenProfile = false;
 	    Sync->Settings.AutoSync = true;
-	    Sync->Settings.InternetUpdateCheck = true;
 	    Sync->Settings.InTray = Tray::MINIMIZE;
 	    Sync->Settings.Priority = WXTHREAD_DEFAULT_PRIORITY;
 	    Sync->Settings.ShowStatusbar = true;
@@ -230,6 +231,7 @@ first = true;
     itemMenu14->Append(ID_MENUITEM, _("Edit Selected Entry"), _T(""), wxITEM_NORMAL);
     itemMenu14->AppendSeparator();
     itemMenu14->Append(ID_MENUITEM_START_SYNC, _("Sync all Entrys now"), _T(""), wxITEM_NORMAL);
+    itemMenu14->Append(ID_MENUITEM_SYNC_SELECTED, _("Sync selected Entry now"), _T(""), wxITEM_NORMAL);
     itemMenu14->Append(ID_MENUITEM_CANCEL_SYNC, _("Abort Syncing"), _T(""), wxITEM_NORMAL);
     itemMenu14->AppendSeparator();
     itemMenu14->Append(ID_MENUITEM_AKTIVATE_AUTOSYNC, _("Activate AutoSync Checks"), _T(""), wxITEM_NORMAL);
@@ -237,9 +239,9 @@ first = true;
     itemMenu14->AppendSeparator();
     itemMenu14->Append(ID_MENUITEM_COMPARE_FOLDERS, _("Compare Folders of Sleected Sync Entry"), _T(""), wxITEM_NORMAL);
     menuBar->Append(itemMenu14, _("Actions"));
-    wxMenu* itemMenu25 = new wxMenu;
-    itemMenu25->Append(ID_MENUITEM12, _("Info..."), _T(""), wxITEM_NORMAL);
-    menuBar->Append(itemMenu25, _("Help"));
+    wxMenu* itemMenu26 = new wxMenu;
+    itemMenu26->Append(ID_MENUITEM12, _("Info..."), _T(""), wxITEM_NORMAL);
+    menuBar->Append(itemMenu26, _("Help"));
     itemFrame1->SetMenuBar(menuBar);
 
     m_StatusBar = new wxStatusBar( itemFrame1, ID_STATUSBAR1, wxST_SIZEGRIP|wxNO_BORDER );
@@ -248,26 +250,26 @@ first = true;
 
     m_Toolbar = CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, ID_TOOLBAR1 );
     m_Toolbar->SetToolBitmapSize(wxSize(32, 32));
-    wxBitmap itemtool29Bitmap(itemFrame1->GetBitmapResource(wxT("recources/PlusOver.png")));
-    wxBitmap itemtool29BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_ADD, _T(""), itemtool29Bitmap, itemtool29BitmapDisabled, wxITEM_NORMAL, _("Add New Sync Entry"), wxEmptyString);
-    wxBitmap itemtool30Bitmap(itemFrame1->GetBitmapResource(wxT("recources/MinusOver.png")));
+    wxBitmap itemtool30Bitmap(itemFrame1->GetBitmapResource(wxT("recources/PlusOver.png")));
     wxBitmap itemtool30BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_REMOVE, _T(""), itemtool30Bitmap, itemtool30BitmapDisabled, wxITEM_NORMAL, _("Remove Selected Entry"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_ADD, _T(""), itemtool30Bitmap, itemtool30BitmapDisabled, wxITEM_NORMAL, _("Add New Sync Entry"), wxEmptyString);
+    wxBitmap itemtool31Bitmap(itemFrame1->GetBitmapResource(wxT("recources/MinusOver.png")));
+    wxBitmap itemtool31BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_REMOVE, _T(""), itemtool31Bitmap, itemtool31BitmapDisabled, wxITEM_NORMAL, _("Remove Selected Entry"), wxEmptyString);
     m_Toolbar->AddSeparator();
-    wxBitmap itemtool32Bitmap(itemFrame1->GetBitmapResource(wxT("recources/UpOver.png")));
-    wxBitmap itemtool32BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_MOVE_UP, _T(""), itemtool32Bitmap, itemtool32BitmapDisabled, wxITEM_NORMAL, _("Move Eentry Up"), wxEmptyString);
-    wxBitmap itemtool33Bitmap(itemFrame1->GetBitmapResource(wxT("recources/DownOver.png")));
+    wxBitmap itemtool33Bitmap(itemFrame1->GetBitmapResource(wxT("recources/UpOver.png")));
     wxBitmap itemtool33BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_MOVE_DOWN, _T(""), itemtool33Bitmap, itemtool33BitmapDisabled, wxITEM_NORMAL, _("Move Entry Down"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_MOVE_UP, _T(""), itemtool33Bitmap, itemtool33BitmapDisabled, wxITEM_NORMAL, _("Move Eentry Up"), wxEmptyString);
+    wxBitmap itemtool34Bitmap(itemFrame1->GetBitmapResource(wxT("recources/DownOver.png")));
+    wxBitmap itemtool34BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_MOVE_DOWN, _T(""), itemtool34Bitmap, itemtool34BitmapDisabled, wxITEM_NORMAL, _("Move Entry Down"), wxEmptyString);
     m_Toolbar->AddSeparator();
-    wxBitmap itemtool35Bitmap(itemFrame1->GetBitmapResource(wxT("recources/SyncOver.png")));
-    wxBitmap itemtool35BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_SYNC_ALL, _T(""), itemtool35Bitmap, itemtool35BitmapDisabled, wxITEM_NORMAL, _("Sync All Entrys now"), wxEmptyString);
-    wxBitmap itemtool36Bitmap(itemFrame1->GetBitmapResource(wxT("recources/AbortOver.png")));
+    wxBitmap itemtool36Bitmap(itemFrame1->GetBitmapResource(wxT("recources/SyncOver.png")));
     wxBitmap itemtool36BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_ABORT_SYNC, _T(""), itemtool36Bitmap, itemtool36BitmapDisabled, wxITEM_NORMAL, _("Abort Syncing"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_SYNC_ALL, _T(""), itemtool36Bitmap, itemtool36BitmapDisabled, wxITEM_NORMAL, _("Sync All Entrys now"), wxEmptyString);
+    wxBitmap itemtool37Bitmap(itemFrame1->GetBitmapResource(wxT("recources/AbortOver.png")));
+    wxBitmap itemtool37BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_ABORT_SYNC, _T(""), itemtool37Bitmap, itemtool37BitmapDisabled, wxITEM_NORMAL, _("Abort Syncing"), wxEmptyString);
     m_Toolbar->EnableTool(ID_TOOL_ABORT_SYNC, false);
     m_Toolbar->Realize();
     itemFrame1->SetToolBar(m_Toolbar);
@@ -282,7 +284,7 @@ first = true;
     m_ListCtrl->InsertColumn(1,_("Dir 1"),rect.GetWidth()/2-60);
     m_ListCtrl->InsertColumn(2,_("Sync Direction"),90);
     m_ListCtrl->InsertColumn(3,_("Dir 2"),rect.GetWidth()-rect.GetWidth()/2-60);
-    
+
     if(Sync->IsAutoSync()) {
         Menu->FindItem(ID_MENUITEM_AKTIVATE_AUTOSYNC)->Enable(false);
         Menu->FindItem(ID_MENUITEM_DEAKTIVATE_AUTOSYNC)->Enable(true);
@@ -291,7 +293,7 @@ first = true;
         Menu->FindItem(ID_MENUITEM_AKTIVATE_AUTOSYNC)->Enable(true);
         Menu->FindItem(ID_MENUITEM_DEAKTIVATE_AUTOSYNC)->Enable(false);
     }
-    
+
     Menu->FindItem(ID_MENUITEM_CANCEL_SYNC)->Enable(false);
 
     m_StatusBar->Show(Sync->Settings.ShowStatusbar);
@@ -528,7 +530,6 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
     settings.m_Priority->SetSelection(sel);
     settings.m_LastProfile->SetValue(Sync->Settings.AutoOpenProfile);
     settings.m_AutoSync->SetValue(Sync->Settings.AutoSync);
-    settings.m_InetUpdate->SetValue(Sync->Settings.InternetUpdateCheck);
     settings.m_ShowStatus->SetValue(Sync->Settings.ShowStatusbar);
     settings.m_WriteLog->SetValue(Sync->Settings.WriteLogfile);
     settings.m_StartasTray->SetValue(Sync->Settings.StartasTray);
@@ -555,7 +556,6 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
 
         Sync->Settings.AutoOpenProfile = settings.m_LastProfile->GetValue();
         Sync->Settings.AutoSync = settings.m_AutoSync->GetValue();
-        Sync->Settings.InternetUpdateCheck = settings.m_InetUpdate->GetValue();
         Sync->Settings.ShowStatusbar = settings.m_ShowStatus->GetValue();
         Sync->Settings.WriteLogfile = settings.m_WriteLog->GetValue();
         Sync->Settings.StartasTray = settings.m_StartasTray->GetValue();
@@ -1019,5 +1019,21 @@ void SimpleSyncDlg::OnMenuitemCompareFoldersClick( wxCommandEvent& event )
     // Before editing this code, remove the block markers.
     event.Skip();
 ////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_COMPARE_FOLDERS in SimpleSyncDlg.
+}
+
+
+/*!
+ * wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED
+ */
+
+void SimpleSyncDlg::OnMenuitemSyncSelectedClick( wxCommandEvent& event )
+{
+    if( m_ListCtrl->GetItemCount() > SelectedItem ) {
+        Sync->SyncEntry(SelectedItem);
+    }
+////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED in SimpleSyncDlg.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED in SimpleSyncDlg.
 }
 

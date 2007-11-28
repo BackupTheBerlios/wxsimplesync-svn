@@ -741,7 +741,6 @@ bool CFolderSyncer::OpenSettings(wxString Path)
         Settings.AutoOpenProfile = In.GetEntryBoolean(L"AUTO_OPEN_PROFILE");
         Settings.LastProfile = In.GetEntryValue(L"LAST_PROFILE");
         Settings.StartasTray = In.GetEntryBoolean(L"START_AS_TRAY");
-        Settings.InternetUpdateCheck = In.GetEntryBoolean(L"INET_UPDATECHECK");
         Settings.WriteLogfile = In.GetEntryBoolean(L"WRITE_LOGFILE");
         return true;
     }
@@ -763,7 +762,6 @@ bool CFolderSyncer::SaveSettings(wxString Path)
         Out.AddBoolean(L"AUTO_OPEN_PROFILE",Settings.AutoOpenProfile);
         Out.AddValues(L"LAST_PROFILE",Settings.LastProfile);
         Out.AddBoolean(L"START_AS_TRAY",Settings.StartasTray);
-        Out.AddBoolean(L"INET_UPDATECHECK",Settings.InternetUpdateCheck);
         Out.AddBoolean(L"WRITE_LOGFILE",Settings.WriteLogfile);
         Out.EndNewEntry();
 

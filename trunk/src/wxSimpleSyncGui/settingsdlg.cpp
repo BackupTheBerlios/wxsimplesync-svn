@@ -127,7 +127,6 @@ void SettingsDlg::Init()
     m_AutoSync = NULL;
     m_LastProfile = NULL;
     m_StartasTray = NULL;
-    m_InetUpdate = NULL;
     m_WriteLog = NULL;
 ////@end SettingsDlg member initialisation
 }
@@ -213,22 +212,18 @@ void SettingsDlg::CreateControls()
     m_StartasTray->SetValue(false);
     itemBoxSizer17->Add(m_StartasTray, 0, wxALIGN_LEFT|wxALL, 5);
 
-    m_InetUpdate = new wxCheckBox( itemDialog1, ID_UPDATECHECK, _("Internet Update Checks"), wxDefaultPosition, wxDefaultSize, 0 );
-    m_InetUpdate->SetValue(false);
-    itemBoxSizer17->Add(m_InetUpdate, 0, wxALIGN_LEFT|wxALL, 5);
-
     m_WriteLog = new wxCheckBox( itemDialog1, ID_LOGGINGON, _("Write Logfile \"log.txt\""), wxDefaultPosition, wxDefaultSize, 0 );
     m_WriteLog->SetValue(false);
     itemBoxSizer17->Add(m_WriteLog, 0, wxALIGN_LEFT|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
-    itemBoxSizer2->Add(itemBoxSizer23, 0, wxALIGN_RIGHT|wxALL, 0);
+    wxBoxSizer* itemBoxSizer22 = new wxBoxSizer(wxHORIZONTAL);
+    itemBoxSizer2->Add(itemBoxSizer22, 0, wxALIGN_RIGHT|wxALL, 0);
 
-    wxButton* itemButton24 = new wxButton( itemDialog1, wxID_OK, _("&OK"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer23->Add(itemButton24, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton23 = new wxButton( itemDialog1, wxID_OK, _("&OK"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer22->Add(itemButton23, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton25 = new wxButton( itemDialog1, wxID_CANCEL, _("&Abbrechen"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemBoxSizer23->Add(itemButton25, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    wxButton* itemButton24 = new wxButton( itemDialog1, wxID_CANCEL, _("&Abbrechen"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer22->Add(itemButton24, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
 ////@end SettingsDlg content construction
 

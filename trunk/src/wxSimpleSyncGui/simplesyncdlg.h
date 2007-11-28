@@ -82,6 +82,7 @@ class wxListCtrl;
 #define ID_MENUITEM_ADD_SYNC_ENTRY 10001
 #define ID_MENUITEM 10053
 #define ID_MENUITEM_START_SYNC 10011
+#define ID_MENUITEM_SYNC_SELECTED 10037
 #define ID_MENUITEM_CANCEL_SYNC 10012
 #define ID_MENUITEM_AKTIVATE_AUTOSYNC 10013
 #define ID_MENUITEM_DEAKTIVATE_AUTOSYNC 10018
@@ -192,6 +193,9 @@ public:
 
     /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_START_SYNC
     void OnMenuitemStartSyncClick( wxCommandEvent& event );
+
+    /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED
+    void OnMenuitemSyncSelectedClick( wxCommandEvent& event );
 
     /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_CANCEL_SYNC
     void OnMenuitemCancelSyncClick( wxCommandEvent& event );
