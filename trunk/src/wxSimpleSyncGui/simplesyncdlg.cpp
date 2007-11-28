@@ -199,7 +199,8 @@ void SimpleSyncDlg::Init()
 
 	if(!Sync->Settings.AutoSync)
         Sync->StopAutoSync();
-	//TODO OVERWORK LOGGING
+	
+    SelectedItem = 0;
 }
 
 
