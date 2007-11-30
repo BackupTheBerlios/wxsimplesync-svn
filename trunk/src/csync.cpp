@@ -247,8 +247,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     //check if both are accesable
     if ( !dir1.IsOpened() || !dir2.IsOpened() || !wxDirExists(Parameter.dir1) || !wxDirExists(Parameter.dir2))
     {
-        // deal with the error here - wxDir would already log an error message
-        // explaining the exact reason of the failure
+        wxLogError(wxString::Format(_("Could not access one or both of these folders for syncing: %s   +   %s"),Parameter.dir1, Parameter.dir2));
         return false;
     }
 
@@ -569,7 +568,7 @@ bool CFolderSyncer::SyncEntry(int entry)
 {
 
     if(SyncList.GetCount() > entry) {
-        m_logger->LogMessage(_("Start Syncing Entrys"));
+        wxLogMessage(_("Start Syncing Entrys"));
         #ifndef SHELL_BUILD
         Gui->m_Toolbar->EnableTool(10010,false);
         Gui->m_Toolbar->EnableTool(10033,true);
@@ -587,7 +586,8 @@ bool CFolderSyncer::SyncEntry(int entry)
             }
             else
                 Syncer->ThreadList.Add(SyncList[entry]);
-            m_logger->LogMessage(_("Snycing Thread not running starting thread"));
+
+            wxLogMessage(_("Snycing Thread not running starting thread"));
             Syncer->Create();
             Syncer->SetPriority(Settings.Priority);
             running=true;
@@ -636,7 +636,7 @@ void CFolderSyncer::Notify()
             for(int i=0; i<SyncList.GetCount(); i++)
                 if( SyncList[i].SyncAuto == 1) {
                     if( SyncList[i].time.GetHour() == now.GetHour() && SyncList[i].time.GetMinute() == now.GetMinute() ){
-                        m_logger->LogMessage(_("Starting AutoSync (Mode 1 Exact Time)"));
+                        wxLogMessage(_("Starting AutoSync (Mode 1 Exact Time)"));
                         SyncEntry(i);
                         SyncList[i].lastSynced = now;
                     }
@@ -645,7 +645,7 @@ void CFolderSyncer::Notify()
                     //TODO ( init lastchek with HOUR = 0 MINUTE = 0 )
                     if( ((SyncList[i].time.GetHour() * 60) + SyncList[i].time.GetMinute()) >=
                         ((SyncList[i].lastSynced.GetHour() - now.GetHour()) * 60 + SyncList[i].lastSynced.GetMinute() - now.GetMinute())) {
-                            m_logger->LogMessage(_("Starting AutoSync(Mode 2 TimeSpan)"));
+                            wxLogMessage(_("Starting AutoSync(Mode 2 TimeSpan)"));
                             SyncEntry(i);
                             SyncList[i].lastSynced = now;
                     }

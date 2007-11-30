@@ -54,7 +54,7 @@ public:
     };
 
     virtual void DoLogString(const wxChar *msg, time_t timestamp) {
-        LogError(msg);
+        LogMessage(msg);
     }
 
 protected:
