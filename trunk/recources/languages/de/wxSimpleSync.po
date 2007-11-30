@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wxSimpleSync v2.5\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-11-30 16:17+0100\n"
+"PO-Revision-Date: 2007-11-30 16:39+0100\n"
 "Last-Translator: BoscoWitch\n"
 "Language-Team: BoscoWitch\n"
 "MIME-Version: 1.0\n"
@@ -17,31 +17,41 @@ msgstr ""
 
 #: ../../../src/csync.cpp:250
 #, c-format
-msgid "Could not access one or both of these folders for syncing: %s   +   %s"
-msgstr "Konnte auf einen oder beiden der folgenden Ordner nicht zugreifen:  %s   +   %s"
+msgid "Could not sync entry number:%i access one or both of these folders for syncing: %s   +   %s"
+msgstr "Konnte Eintrag nummer:%i nicht Syncen da auf einen oder beiden der folgenden Ordner nicht zugreifen werden kann: %s   +   %s"
 
-#: ../../../src/csync.cpp:555
+#: ../../../src/csync.cpp:253
+#, c-format
+msgid "Syncing entry number:%i folders: %s   %s   %s"
+msgstr "Synce Eintrag nummer: %i Ordner: %s   %s   %s"
+
+#: ../../../src/csync.cpp:391
+#, c-format
+msgid "Finished syncing entry number:%i"
+msgstr "Syncen von Eintrag nummer: %i abgeschlossen !"
+
+#: ../../../src/csync.cpp:556
 msgid "Now Syncing..."
 msgstr "Synce..."
 
-#: ../../../src/csync.cpp:556
+#: ../../../src/csync.cpp:557
 #, c-format
 msgid "Syncing Entry: %i"
 msgstr "Synce Eintrag: %i"
 
-#: ../../../src/csync.cpp:571
+#: ../../../src/csync.cpp:572
 msgid "Start Syncing Entrys"
 msgstr "Starte Syncen der Einträge"
 
-#: ../../../src/csync.cpp:590
+#: ../../../src/csync.cpp:591
 msgid "Snycing Thread not running starting thread"
 msgstr "Sync Process leuft nicht. Wird Gestartet!"
 
-#: ../../../src/csync.cpp:639
+#: ../../../src/csync.cpp:640
 msgid "Starting AutoSync (Mode 1 Exact Time)"
 msgstr "Starte AutoSync Process (Modus 1 Exakte Zeitangabe)"
 
-#: ../../../src/csync.cpp:648
+#: ../../../src/csync.cpp:649
 msgid "Starting AutoSync(Mode 2 TimeSpan)"
 msgstr "Starte AutoSync Process (Modus 2 Zeitspanne)"
 

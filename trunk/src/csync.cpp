@@ -247,9 +247,10 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     //check if both are accesable
     if ( !dir1.IsOpened() || !dir2.IsOpened() || !wxDirExists(Parameter.dir1) || !wxDirExists(Parameter.dir2))
     {
-        wxLogError(wxString::Format(_("Could not access one or both of these folders for syncing: %s   +   %s"),Parameter.dir1, Parameter.dir2));
+        wxLogError(wxString::Format(_("Could not sync entry number:%i access one or both of these folders for syncing: %s   +   %s"),Parameter.id+1 ,Parameter.dir1, Parameter.dir2));
         return false;
     }
+    wxLogMessage(wxString::Format(_("Syncing entry number:%i folders: %s   %s   %s"),Parameter.id+1 ,Parameter.dir1,Parameter.direction ,Parameter.dir2));
 
     if(TestDestroy()) return false;
 
@@ -387,7 +388,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         }
     }
 
-
+    wxLogMessage(wxString::Format(_("Finished syncing entry number:%i"),Parameter.id+1));
     return true;
 }
 
