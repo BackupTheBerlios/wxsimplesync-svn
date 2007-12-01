@@ -7,6 +7,7 @@
 #include <wx/tokenzr.h>
 #include <iostream>
 #include <wx/app.h>
+#include <wx/cmdline.h>
 
 
 
@@ -14,6 +15,7 @@
 class DerivedApp : public wxApp {
 public:
   virtual bool OnInit();
+  wxLocale m_locale;
   CFolderSyncer *Syncer;
   CLogging *logger;
 };
@@ -24,10 +26,50 @@ bool DerivedApp::OnInit()
 	//lol3.id=1;
 	//lol3.time = wxDateTime::Now();
 	//lol3.noTimeCheck =  lol3.time.IsValid();
+	SetAppName(wxT("wxSimpleSync"));
+	wxLocale::AddCatalogLookupPathPrefix(wxT("recources/languages"));
+
+	#ifdef __LINUX__
+    {
+        wxLogNull noLog;
+        m_locale.AddCatalog(_T("fileutils"));
+    }
+    #endif
+
+    m_locale.Init(wxLANGUAGE_DEFAULT, wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING);
+
+    m_locale.AddCatalog(wxT("wxSimpleSync"));
+
+
+	wxCmdLineParser parser;
+	parser.SetCmdLine(this->argc,this->argv);
+
+	static const wxCmdLineEntryDesc cmdLineDesc[] =
+    {
+        { wxCMD_LINE_SWITCH, L"->", _("right"), _("the syncing direction (folder1 -> fodler2)")},
+        { wxCMD_LINE_SWITCH, L"<-", _("left"),   _("the syncing direction (folder1 <- fodler2)") },
+        { wxCMD_LINE_SWITCH, L"<->", _("both"),   _("the syncing direction (folder1 <-> fodler2)") },
+
+        { wxCMD_LINE_OPTION, L"f1", _("folder1"),  _("first sync folder ") },
+        { wxCMD_LINE_OPTION, L"f2", _("folder2"),   _("second sync folder") },
+
+        { wxCMD_LINE_NONE }
+    };
+
+    parser.SetDesc(cmdLineDesc);
+
+    if(parser.Parse() != 0)
+        return false;
+
+
+
 
 	logger = new CLogging(wxT("log.txt"));
+	wxLog::SetActiveTarget(logger);
 	logger->LogMessage(wxT("wxSimpleSync Shell Version Started"));
 	Syncer = new CFolderSyncer(logger);
+
+
 
 	Syncer->OpenProfile(L"profile.xml");
 
