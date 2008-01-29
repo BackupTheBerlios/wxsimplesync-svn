@@ -42,6 +42,7 @@
 ////@end includes
 
 #include "simplesync.h"
+#include <wx/cmdline.h>
 
 ////@begin XPM images
 ////@end XPM images
@@ -110,6 +111,31 @@ bool SimpleSyncApp::OnInit()
     m_locale.Init(wxLANGUAGE_DEFAULT, wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING);
 
     m_locale.AddCatalog(wxT("wxSimpleSync"));
+
+    wxCmdLineParser parser;
+	parser.SetCmdLine(this->argc,this->argv);
+    wxLogNull logNo;
+	wxMessageOutput* old = wxMessageOutput::Set(new wxMessageOutputStderr);
+
+    static const wxCmdLineEntryDesc cmdLineDesc[] =
+    {
+        { wxCMD_LINE_SWITCH, L"d", _("direction"), _("the syncing direction (folder1 <-> or -> pr <- fodler2)")},
+        { wxCMD_LINE_SWITCH, L"<-", _("left"),   _("the syncing direction (folder1 <- fodler2)") },
+        { wxCMD_LINE_SWITCH, L"<->", _("both"),   _("the syncing direction (folder1 <-> fodler2)") },
+
+        { wxCMD_LINE_OPTION, L"f1", _("folder1"),  _("first sync folder ") },
+        { wxCMD_LINE_OPTION, L"f2", _("folder2"),   _("second sync folder") },
+
+        { wxCMD_LINE_NONE }
+    };
+
+    parser.SetDesc(cmdLineDesc);
+
+    logger = new CLogging(wxT("log.txt"));
+	wxLog::SetActiveTarget(logger);
+
+    if(parser.Parse() != 0)
+        return false;
 
 ////@begin SimpleSyncApp initialisation
 	// Remove the comment markers above and below this block

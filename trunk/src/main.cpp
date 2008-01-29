@@ -22,10 +22,7 @@ public:
 IMPLEMENT_APP(DerivedApp)
 bool DerivedApp::OnInit()
 {
-    //SyncParameters lol3;
-	//lol3.id=1;
-	//lol3.time = wxDateTime::Now();
-	//lol3.noTimeCheck =  lol3.time.IsValid();
+
 	SetAppName(wxT("wxSimpleSync"));
 	wxLocale::AddCatalogLookupPathPrefix(wxT("recources/languages"));
 
@@ -43,10 +40,12 @@ bool DerivedApp::OnInit()
 
 	wxCmdLineParser parser;
 	parser.SetCmdLine(this->argc,this->argv);
+    wxLogNull logNo;
+	wxMessageOutput* old = wxMessageOutput::Set(new wxMessageOutputStderr);
 
 	static const wxCmdLineEntryDesc cmdLineDesc[] =
     {
-        { wxCMD_LINE_SWITCH, L"->", _("right"), _("the syncing direction (folder1 -> fodler2)")},
+        { wxCMD_LINE_SWITCH, L"d", _("direction"), _("the syncing direction (folder1 <-> or -> pr <- fodler2)")},
         { wxCMD_LINE_SWITCH, L"<-", _("left"),   _("the syncing direction (folder1 <- fodler2)") },
         { wxCMD_LINE_SWITCH, L"<->", _("both"),   _("the syncing direction (folder1 <-> fodler2)") },
 
@@ -73,7 +72,13 @@ bool DerivedApp::OnInit()
 
 	Syncer->OpenProfile(L"profile.xml");
 
-    Syncer->SyncEntry(0);
+	wxString folder1;
+	if(parser.Found(L"f1",&folder1)) {
+        logger->LogMessage(folder1);
+        return false;
+	}
+
+    //Syncer->SyncEntry(0);
 
 
     return true;

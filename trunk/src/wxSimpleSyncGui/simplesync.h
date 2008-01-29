@@ -81,6 +81,8 @@ public:
 
     wxLocale m_locale;
 
+    CLogging *logger;
+
 ////@begin SimpleSyncApp event handler declarations
 
 ////@end SimpleSyncApp event handler declarations

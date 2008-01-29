@@ -618,6 +618,60 @@
           <string name="PATH variable">"%AUTO%"</string>
           <string name="Command for wx-config">"%AUTO%"</string>
         </document>
+        <document>
+          <string name="title">"VC++ Debug"</string>
+          <string name="type">"vc-config-data-document"</string>
+          <string name="filename">""</string>
+          <string name="icon-name">""</string>
+          <long name="is-transient">0</long>
+          <long name="owns-file">1</long>
+          <long name="title-mode">0</long>
+          <long name="locked">0</long>
+          <string name="template-name">"VC++"</string>
+          <bool name="dirty">0</bool>
+          <string name="Compiler name">"VC++"</string>
+          <string name="Build mode">"Debug"</string>
+          <string name="Unicode mode">"Unicode"</string>
+          <string name="Shared mode">"Static"</string>
+          <string name="Modularity">"Modular"</string>
+          <string name="GUI mode">"GUI"</string>
+          <string name="Toolkit">"wxMSW"</string>
+          <string name="Runtime linking">"Static"</string>
+          <string name="Use exceptions">"Yes"</string>
+          <string name="Use ODBC">"No"</string>
+          <string name="Use OpenGL">"No"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Executable name">"%EXECUTABLE%"</string>
+          <string name="Program arguments">""</string>
+          <string name="Working path">"%AUTO%"</string>
+          <string name="Output path">"%AUTO%"</string>
+          <string name="Objects path">"%AUTO%"</string>
+          <string name="Compiler location">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
+          <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="Compiler bin path">"%AUTO%"</string>
+          <string name="Compiler include path">"%AUTO%"</string>
+          <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="Preprocessor flags">"%AUTO%"</string>
+          <string name="Optimizations">"%AUTO%"</string>
+          <string name="Warnings">"%AUTO%"</string>
+          <string name="Debug flags">"%AUTO%"</string>
+          <string name="Libraries">"%AUTO%"</string>
+          <string name="Library path">"%AUTO%"</string>
+          <string name="Linker flags">"%AUTO%"</string>
+          <string name="Include path">"%AUTO%"</string>
+          <string name="Resource flags">"%AUTO%"</string>
+          <string name="Resource path">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="CFG">""</string>
+        </document>
       </document>
     </document>
   </data>
