@@ -126,6 +126,8 @@ bool SimpleSyncApp::OnInit()
         { wxCMD_LINE_OPTION, L"f1", _("folder1"),  _("first sync folder ") },
         { wxCMD_LINE_OPTION, L"f2", _("folder2"),   _("second sync folder") },
 
+        { wxCMD_LINE_PARAM,  NULL, NULL, _("Profile file"), wxCMD_LINE_VAL_STRING, wxCMD_LINE_PARAM_MULTIPLE },
+
         { wxCMD_LINE_NONE }
     };
 
@@ -134,8 +136,17 @@ bool SimpleSyncApp::OnInit()
     logger = new CLogging(wxT("log.txt"));
 	wxLog::SetActiveTarget(logger);
 
-    if(parser.Parse() != 0)
+
+    wxString ProfilePath;
+    if( wxString(argv[1]).Left(1) != _("-") &&  wxFileExists(argv[1])) {
+        ProfilePath = wxString(argv[1]);
+    }
+
+
+    if(parser.Parse(false) != 0) {
+        parser.Usage();
         return false;
+    }
 
 ////@begin SimpleSyncApp initialisation
 	// Remove the comment markers above and below this block
@@ -153,7 +164,7 @@ bool SimpleSyncApp::OnInit()
 #if wxUSE_GIF
 	wxImage::AddHandler(new wxGIFHandler);
 #endif
-	SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG );
+	SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG , ProfilePath);
 	mainWindow->Show(true);
 //	glob = mainWindow;
 ////@end SimpleSyncApp initialisation

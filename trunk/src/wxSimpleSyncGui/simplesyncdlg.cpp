@@ -134,8 +134,12 @@ SimpleSyncDlg::SimpleSyncDlg()
     Init();
 }
 
-SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
+SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellProfile, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
 {
+    if(ShellProfile != wxT("")) {
+        ShellProfilePath = ShellProfile;
+        ShellProfileParameter = true;
+    }
     Init();
     Create( parent, id, caption, pos, size, style );
 }
@@ -199,7 +203,7 @@ void SimpleSyncDlg::Init()
 
 	if(!Sync->Settings.AutoSync)
         Sync->StopAutoSync();
-	
+
     SelectedItem = 0;
 }
 
@@ -298,7 +302,18 @@ first = true;
     Menu->FindItem(ID_MENUITEM_CANCEL_SYNC)->Enable(false);
 
     m_StatusBar->Show(Sync->Settings.ShowStatusbar);
-    if(Sync->Settings.AutoOpenProfile) {
+
+    //Check if user gave a Profile Path as Parameter
+    if(ShellProfileParameter) {
+        Sync->OpenProfile(wxFileName(ShellProfilePath).GetFullPath());
+            for(unsigned int i = 0; i<Sync->SyncList.GetCount(); i++) {
+                m_ListCtrl->InsertItem(i,wxString::Format(L"%i",i+1));
+                m_ListCtrl->SetItem(i,1, Sync->SyncList[i].dir1 );
+                m_ListCtrl->SetItem(i,2, Sync->SyncList[i].direction );
+                m_ListCtrl->SetItem(i,3, Sync->SyncList[i].dir2 );
+            }
+    }
+    else if(Sync->Settings.AutoOpenProfile) {
         Sync->OpenProfile(Sync->Settings.LastProfile);
         m_ListCtrl->DeleteAllItems();
             for(unsigned int i = 0; i<Sync->SyncList.GetCount(); i++) {

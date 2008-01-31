@@ -6,7 +6,7 @@
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -124,7 +124,7 @@ class SimpleSyncDlg: public wxFrame
 public:
     /// Constructors
     SimpleSyncDlg();
-    SimpleSyncDlg( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
+    SimpleSyncDlg( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, wxString ShellProfile = wxT(""), const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
 
     bool Create( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
 
@@ -255,6 +255,9 @@ public:
     wxToolBar* m_Toolbar;
     wxListCtrl* m_ListCtrl;
 ////@end SimpleSyncDlg member variables
+
+    bool ShellProfileParameter;
+    wxString ShellProfilePath;
 };
 
 class COwnTaskBar : wxTaskBarIcon
