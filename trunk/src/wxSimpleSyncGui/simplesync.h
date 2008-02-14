@@ -82,6 +82,7 @@ public:
     wxLocale m_locale;
 
     CLogging *logger;
+    CFolderSyncer *Syncer;
 
 ////@begin SimpleSyncApp event handler declarations
 

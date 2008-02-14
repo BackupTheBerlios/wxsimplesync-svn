@@ -30,14 +30,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.92365555"
-     inkscape:cx="389.09029"
-     inkscape:cy="167.51974"
+     inkscape:cx="864.04503"
+     inkscape:cy="470.66305"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="1920"
      inkscape:window-height="1144"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
      showguides="true"
      inkscape:guide-bbox="true"
      width="900px"
@@ -619,6 +619,219 @@
        fx="295.35715"
        fy="282.18362"
        r="10.14286" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2894"
+       id="radialGradient2437"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.8766027,607.61608,-63.497915)"
+       cx="372.90033"
+       cy="631.59821"
+       fx="372.90033"
+       fy="631.59821"
+       r="77.537132" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2894"
+       id="radialGradient2439"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.9119716,0,24.840179)"
+       cx="295.35715"
+       cy="282.18362"
+       fx="295.35715"
+       fy="282.18362"
+       r="10.14286" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2894"
+       id="radialGradient2441"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.9119716,0,24.840179)"
+       cx="295.35715"
+       cy="282.18362"
+       fx="295.35715"
+       fy="282.18362"
+       r="10.14286" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2897"
+       id="linearGradient2443"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(7.1824589,0,0,1.9127016,-1087.4298,-79.364205)"
+       x1="240.21428"
+       y1="251.86218"
+       x2="341.21429"
+       y2="312.68362" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2818"
+       id="linearGradient2445"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(572.89863,-234.09341)"
+       x1="69.200523"
+       y1="772.54993"
+       x2="533.86053"
+       y2="772.54993" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2827"
+       id="linearGradient2447"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,472.49456,151.27865)"
+       x1="338.14349"
+       y1="440.58347"
+       x2="305.29568"
+       y2="414.40176" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2835"
+       id="linearGradient2449"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.6274841,0,0,0.6863149,472.73672,125.70697)"
+       x1="309.375"
+       y1="421.46933"
+       x2="337.5"
+       y2="439.50504" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2827"
+       id="linearGradient2451"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,513.23956,224.34857)"
+       x1="338.14349"
+       y1="440.58347"
+       x2="305.29568"
+       y2="414.40176" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2835"
+       id="linearGradient2453"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.6274841,0,0,0.6863149,513.48172,198.77689)"
+       x1="309.375"
+       y1="421.46933"
+       x2="337.5"
+       y2="439.50504" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2827"
+       id="linearGradient2455"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,471.14452,223.5872)"
+       x1="338.14349"
+       y1="440.58347"
+       x2="305.29568"
+       y2="414.40176" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2835"
+       id="linearGradient2457"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.6274841,0,0,0.6863149,471.38669,198.01551)"
+       x1="309.375"
+       y1="421.46933"
+       x2="337.5"
+       y2="439.50504" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2827"
+       id="linearGradient2459"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,496.15091,180.64994)"
+       x1="338.14349"
+       y1="440.58347"
+       x2="305.29568"
+       y2="414.40176" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2835"
+       id="linearGradient2461"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.6274841,0,0,0.6863149,496.39307,155.07826)"
+       x1="309.375"
+       y1="421.46933"
+       x2="337.5"
+       y2="439.50504" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3019"
+       id="linearGradient2463"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,598.5897,67.364803)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3011"
+       id="linearGradient2465"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.628232,0,0,0.628232,598.5897,67.364803)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3019"
+       id="linearGradient2467"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.2940469,0,0,-0.9588104,714.14749,1004.9012)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3011"
+       id="linearGradient2469"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.2940469,0,0,-0.9588104,714.14749,1004.9012)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3019"
+       id="linearGradient2471"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.2079226,0.2079226,-0.6779814,-0.6779814,1191.5405,848.63086)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3011"
+       id="linearGradient2473"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.2079226,0.2079226,-0.6779814,-0.6779814,1191.5405,848.63086)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3019"
+       id="linearGradient2475"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,0.294047,-0.9588105,0,1257.1154,452.22238)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3011"
+       id="linearGradient2477"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,0.294047,-0.9588105,0,1257.1154,452.22238)"
+       x1="179.15752"
+       y1="609.97937"
+       x2="239.0706"
+       y2="609.97937" />
   </defs>
   <metadata
      id="metadata7">
@@ -1397,5 +1610,355 @@
          sodipodi:nodetypes="cccccccccc"
          d="M 298.03571,290.93361 L 300.71429,282.00504 L 305,282.8979 L 300.53571,273.43361 L 294.10714,281.11218 L 296.60714,281.6479 L 295.53571,286.11218 L 285.89285,284.68361 L 285.71428,288.25504 L 298.03571,290.93361 z " />
     </a>
+    <path
+       style="fill:#01bb01;fill-opacity:1;fill-rule:evenodd;stroke:url(#radialGradient2437);stroke-width:10.17060089px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path2344"
+       d="M 1052.9682,465.97663 L 966.02599,465.97663 L 966.02599,500.80462 L 981.36869,500.80462 L 957.50229,553.04671 L 908.06459,524.02335 L 931.93099,510.47915 L 931.93099,427.27879 L 1052.9682,427.27879 L 1052.9682,465.97663 z "
+       inkscape:export-xdpi="43.199993"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-ydpi="43.199993" />
+    <a
+       style="stroke:url(#radialGradient2439);stroke-opacity:1"
+       id="a2346"
+       inkscape:export-xdpi="43.199993"
+       transform="matrix(9.5465967,0,0,10.835392,-1747.9351,-2556.7652)"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-ydpi="43.199993">
+      <path
+         style="fill:#01bb01;fill-opacity:1;fill-rule:evenodd;stroke:url(#radialGradient2441);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="path2348"
+         sodipodi:nodetypes="cccccccccc"
+         d="M 298.03571,290.93361 L 300.71429,282.00504 L 305,282.8979 L 300.53571,273.43361 L 294.10714,281.11218 L 296.60714,281.6479 L 295.53571,286.11218 L 285.89285,284.68361 L 285.71428,288.25504 L 298.03571,290.93361 z " />
+    </a>
+    <rect
+       style="fill:url(#linearGradient2443);fill-opacity:1;stroke:#000000;stroke-width:0.93135077;stroke-opacity:1"
+       id="rect2350"
+       inkscape:export-xdpi="43"
+       width="674.45868"
+       y="403.32928"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-ydpi="43"
+       x="641.49054"
+       height="191.88583" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient2445);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 642.59916,538.45652 L 1106.2591,538.45652"
+       id="path2352"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <text
+       style="font-size:74.82019043px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Kartika"
+       id="text2354"
+       inkscape:export-xdpi="43.199993"
+       sodipodi:linespacing="125%"
+       transform="scale(0.9607362,1.0408685)"
+       y="514.74274"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-ydpi="43.199993"
+       x="764.70276"
+       xml:space="preserve"><tspan
+         style="stroke-width:1"
+         sodipodi:role="line"
+         id="tspan2356"
+         y="514.74274"
+         x="764.70276">SimpleSync</tspan></text>
+    <text
+       style="font-size:42.72162247px;line-height:125%"
+       id="text2358"
+       inkscape:export-xdpi="43.199993"
+       sodipodi:linespacing="125%"
+       y="719.85645"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-ydpi="43.199993"
+       x="483.12027"
+       xml:space="preserve"
+       transform="scale(1.3435691,0.7442862)"><tspan
+         sodipodi:role="line"
+         id="tspan2360"
+         y="719.85645"
+         x="483.12027">wx</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       id="text2362"
+       y="551.06567"
+       x="923.44196"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2364"
+         x="923.44196"
+         y="551.06567">Simple Opensource Folder Syncer</tspan></text>
+    <text
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.7318184;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Microstyle Bold Extended ATT"
+       id="text2366"
+       sodipodi:linespacing="125%"
+       y="590.68768"
+       x="1151.0887"
+       xml:space="preserve"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2368"
+         y="590.68768"
+         x="1151.0887">Created by BoscoWitch</tspan></text>
+    <path
+       style="fill:url(#linearGradient2447);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 663.98819,412.76052 L 663.98819,427.75318 L 684.61299,427.75318 L 684.61299,412.44321 L 670.65159,412.44321 L 669.58069,411.37231 L 664.70209,411.37231 L 663.98819,412.76052 z "
+       id="path2370"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2449);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.65624058px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 664.16089,427.69952 L 684.72149,427.69952 L 687.65989,414.90786 L 666.82919,414.92582 L 664.16089,427.69952 z "
+       sodipodi:nodetypes="ccccc"
+       id="path2372"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <text
+       xml:space="preserve"
+       style="font-size:1.02178574px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Microstyle Bold Extended ATT"
+       id="text2374"
+       y="263.77606"
+       x="1039.6877"
+       sodipodi:linespacing="125%"
+       transform="scale(0.6389579,1.5650483)"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2376"
+         y="263.77606"
+         x="1039.6877">#27A9FF78C</tspan></text>
+    <path
+       style="fill:url(#linearGradient2451);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 704.73319,485.83042 L 704.73319,500.82309 L 725.35799,500.82309 L 725.35799,485.51312 L 711.39659,485.51312 L 710.32569,484.44221 L 705.44709,484.44221 L 704.73319,485.83042 z "
+       id="path2378"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2453);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.65624058px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 704.90589,500.76942 L 725.46649,500.76942 L 728.40489,487.97777 L 707.57409,487.99573 L 704.90589,500.76942 z "
+       sodipodi:nodetypes="ccccc"
+       id="path2380"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <text
+       xml:space="preserve"
+       style="font-size:0.84905314px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Microstyle Bold Extended ATT"
+       id="text2382"
+       y="373.39935"
+       x="917.50024"
+       sodipodi:linespacing="125%"
+       transform="scale(0.7689485,1.3004772)"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2384"
+         y="373.39935"
+         x="917.50024">#27A9FF78C</tspan></text>
+    <path
+       style="fill:url(#linearGradient2455);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 662.63819,485.06906 L 662.63819,500.06172 L 683.26289,500.06172 L 683.26289,484.75175 L 669.30159,484.75175 L 668.23059,483.68085 L 663.35209,483.68085 L 662.63819,485.06906 z "
+       id="path2386"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2457);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.65624058px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 662.81079,500.00806 L 683.37139,500.00806 L 686.30979,487.2164 L 665.47909,487.23436 L 662.81079,500.00806 z "
+       sodipodi:nodetypes="ccccc"
+       id="path2388"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <text
+       xml:space="preserve"
+       style="font-size:0.91557986px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Microstyle Bold Extended ATT"
+       id="text2390"
+       y="317.20273"
+       x="1014.3182"
+       sodipodi:linespacing="125%"
+       transform="scale(0.6541614,1.5286747)"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2392"
+         y="317.20273"
+         x="1014.3182">#27A9FF78C</tspan></text>
+    <path
+       style="fill:url(#linearGradient2459);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 687.64459,442.1318 L 687.64459,457.12446 L 708.26929,457.12446 L 708.26929,441.81449 L 694.30799,441.81449 L 693.23699,440.74359 L 688.35849,440.74359 L 687.64459,442.1318 z "
+       id="path2394"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2461);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.65624058px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 687.81719,457.0708 L 708.37779,457.0708 L 711.31619,444.27915 L 690.48549,444.2971 L 687.81719,457.0708 z "
+       sodipodi:nodetypes="ccccc"
+       id="path2396"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <text
+       xml:space="preserve"
+       style="font-size:0.95942008px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Microstyle Bold Extended ATT"
+       id="text2398"
+       y="300.90909"
+       x="1011.4875"
+       sodipodi:linespacing="125%"
+       transform="scale(0.6804924,1.4695241)"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2400"
+         y="300.90909"
+         x="1011.4875">#27A9FF78C</tspan></text>
+    <text
+       style="font-size:5.23578167px"
+       id="text2402"
+       transform="scale(1.0243913,0.9761895)"
+       y="467.74316"
+       x="680.64417"
+       xml:space="preserve"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43"><tspan
+         sodipodi:role="line"
+         id="tspan2404"
+         y="467.74316"
+         x="680.64417">SMB</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 678.47629,486.88829 L 695.65069,457.39892"
+       id="path2407"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 681.32599,428.02763 L 694.15109,443.95103"
+       id="path2409"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.628232px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 686.63789,493.83068 L 704.57769,494.15515"
+       id="path2411"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 684.96889,493.98415 L 690.36329,491.66385 L 690.36329,496.26446 L 684.96889,493.98383 L 684.96889,493.98415 z "
+       id="path2413"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 678.28339,487.2601 L 678.97109,481.42833 L 682.95539,483.72863 L 678.28309,487.25994 L 678.28339,487.2601 z "
+       id="path2415"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 705.98479,494.14261 L 700.59049,496.46291 L 700.59049,491.8623 L 705.98479,494.14293 L 705.98479,494.14261 z "
+       id="path2417"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 680.86959,427.3047 L 686.04509,430.07889 L 682.44629,432.94495 L 680.86979,427.3045 L 680.86959,427.3047 z "
+       id="path2419"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2463);fill-rule:evenodd;stroke:url(#linearGradient2465);stroke-width:0.73613304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 711.51029,450.46509 L 748.41339,450.68166"
+       id="path2421"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 709.78729,450.56461 L 715.18159,448.24432 L 715.18159,452.84492 L 709.78729,450.56429 L 709.78729,450.56461 z "
+       id="path2423"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2467);fill-rule:evenodd;stroke:url(#linearGradient2469);stroke-width:0.62217271px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 661.29459,420.21188 L 644.02183,419.88135"
+       id="path2425"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 662.96049,420.05538 L 657.56619,422.37568 L 657.56619,417.77507 L 662.96049,420.0557 L 662.96049,420.05538 z "
+       id="path2427"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2471);fill-rule:evenodd;stroke:url(#linearGradient2473);stroke-width:0.62217271px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 740.73009,472.56581 L 728.28269,484.54575"
+       id="path2429"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 741.79749,471.27712 L 739.62379,476.73218 L 736.37069,473.47906 L 741.79769,471.27735 L 741.79749,471.27712 z "
+       id="path2431"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:url(#linearGradient2475);fill-rule:evenodd;stroke:url(#linearGradient2477);stroke-width:0.62217271px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 672.42599,505.07533 L 672.09549,522.34804"
+       id="path2433"
+       inkscape:connector-type="polyline"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       d="M 672.26949,503.40934 L 674.58979,508.80366 L 669.98919,508.80366 L 672.26979,503.40934 L 672.26949,503.40934 z "
+       id="path2435"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Dokumente und Einstellungen\Administrator\Desktop\banner2.png"
+       inkscape:export-xdpi="43"
+       inkscape:export-ydpi="43" />
   </g>
 </svg>

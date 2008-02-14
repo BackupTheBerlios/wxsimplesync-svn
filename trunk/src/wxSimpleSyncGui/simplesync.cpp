@@ -119,17 +119,11 @@ bool SimpleSyncApp::OnInit()
 
     static const wxCmdLineEntryDesc cmdLineDesc[] =
     {
-        { wxCMD_LINE_SWITCH, L"d", _("direction"), _("the syncing direction (folder1 <-> or -> pr <- fodler2)")},
-        { wxCMD_LINE_SWITCH, L"<-", _("left"),   _("the syncing direction (folder1 <- fodler2)") },
-        { wxCMD_LINE_SWITCH, L"<->", _("both"),   _("the syncing direction (folder1 <-> fodler2)") },
-
-        { wxCMD_LINE_OPTION, L"f1", _("folder1"),  _("first sync folder ") },
-        { wxCMD_LINE_OPTION, L"f2", _("folder2"),   _("second sync folder") },
-
-        { wxCMD_LINE_PARAM,  NULL, NULL, _("Profile file"), wxCMD_LINE_VAL_STRING, wxCMD_LINE_PARAM_MULTIPLE },
-
+        { wxCMD_LINE_PARAM,  NULL, NULL, _("input file"), wxCMD_LINE_VAL_STRING, wxCMD_LINE_NONE },
+        { wxCMD_LINE_SWITCH, _("d"), _("daemon"), _("Start wxSS without GUI in Deamon mode")},
         { wxCMD_LINE_NONE }
     };
+
 
     parser.SetDesc(cmdLineDesc);
 
@@ -144,30 +138,67 @@ bool SimpleSyncApp::OnInit()
 
 
     if(parser.Parse(false) != 0) {
+        parser.SetLogo(_("wxSimpleSync Version 2.0"));
         parser.Usage();
         return false;
     }
 
-////@begin SimpleSyncApp initialisation
-	// Remove the comment markers above and below this block
-	// to make permanent changes to the code.
+    bool DeamonMode = false;
 
-#if wxUSE_XPM
-	wxImage::AddHandler(new wxXPMHandler);
-#endif
-#if wxUSE_LIBPNG
-	wxImage::AddHandler(new wxPNGHandler);
-#endif
-#if wxUSE_LIBJPEG
-	wxImage::AddHandler(new wxJPEGHandler);
-#endif
-#if wxUSE_GIF
-	wxImage::AddHandler(new wxGIFHandler);
-#endif
-	SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG , ProfilePath);
-	mainWindow->Show(true);
-//	glob = mainWindow;
-////@end SimpleSyncApp initialisation
+    //RUN IN DEAMON MODE
+    if(parser.Found(L"d")) {
+        Syncer = new CFolderSyncer(logger);
+
+        if(!Syncer->OpenSettings(wxT("wxSimpleSyncSettings.xml"))) {
+            logger->LogMessage(_("Could not Load Setting file wxSimpleSyncSettings.xml taking default settings"));
+            Syncer->Settings.AutoOpenProfile = false;
+            Syncer->Settings.AutoSync = true;
+            Syncer->Settings.InTray = Tray::MINIMIZE;
+            Syncer->Settings.Priority = WXTHREAD_DEFAULT_PRIORITY;
+            Syncer->Settings.ShowStatusbar = true;
+            Syncer->Settings.StartasTray = false;
+            Syncer->Settings.WriteLogfile = true;
+        }
+
+        if(!Syncer->Settings.AutoSync)
+            Syncer->StopAutoSync();
+
+        if(ProfilePath != wxT("")) {
+            Syncer->OpenProfile(wxFileName(ProfilePath).GetFullPath());
+        }
+        else if(Syncer->Settings.AutoOpenProfile) {
+            Syncer->OpenProfile(Syncer->Settings.LastProfile);
+        }
+        else {
+            logger->LogError(_("Can't run in Deamon mode without a Profile, Closeing!"));
+            parser.Usage();
+            return false;
+        }
+        DeamonMode = true;
+    }
+
+    if(!DeamonMode) {
+    ////@begin SimpleSyncApp initialisation
+        // Remove the comment markers above and below this block
+        // to make permanent changes to the code.
+
+    #if wxUSE_XPM
+        wxImage::AddHandler(new wxXPMHandler);
+    #endif
+    #if wxUSE_LIBPNG
+        wxImage::AddHandler(new wxPNGHandler);
+    #endif
+    #if wxUSE_LIBJPEG
+        wxImage::AddHandler(new wxJPEGHandler);
+    #endif
+    #if wxUSE_GIF
+        wxImage::AddHandler(new wxGIFHandler);
+    #endif
+        SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG , ProfilePath);
+        mainWindow->Show(true);
+    //	glob = mainWindow;
+    ////@end SimpleSyncApp initialisation
+    }
 
     return true;
 }
