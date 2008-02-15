@@ -136,6 +136,7 @@ SimpleSyncDlg::SimpleSyncDlg()
 
 SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellProfile, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
 {
+    ShellProfileParameter = false;
     if(ShellProfile != wxT("")) {
         ShellProfilePath = ShellProfile;
         ShellProfileParameter = true;
