@@ -141,6 +141,7 @@ SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellPro
         ShellProfilePath = ShellProfile;
         ShellProfileParameter = true;
     }
+    Taskbar = true;
     Init();
     Create( parent, id, caption, pos, size, style );
 }
