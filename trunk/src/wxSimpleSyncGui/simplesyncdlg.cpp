@@ -324,6 +324,9 @@ first = true;
                 m_ListCtrl->SetItem(i,3, Sync->SyncList[i].dir2 );
             }
     }
+    else {
+        Sync->Settings.LastProfile.Empty();
+    }
 }
 
 
@@ -597,8 +600,28 @@ void SimpleSyncDlg::OnCloseWindow( wxCloseEvent& event )
     {
         event.Veto(true);
         Tray->MinimizeInTaskBar();
+        event.Skip();
     }
     else {
+        if(Sync->ProfileModified) {
+            wxMessageDialog dlg(this, _("This Profile has been modified do you want so save the changes?"), _("Profile modified"), wxCANCEL | wxYES_NO);
+            int ret = dlg.ShowModal();
+            if( ret == wxID_YES ) {
+                if(!Sync->Settings.LastProfile.IsEmpty()) {
+                    Sync->SaveProfile(Sync->Settings.LastProfile);
+                }
+                else {
+                    wxFileDialog filedlg(this,_("Save to"),L"",L"",L".xml",wxFD_SAVE);
+                    if( filedlg.ShowModal() == wxID_OK) {
+                        Sync->SaveProfile(filedlg.GetPath());
+                    }
+                }
+            }
+            else if( ret == wxID_CANCEL ) {
+                event.Veto(true);
+                return;
+            }
+        }
         Sync->SaveSettings(L"wxSimpleSyncSettings.xml");
         delete Tray;
         event.Skip();
@@ -667,10 +690,25 @@ void SimpleSyncDlg::OnMenuitemNewProfileClick( wxCommandEvent& event )
 void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
 {
     if( Sync->ProfileModified ) {
-        //TODO
+         wxMessageDialog dlg(this, _("This Profile has been modified do you want so save the changes?"), _("Profile modified"), wxCANCEL | wxYES_NO);
+            int ret = dlg.ShowModal();
+            if( ret == wxID_YES ) {
+                if(!Sync->Settings.LastProfile.IsEmpty()) {
+                    Sync->SaveProfile(Sync->Settings.LastProfile);
+                }
+                else {
+                    wxFileDialog filedlg(this,_("Save to"),L"",L"",L".xml",wxFD_SAVE);
+                    if( filedlg.ShowModal() == wxID_OK) {
+                        Sync->SaveProfile(filedlg.GetPath());
+                    }
+                }
+            }
+            else if( ret == wxID_CANCEL ) {
+                return;
+            }
     }
-    else {
-        wxFileDialog filedlg(this,_("Save to"),L"",L"",L"*.xml | *.XML",wxFD_OPEN);
+    
+        wxFileDialog filedlg(this,_("Open Profile"),L"",L"",L"*.xml | *.XML",wxFD_OPEN);
         if( filedlg.ShowModal() == wxID_OK) {
             Sync->OpenProfile(filedlg.GetPath());
             m_ListCtrl->DeleteAllItems();
@@ -681,7 +719,7 @@ void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
                 m_ListCtrl->SetItem(i,3, Sync->SyncList[i].dir2 );
             }
         }
-    }
+    
 ////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_OPEN_PROFILE in SimpleSyncDlg.
     // Before editing this code, remove the block markers.
     event.Skip();
@@ -825,8 +863,10 @@ void SimpleSyncDlg::OnMenuitemDeaktivateAutosyncClick( wxCommandEvent& event )
 
 void SimpleSyncDlg::OnToolRemoveClick( wxCommandEvent& event )
 {
-    if(Sync->RemoveEntry(SelectedItem))
+    if(Sync->RemoveEntry(SelectedItem)) {
         m_ListCtrl->DeleteItem(SelectedItem);
+        Sync->ProfileModified = true;
+    }
 
     //TODO UPDATE NUMBERS
 ////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_REMOVE in SimpleSyncDlg.
@@ -965,6 +1005,7 @@ void SimpleSyncDlg::OnMenuEditEntryClick( wxCommandEvent& event )
             m_ListCtrl->SetItem(SelectedItem,1, Param.dir1 );
             m_ListCtrl->SetItem(SelectedItem,2, Param.direction );
             m_ListCtrl->SetItem(SelectedItem,3, Param.dir2 );
+            Sync->ProfileModified = true;
         }
     }
 ////@begin wxEVT_LEFT_DCLICK event handler for ID_SYNC_LISTCTRL in SimpleSyncDlg.
