@@ -596,10 +596,12 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
 
 void SimpleSyncDlg::OnCloseWindow( wxCloseEvent& event )
 {
-    if( Sync->Settings.InTray == Tray::CLOSE && event.CanVeto() )
+    if( Sync->Settings.InTray == Tray::CLOSE && event.CanVeto() && Taskbar )
     {
         event.Veto(true);
         Tray->MinimizeInTaskBar();
+        Taskbar = true;
+        return;
         event.Skip();
     }
     else {
@@ -772,6 +774,7 @@ void SimpleSyncDlg::OnMenuitemSaveProfileAsClick( wxCommandEvent& event )
 
 void SimpleSyncDlg::OnMenuitemExitClick( wxCommandEvent& event )
 {
+    Taskbar = false;
     Close();
 ////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_EXIT in SimpleSyncDlg.
     // Before editing this code, remove the block markers.

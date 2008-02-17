@@ -256,6 +256,7 @@ public:
     wxListCtrl* m_ListCtrl;
 ////@end SimpleSyncDlg member variables
 
+    bool Taskbar;
     bool ShellProfileParameter;
     wxString ShellProfilePath;
 };
