@@ -35,6 +35,9 @@
 #include <wx/filename.h>
 #include <wx/listctrl.h>
 #include <wx/dialog.h>
+#include <wx/stattext.h>
+#include <wx/dnd.h>
+
 #ifndef CXML
 #define CXML
 #include "cxml.h"
@@ -126,6 +129,9 @@ public:
 
     //Sync Entry at position entry in SyncList
 	bool SyncEntry(int entry);
+
+	//Sync with Parameters
+	bool SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bool HiddenFiles, bool DeleteOld);
 
 	//Removes an Sync Entry at index
 	bool RemoveEntry(int index);

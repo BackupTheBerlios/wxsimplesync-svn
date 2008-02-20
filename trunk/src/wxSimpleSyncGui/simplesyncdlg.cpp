@@ -103,6 +103,8 @@ BEGIN_EVENT_TABLE( SimpleSyncDlg, wxFrame )
 
     EVT_MENU( ID_MENUITEM_COMPARE_FOLDERS, SimpleSyncDlg::OnMenuitemCompareFoldersClick )
 
+    EVT_MENU( ID_MENUITEM_FASTSYNCDLG, SimpleSyncDlg::OnMenuitemFastsyncdlgClick )
+
     EVT_MENU( ID_MENUITEM12, SimpleSyncDlg::OnMenuInfo12Click )
 
     EVT_MENU( ID_TOOL_ADD, SimpleSyncDlg::OnToolAddClick )
@@ -245,10 +247,11 @@ first = true;
     itemMenu14->Append(ID_MENUITEM_DEAKTIVATE_AUTOSYNC, _("Deactivate AutoSync Checks"), _T(""), wxITEM_NORMAL);
     itemMenu14->AppendSeparator();
     itemMenu14->Append(ID_MENUITEM_COMPARE_FOLDERS, _("Compare Folders of Sleected Sync Entry"), _T(""), wxITEM_NORMAL);
+    itemMenu14->Append(ID_MENUITEM_FASTSYNCDLG, _("Show Fast Sync Dialog"), _T(""), wxITEM_NORMAL);
     menuBar->Append(itemMenu14, _("Actions"));
-    wxMenu* itemMenu26 = new wxMenu;
-    itemMenu26->Append(ID_MENUITEM12, _("Info..."), _T(""), wxITEM_NORMAL);
-    menuBar->Append(itemMenu26, _("Help"));
+    wxMenu* itemMenu27 = new wxMenu;
+    itemMenu27->Append(ID_MENUITEM12, _("Info..."), _T(""), wxITEM_NORMAL);
+    menuBar->Append(itemMenu27, _("Help"));
     itemFrame1->SetMenuBar(menuBar);
 
     m_StatusBar = new wxStatusBar( itemFrame1, ID_STATUSBAR1, wxST_SIZEGRIP|wxNO_BORDER );
@@ -257,26 +260,26 @@ first = true;
 
     m_Toolbar = CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, ID_TOOLBAR1 );
     m_Toolbar->SetToolBitmapSize(wxSize(32, 32));
-    wxBitmap itemtool30Bitmap(itemFrame1->GetBitmapResource(wxT("recources/PlusOver.png")));
-    wxBitmap itemtool30BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_ADD, _T(""), itemtool30Bitmap, itemtool30BitmapDisabled, wxITEM_NORMAL, _("Add New Sync Entry"), wxEmptyString);
-    wxBitmap itemtool31Bitmap(itemFrame1->GetBitmapResource(wxT("recources/MinusOver.png")));
+    wxBitmap itemtool31Bitmap(itemFrame1->GetBitmapResource(wxT("recources/PlusOver.png")));
     wxBitmap itemtool31BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_REMOVE, _T(""), itemtool31Bitmap, itemtool31BitmapDisabled, wxITEM_NORMAL, _("Remove Selected Entry"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_ADD, _T(""), itemtool31Bitmap, itemtool31BitmapDisabled, wxITEM_NORMAL, _("Add New Sync Entry"), wxEmptyString);
+    wxBitmap itemtool32Bitmap(itemFrame1->GetBitmapResource(wxT("recources/MinusOver.png")));
+    wxBitmap itemtool32BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_REMOVE, _T(""), itemtool32Bitmap, itemtool32BitmapDisabled, wxITEM_NORMAL, _("Remove Selected Entry"), wxEmptyString);
     m_Toolbar->AddSeparator();
-    wxBitmap itemtool33Bitmap(itemFrame1->GetBitmapResource(wxT("recources/UpOver.png")));
-    wxBitmap itemtool33BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_MOVE_UP, _T(""), itemtool33Bitmap, itemtool33BitmapDisabled, wxITEM_NORMAL, _("Move Eentry Up"), wxEmptyString);
-    wxBitmap itemtool34Bitmap(itemFrame1->GetBitmapResource(wxT("recources/DownOver.png")));
+    wxBitmap itemtool34Bitmap(itemFrame1->GetBitmapResource(wxT("recources/UpOver.png")));
     wxBitmap itemtool34BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_MOVE_DOWN, _T(""), itemtool34Bitmap, itemtool34BitmapDisabled, wxITEM_NORMAL, _("Move Entry Down"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_MOVE_UP, _T(""), itemtool34Bitmap, itemtool34BitmapDisabled, wxITEM_NORMAL, _("Move Eentry Up"), wxEmptyString);
+    wxBitmap itemtool35Bitmap(itemFrame1->GetBitmapResource(wxT("recources/DownOver.png")));
+    wxBitmap itemtool35BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_MOVE_DOWN, _T(""), itemtool35Bitmap, itemtool35BitmapDisabled, wxITEM_NORMAL, _("Move Entry Down"), wxEmptyString);
     m_Toolbar->AddSeparator();
-    wxBitmap itemtool36Bitmap(itemFrame1->GetBitmapResource(wxT("recources/SyncOver.png")));
-    wxBitmap itemtool36BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_SYNC_ALL, _T(""), itemtool36Bitmap, itemtool36BitmapDisabled, wxITEM_NORMAL, _("Sync All Entrys now"), wxEmptyString);
-    wxBitmap itemtool37Bitmap(itemFrame1->GetBitmapResource(wxT("recources/AbortOver.png")));
+    wxBitmap itemtool37Bitmap(itemFrame1->GetBitmapResource(wxT("recources/SyncOver.png")));
     wxBitmap itemtool37BitmapDisabled;
-    m_Toolbar->AddTool(ID_TOOL_ABORT_SYNC, _T(""), itemtool37Bitmap, itemtool37BitmapDisabled, wxITEM_NORMAL, _("Abort Syncing"), wxEmptyString);
+    m_Toolbar->AddTool(ID_TOOL_SYNC_ALL, _T(""), itemtool37Bitmap, itemtool37BitmapDisabled, wxITEM_NORMAL, _("Sync All Entrys now"), wxEmptyString);
+    wxBitmap itemtool38Bitmap(itemFrame1->GetBitmapResource(wxT("recources/AbortOver.png")));
+    wxBitmap itemtool38BitmapDisabled;
+    m_Toolbar->AddTool(ID_TOOL_ABORT_SYNC, _T(""), itemtool38Bitmap, itemtool38BitmapDisabled, wxITEM_NORMAL, _("Abort Syncing"), wxEmptyString);
     m_Toolbar->EnableTool(ID_TOOL_ABORT_SYNC, false);
     m_Toolbar->Realize();
     itemFrame1->SetToolBar(m_Toolbar);
@@ -710,7 +713,7 @@ void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
                 return;
             }
     }
-    
+
         wxFileDialog filedlg(this,_("Open Profile"),L"",L"",L"*.xml | *.XML",wxFD_OPEN);
         if( filedlg.ShowModal() == wxID_OK) {
             Sync->OpenProfile(filedlg.GetPath());
@@ -722,7 +725,7 @@ void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
                 m_ListCtrl->SetItem(i,3, Sync->SyncList[i].dir2 );
             }
         }
-    
+
 ////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_OPEN_PROFILE in SimpleSyncDlg.
     // Before editing this code, remove the block markers.
     event.Skip();
@@ -1097,5 +1100,23 @@ void SimpleSyncDlg::OnMenuitemSyncSelectedClick( wxCommandEvent& event )
     // Before editing this code, remove the block markers.
     event.Skip();
 ////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED in SimpleSyncDlg.
+}
+
+
+/*!
+ * wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG
+ */
+
+void SimpleSyncDlg::OnMenuitemFastsyncdlgClick( wxCommandEvent& event )
+{
+    //delete FsDlg;
+    FsDlg = new FastSyncDlg();
+    FsDlg->Sync = Sync;
+    FsDlg->Create(this, -1, _("Fast Sync Dialog"));
+    FsDlg->Show();
+////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG in SimpleSyncDlg.
+    // Before editing this code, remove the block markers.
+    event.Skip();
+////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG in SimpleSyncDlg.
 }
 

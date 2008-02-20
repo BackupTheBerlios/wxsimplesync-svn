@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="wxSimpleSyncGui" />
+		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -34,23 +35,25 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="src/clogging.h" />
-		<Unit filename="src/csync.cpp" />
-		<Unit filename="src/csync.h" />
-		<Unit filename="src/cxml.h" />
-		<Unit filename="src/wxSimpleSyncGui/foldercomparedlg.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/foldercomparedlg.h" />
-		<Unit filename="src/wxSimpleSyncGui/profiledlg.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/profiledlg.h" />
-		<Unit filename="src/wxSimpleSyncGui/settingsdlg.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/settingsdlg.h" />
-		<Unit filename="src/wxSimpleSyncGui/simplesync.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/simplesync.h" />
-		<Unit filename="src/wxSimpleSyncGui/simplesyncdlg.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/simplesyncdlg.h" />
-		<Unit filename="src/wxSimpleSyncGui/snycentrydlg.cpp" />
-		<Unit filename="src/wxSimpleSyncGui/snycentrydlg.h" />
-		<Unit filename="src/wxSimpleSyncGui/taskbar.cpp" />
+		<Unit filename="src\clogging.h" />
+		<Unit filename="src\csync.cpp" />
+		<Unit filename="src\csync.h" />
+		<Unit filename="src\cxml.h" />
+		<Unit filename="src\wxSimpleSyncGui\fastsyncdlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\fastsyncdlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\foldercomparedlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\foldercomparedlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\profiledlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\profiledlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\settingsdlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\settingsdlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\simplesync.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\simplesync.h" />
+		<Unit filename="src\wxSimpleSyncGui\simplesyncdlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\simplesyncdlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\snycentrydlg.cpp" />
+		<Unit filename="src\wxSimpleSyncGui\snycentrydlg.h" />
+		<Unit filename="src\wxSimpleSyncGui\taskbar.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

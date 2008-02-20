@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wxSimpleSync v2.5\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-02-17 04:36+0100\n"
+"PO-Revision-Date: 2008-02-20 18:15+0100\n"
 "Last-Translator: BoscoWitch\n"
 "Language-Team: BoscoWitch\n"
 "MIME-Version: 1.0\n"
@@ -44,14 +44,20 @@ msgid "Start Syncing Entrys"
 msgstr "Starte Synchronisation der Einträge"
 
 #: ../../../src/csync.cpp:591
+#: ../../../src/csync.cpp:629
 msgid "Snycing Thread not running starting thread"
 msgstr "Synchronisationsprozess läuft nicht. Wird Gestartet!"
 
-#: ../../../src/csync.cpp:640
+#: ../../../src/csync.cpp:605
+#, fuzzy
+msgid "Start Syncing"
+msgstr "Starte Synchronisation der Einträge"
+
+#: ../../../src/csync.cpp:678
 msgid "Starting AutoSync (Mode 1 Exact Time)"
 msgstr "Starte AutoSync Prozess (Modus 1 Exakte Zeitangabe)"
 
-#: ../../../src/csync.cpp:649
+#: ../../../src/csync.cpp:687
 msgid "Starting AutoSync(Mode 2 TimeSpan)"
 msgstr "Starte AutoSync Prozess (Modus 2 Zeitspanne)"
 
@@ -95,6 +101,40 @@ msgstr ""
 #: ../../../src/main.cpp:53
 msgid "second sync folder"
 msgstr ""
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:139
+msgid "Drop Dir1 here"
+msgstr "Ordner 1 hier reinziehen"
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:145
+msgid "->"
+msgstr ""
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:148
+msgid "<-"
+msgstr ""
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:151
+msgid "<->"
+msgstr ""
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:154
+msgid "Drop Dir2 here"
+msgstr "Ordner 2 hier reinziehen"
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:157
+msgid "Drag the folders you want so sync onto the textfields for Dir 1 and 2 and click an direction button  to start the Syncing."
+msgstr "Ziehe die Ordner deiner Wahl auf die Textfelder für Ordner 1 und 2 und klicke die gewünschte Syncrichtung um sie zu Syncronisieren."
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:164
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:218
+msgid "Delete old files in Targed Directory"
+msgstr "Lösche alte Dateien im Zielverzeichnis"
+
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.cpp:168
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:222
+msgid "Sync Hidden Files"
+msgstr "Synchronisiere versteckte Dateien"
 
 #: ../../../src/wxSimpleSyncGui/foldercomparedlg.cpp:149
 #: ../../../src/wxSimpleSyncGui/foldercomparedlg.h:57
@@ -222,7 +262,7 @@ msgid "wxSimpleSync Version 2.0"
 msgstr "wxSimpleSync Version 2.0"
 
 #: ../../../src/wxSimpleSyncGui/simplesync.cpp:153
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:195
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:198
 #, fuzzy
 msgid "Could not Load Setting file wxSimpleSyncSettings.xml taking default settings"
 msgstr "Konnte Datei mit Einstellungen wxSimpleSyncSettings.xml nicht laden, nehme Standardeinstellungen"
@@ -231,180 +271,188 @@ msgstr "Konnte Datei mit Einstellungen wxSimpleSyncSettings.xml nicht laden, neh
 msgid "Can't run in Deamon mode without a Profile, Closeing!"
 msgstr "Kann nicht als Hintergrunddienst gestartet werden ohne angabe eines Profils"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:224
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:227
 msgid "New Profile"
 msgstr "Neues Profil"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:225
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:228
 msgid "Edit Profile"
 msgstr "Bearbeite Profil"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:227
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:711
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:230
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:717
 msgid "Open Profile"
 msgstr "Öffne Profil"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:228
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:231
 msgid "Save Profiel"
 msgstr "Speichere Profil"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:229
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:232
 msgid "Save as"
 msgstr "Speicher unter ..."
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:231
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:532
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:234
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:536
 #: ../../../src/wxSimpleSyncGui/settingsdlg.h:61
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:233
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:236
 msgid "Exit"
 msgstr "Beenden"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:234
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:237
 msgid "File"
 msgstr "Datei"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:236
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:239
 msgid "Add new Sync Entry"
 msgstr "Füge neuen Eintrag hinzu"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:237
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:240
 msgid "Edit Selected Entry"
 msgstr "Bearbeite markierten Eintrag"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:239
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:242
 msgid "Sync all Entrys now"
 msgstr "Synchronisiere alle Einträge"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:240
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:243
 msgid "Sync selected Entry now"
 msgstr "Synchronisiere ausgewählten Eintrag"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:241
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:278
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:244
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:282
 msgid "Abort Syncing"
 msgstr "Synchronisation Abbrechen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:243
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:246
 msgid "Activate AutoSync Checks"
 msgstr "Aktiviere AutoSync Prüfungen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:244
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:247
 msgid "Deactivate AutoSync Checks"
 msgstr "Deaktiviere AutoSync Prüfungen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:246
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:249
 msgid "Compare Folders of Sleected Sync Entry"
 msgstr "Vergleiche Ordner des markierten Eintrags"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:247
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:250
+msgid "Show Fast Sync Dialog"
+msgstr "Zeige schnell Sync Dialog"
+
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:251
 msgid "Actions"
 msgstr "Aktionen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:249
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:253
 msgid "Info..."
 msgstr "Info..."
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:250
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:254
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:261
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:265
 msgid "Add New Sync Entry"
 msgstr "Füge neuen Eintrag hinzu"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:264
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:268
 msgid "Remove Selected Entry"
 msgstr "Entferne markierten Eintrag"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:268
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:272
 msgid "Move Eentry Up"
 msgstr "Bewege Eintrag nach oben"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:271
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:275
 msgid "Move Entry Down"
 msgstr "Bewege Eintrag nach unten"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:275
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:279
 msgid "Sync All Entrys now"
 msgstr "Synchronisiere alle Einträge"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:289
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:293
 msgid "Nr"
 msgstr "Nr"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:290
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:294
 msgid "Dir 1"
 msgstr "Ordner 2"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:291
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:295
 msgid "Sync Direction"
 msgstr "Richtung"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:292
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:296
 msgid "Dir 2"
 msgstr "Ordner 2"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:396
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:968
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:400
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:975
 msgid "Entry"
 msgstr "Eintrag"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:509
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.h:101
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:513
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.h:105
 msgid "wxSimpleSync"
 msgstr "wxSimpleSync"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:510
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:514
 msgid "2.5"
 msgstr "2.5"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:511
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:515
 msgid "Cross Platform Folder && File Syncer"
 msgstr "Plattformunabhängiger Ordner && Datei Synchronisierer"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:512
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:516
 msgid "(C) 2008 by BoscoWitch"
 msgstr "(c) 2008 bei BoscoWitch"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:607
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:693
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:613
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:699
 msgid "This Profile has been modified do you want so save the changes?"
 msgstr "Das aktuelle Profil wurde verändert. Veränderungen speichern ?"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:607
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:693
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:613
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:699
 msgid "Profile modified"
 msgstr "Profil verändert"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:614
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:700
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:740
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:758
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:620
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:706
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:746
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:764
 msgid "Save to"
 msgstr "Speichere nach"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:657
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:663
 msgid "Profile Settings"
 msgstr "Profil Einstellungen"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:660
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:666
 msgid "Changed Pfofile Settings"
 msgstr "Profil Einstellungen verändert"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:675
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:681
 msgid "New Pofile"
 msgstr "Neues Profil"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:819
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:826
 msgid "Aborting Sync Process, Please Wait"
 msgstr "Breche Synchronisationsprozess ab, Bitte Warten"
 
-#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:1071
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:1078
 msgid "Compare Sync Folders"
 msgstr "Vergleiche Ordner"
+
+#: ../../../src/wxSimpleSyncGui/simplesyncdlg.cpp:1115
+msgid "Fast Sync Dialog"
+msgstr "Schnell Sync Dialog"
 
 #: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:178
 msgid "Dir 1:"
@@ -429,14 +477,6 @@ msgstr "Ordner 1 -> Ordner 2"
 #: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:214
 msgid "Dir1 <- Dir2"
 msgstr "Ordner 1 <- Ordner 2"
-
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:218
-msgid "Delete old files in Targed Directory"
-msgstr "Lösche alte Dateien im Zielverzeichnis"
-
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:222
-msgid "Sync Hidden Files"
-msgstr "Synchronisiere versteckte Dateien"
 
 #: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:226
 msgid "Copy Files without comparing File Timestamps"
@@ -487,37 +527,37 @@ msgstr "Minute:"
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:395
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:398
 msgid "Too less Syncing Diretorys!"
 msgstr "Zu wenig Verzeichnisse angegeben!"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:395
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:401
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:406
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:398
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:404
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:409
 msgid "Too less Information"
 msgstr "Zu wenig Angaben"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:401
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:404
 msgid "Missing Sync Direction!"
 msgstr "Synchronisationsrichtung Fehlt!"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:406
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:409
 msgid "Missing Filter Words!"
 msgstr "Filterwörter fehlen!"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:411
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:414
 msgid "Time Interval of 0 Hours and 0 Minutes is not allowed! (Minimum is 1)"
 msgstr "Zeitintervalle von 0 Stunden und 0 Minuten sind verboten (Minimum ist 1)"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:411
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:414
 msgid "Wrong Data"
 msgstr "Falsche Daten"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:482
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:485
 msgid "Choose the first Sync Directory"
 msgstr "Wählen sie das erste Verzeichnis"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:499
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.cpp:502
 msgid "Choose the second Sync Directory"
 msgstr "Wählen sie das zweite Verzeichnis"
 
@@ -529,11 +569,15 @@ msgstr "Nachricht:"
 msgid " Error: "
 msgstr "Fehler:"
 
+#: ../../../src/wxSimpleSyncGui/fastsyncdlg.h:52
+msgid "FastSyncDlg"
+msgstr "Schnell Sync Dialog"
+
 #: ../../../src/wxSimpleSyncGui/profiledlg.h:56
 msgid "Profile"
 msgstr "Profil"
 
-#: ../../../src/wxSimpleSyncGui/snycentrydlg.h:76
+#: ../../../src/wxSimpleSyncGui/snycentrydlg.h:81
 msgid "SyncEntryDlg"
 msgstr "SyncEintrags Dialog"
 

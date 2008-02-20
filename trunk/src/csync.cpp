@@ -601,6 +601,44 @@ bool CFolderSyncer::SyncEntry(int entry)
 	return true;
 }
 
+bool CFolderSyncer::SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bool HiddenFiles, bool DeleteOld) {
+    wxLogMessage(_("Start Syncing"));
+        #ifndef SHELL_BUILD
+        Gui->m_Toolbar->EnableTool(10010,false);
+        Gui->m_Toolbar->EnableTool(10033,true);
+        #endif
+        SyncParameters temp;
+        temp.dir1 = Dir1;
+        temp.dir2 = Dir2;
+        temp.direction = Diection;
+        temp.HiddenFiles = HiddenFiles;
+        temp.filter_mode = 0;
+        temp.TargedClear = DeleteOld;
+
+        if(!running) {
+            Syncer = new CSyncThread(this, Gui);
+             if(temp.direction == L"<->") {
+                temp.direction = L"->";
+                Syncer->ThreadList.Add(temp);
+                temp.direction = L"<-";
+                Syncer->ThreadList.Add(temp);
+             }
+             else
+                Syncer->ThreadList.Add(temp);
+
+            wxLogMessage(_("Snycing Thread not running starting thread"));
+            Syncer->Create();
+            Syncer->SetPriority(Settings.Priority);
+            running=true;
+            Syncer->Run();
+        } else
+        {
+            Syncer->ThreadList.Add(temp);
+        }
+
+    return true;
+}
+
 void CFolderSyncer::SyncAllEntrys()
 {
     if( !SyncList.IsEmpty()) {

@@ -55,6 +55,9 @@ class CFolderSyncer;
 #include "snycentrydlg.h"
 #include "settingsdlg.h"
 #include "foldercomparedlg.h"
+#include "fastsyncdlg.h"
+
+class FastSyncDlg;
 
 
 /*!
@@ -87,6 +90,7 @@ class wxListCtrl;
 #define ID_MENUITEM_AKTIVATE_AUTOSYNC 10013
 #define ID_MENUITEM_DEAKTIVATE_AUTOSYNC 10018
 #define ID_MENUITEM_COMPARE_FOLDERS 10059
+#define ID_MENUITEM_FASTSYNCDLG 10066
 #define ID_MENUITEM12 10021
 #define ID_STATUSBAR1 10003
 #define ID_TOOLBAR1 10004
@@ -209,6 +213,9 @@ public:
     /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_COMPARE_FOLDERS
     void OnMenuitemCompareFoldersClick( wxCommandEvent& event );
 
+    /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG
+    void OnMenuitemFastsyncdlgClick( wxCommandEvent& event );
+
     /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM12
     void OnMenuInfo12Click( wxCommandEvent& event );
 
@@ -259,6 +266,7 @@ public:
     bool Taskbar;
     bool ShellProfileParameter;
     wxString ShellProfilePath;
+    FastSyncDlg* FsDlg;
 };
 
 class COwnTaskBar : wxTaskBarIcon

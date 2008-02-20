@@ -46,6 +46,11 @@
 class wxSpinCtrl;
 ////@end forward declarations
 
+#ifndef CSYNC
+#define CSYNC
+#include "../csync.h"
+#endif
+
 /*!
  * Control identifiers
  */
@@ -79,12 +84,26 @@ class wxSpinCtrl;
 #define SYMBOL_SYNCENTRYDLG_POSITION wxDefaultPosition
 ////@end control identifiers
 
+class DnDFile : public wxFileDropTarget
+{
+public:
+    DnDFile(wxTextCtrl *pOwner) { m_pOwner = pOwner; }
+
+    virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames) {
+        size_t nFiles = filenames.GetCount();
+        m_pOwner->SetValue(filenames[0]);
+        return true;
+    }
+
+private:
+    wxTextCtrl *m_pOwner;
+};
 
 /*!
  * SyncEntryDlg class declaration
  */
 
-class SyncEntryDlg: public wxDialog
+class SyncEntryDlg: public wxDialog 
 {
     DECLARE_DYNAMIC_CLASS( SyncEntryDlg )
     DECLARE_EVENT_TABLE()

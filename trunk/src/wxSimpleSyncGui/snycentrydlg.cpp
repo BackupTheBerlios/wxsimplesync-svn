@@ -297,6 +297,9 @@ void SyncEntryDlg::CreateControls()
 
 ////@end SyncEntryDlg content construction
 
+    m_Dir1->SetDropTarget(new DnDFile(m_Dir1));
+    m_Dir2->SetDropTarget(new DnDFile(m_Dir2));
+    
     FilterRadio[0] = itemRadioButton21;
     FilterRadio[1] = itemRadioButton23;
     FilterRadio[2] = itemRadioButton22;
