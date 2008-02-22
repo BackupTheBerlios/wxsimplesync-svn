@@ -608,6 +608,7 @@ bool CFolderSyncer::SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bo
         Gui->m_Toolbar->EnableTool(10033,true);
         #endif
         SyncParameters temp;
+        temp.id = -1;
         temp.dir1 = Dir1;
         temp.dir2 = Dir2;
         temp.direction = Diection;
