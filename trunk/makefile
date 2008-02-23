@@ -12,9 +12,11 @@ build/main.o:src/main.cpp
 	gcc -o $@  -c $^ `wx-config --cxxflags`
 
 
-GUI_VERSION: build/csync.o build/profiledlg.o build/settingsdlg.o build/simplesyncdlg.o build/simplesync.o build/snycentrydlg.o build/taskbar.o build/foldercomparedlg.o
+GUI_VERSION: build/csync.o build/profiledlg.o build/settingsdlg.o build/simplesyncdlg.o build/simplesync.o build/snycentrydlg.o build/taskbar.o build/foldercomparedlg.o build/fastsyncdlg.o
 	gcc -o ./build/wxSimpleSync $^ `wx-config --cxxflags --libs`
 	
+build/fastsyncdlg.o:src/wxSimpleSyncGui/fastsyncdlg.cpp
+	gcc -o $@  -c $^ `wx-config --cxxflags`
 
 build/csync.o:src/csync.cpp
 	gcc -o $@  -c $^ `wx-config --cxxflags`
