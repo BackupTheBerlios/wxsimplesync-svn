@@ -595,7 +595,15 @@ bool CFolderSyncer::SyncEntry(int entry)
             Syncer->Run();
         } else
         {
-            Syncer->ThreadList.Add(SyncList[entry]);
+            if(SyncList[entry].direction == L"<->") {
+                SyncParameters temp = SyncList[entry];
+                temp.direction = L"->";
+                Syncer->ThreadList.Add(temp);
+                temp.direction = L"<-";
+                Syncer->ThreadList.Add(temp);
+            }
+            else
+                Syncer->ThreadList.Add(SyncList[entry]);
         }
     }
 	return true;
@@ -615,6 +623,7 @@ bool CFolderSyncer::SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bo
         temp.HiddenFiles = HiddenFiles;
         temp.filter_mode = 0;
         temp.TargedClear = DeleteOld;
+        temp.SyncAuto = false;
 
         if(!running) {
             Syncer = new CSyncThread(this, Gui);
@@ -634,7 +643,14 @@ bool CFolderSyncer::SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bo
             Syncer->Run();
         } else
         {
-            Syncer->ThreadList.Add(temp);
+            if(temp.direction == L"<->") {
+                temp.direction = L"->";
+                Syncer->ThreadList.Add(temp);
+                temp.direction = L"<-";
+                Syncer->ThreadList.Add(temp);
+             }
+             else
+                Syncer->ThreadList.Add(temp);
         }
 
     return true;
