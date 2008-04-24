@@ -288,6 +288,11 @@ public:
 
     void MinimizeInTaskBar();
 
+    void OnRestore(wxCommandEvent&);
+    void OnExit(wxCommandEvent&);
+
+    virtual wxMenu *CreatePopupMenu();
+
 
 private:
     bool inTaskBar;

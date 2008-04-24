@@ -25,27 +25,58 @@
 
 #include "simplesyncdlg.h"
 
+
+
 IMPLEMENT_DYNAMIC_CLASS( COwnTaskBar , wxTaskBarIcon )
 
-
+enum {
+    PU_RESTORE = 10001,
+    PU_EXIT
+};
 BEGIN_EVENT_TABLE( COwnTaskBar , wxTaskBarIcon )
 
     EVT_TASKBAR_LEFT_DCLICK( COwnTaskBar::OnTaskIconDClick )
+    EVT_MENU(PU_RESTORE, COwnTaskBar::OnRestore )
+    EVT_MENU( PU_EXIT , COwnTaskBar::OnExit)
 
 END_EVENT_TABLE()
 
+wxMenu *COwnTaskBar::CreatePopupMenu()
+{
+    // Try creating menus different ways
+    // TODO: Probably try calling SetBitmap with some XPMs here
+    wxMenu *menu = new wxMenu;
+    menu->Append(PU_RESTORE, _T("&Restore wxSS"));
+#ifndef __WXMAC_OSX__ /*Mac has built-in quit menu*/
+    menu->AppendSeparator();
+    menu->Append(PU_EXIT,    _T("E&xit"));
+#endif
+    return menu;
+}
 
-void  COwnTaskBar ::OnTaskIconDClick(wxTaskBarIconEvent &event) {
+void  COwnTaskBar::OnTaskIconDClick(wxTaskBarIconEvent &event) {
     inTaskBar = false;
     MainWindow->Show(!inTaskBar);
     MainWindow->Iconize(inTaskBar);
     RemoveIcon();
 }
 
-void COwnTaskBar ::MinimizeInTaskBar()
+void COwnTaskBar::MinimizeInTaskBar()
 {
     wxIcon icon(_T("recources/mainicon.png"), wxBITMAP_TYPE_PNG);
     SetIcon(icon,wxT("wxSimpleSync"));
     inTaskBar = true;
     MainWindow->Show(!inTaskBar);
+}
+
+void COwnTaskBar::OnRestore(wxCommandEvent&) {
+    inTaskBar = false;
+    MainWindow->Show(!inTaskBar);
+    MainWindow->Iconize(inTaskBar);
+    RemoveIcon();
+}
+
+void COwnTaskBar::OnExit(wxCommandEvent&) {
+    wxCloseEvent temp;
+    MainWindow->OnCloseWindow(temp);
 }
