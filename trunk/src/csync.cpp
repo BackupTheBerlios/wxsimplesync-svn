@@ -573,7 +573,6 @@ bool CFolderSyncer::SyncEntry(int entry)
         #ifndef SHELL_BUILD
         Gui->m_Toolbar->EnableTool(10010,false);
         Gui->m_Toolbar->EnableTool(10033,true);
-
         #endif
 
         if(!running) {

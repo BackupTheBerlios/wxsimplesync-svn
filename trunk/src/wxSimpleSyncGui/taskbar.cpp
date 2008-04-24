@@ -77,6 +77,5 @@ void COwnTaskBar::OnRestore(wxCommandEvent&) {
 }
 
 void COwnTaskBar::OnExit(wxCommandEvent&) {
-    wxCloseEvent temp;
-    MainWindow->OnCloseWindow(temp);
+    MainWindow->Close();
 }
