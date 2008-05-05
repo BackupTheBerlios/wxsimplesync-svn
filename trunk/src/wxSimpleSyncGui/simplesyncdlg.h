@@ -285,6 +285,7 @@ public:
     };
 
     void OnTaskIconDClick(wxTaskBarIconEvent &event);
+    void OnMenuUISyncMenu(wxUpdateUIEvent &event);
 
     void MinimizeInTaskBar();
 
@@ -297,6 +298,8 @@ public:
 private:
     bool inTaskBar;
     SimpleSyncDlg* MainWindow;
+
+    wxMenu *submenu;
 
     DECLARE_DYNAMIC_CLASS( COwnTaskBar )
     DECLARE_EVENT_TABLE()

@@ -31,13 +31,16 @@ IMPLEMENT_DYNAMIC_CLASS( COwnTaskBar , wxTaskBarIcon )
 
 enum {
     PU_RESTORE = 10001,
-    PU_EXIT
+    PU_SYNCMENU,
+    PU_EXIT,
+    PU_SYNCENTRYS_START
 };
 BEGIN_EVENT_TABLE( COwnTaskBar , wxTaskBarIcon )
 
     EVT_TASKBAR_LEFT_DCLICK( COwnTaskBar::OnTaskIconDClick )
     EVT_MENU(PU_RESTORE, COwnTaskBar::OnRestore )
     EVT_MENU( PU_EXIT , COwnTaskBar::OnExit)
+    EVT_UPDATE_UI(PU_SYNCMENU, COwnTaskBar::OnMenuUISyncMenu)
 
 END_EVENT_TABLE()
 
@@ -47,6 +50,10 @@ wxMenu *COwnTaskBar::CreatePopupMenu()
     // TODO: Probably try calling SetBitmap with some XPMs here
     wxMenu *menu = new wxMenu;
     menu->Append(PU_RESTORE, _T("&Restore wxSS"));
+
+    submenu = new wxMenu;
+    menu->Append(PU_SYNCMENU, _T("Sync Entry"), submenu);
+
 #ifndef __WXMAC_OSX__ /*Mac has built-in quit menu*/
     menu->AppendSeparator();
     menu->Append(PU_EXIT,    _T("E&xit"));
@@ -74,6 +81,12 @@ void COwnTaskBar::OnRestore(wxCommandEvent&) {
     MainWindow->Show(!inTaskBar);
     MainWindow->Iconize(inTaskBar);
     RemoveIcon();
+}
+void COwnTaskBar::OnMenuUISyncMenu(wxUpdateUIEvent &event) {
+    for(int i=0; i<MainWindow->Sync->SyncList.GetCount(); i++) {
+        submenu->Append(PU_SYNCENTRYS_START+i, wxString::Format(L"%i ",i+1) + MainWindow->Sync->SyncList[i].dir1 + MainWindow->Sync->SyncList[i].direction + MainWindow->Sync->SyncList[i].dir2);
+    }
+
 }
 
 void COwnTaskBar::OnExit(wxCommandEvent&) {
