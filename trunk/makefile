@@ -1,5 +1,11 @@
 all: SHELL_VERSION GUI_VERSION build
+	rm build/*/*/*/.svn -rf
+	rm build/*/.svn -rf
+	rm build/*/*/.svn -rf
 	cp recources ./build/ -r
+	rm build/*/*/*/.svn -rf
+	rm build/*/.svn -rf
+	rm build/*/*/.svn -rf
 	echo "Finished,compiled files should be in ./build directory."
 
 build:

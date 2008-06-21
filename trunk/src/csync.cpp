@@ -33,12 +33,22 @@
 #include <windows.h>
 #endif
 
+#if defined(__WXGTK__) || defined(__WXX11)
+#include <sys/stat.h>
+#include <sys/types.h>
+#endif
+
 //STRANGE STUFF FOR THE wxArray
 #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
 WX_DEFINE_OBJARRAY(SyncParametersArray);
 //HAS TO BE DONE
 
 void* CSyncThread::Entry(){
+    #ifndef SHELL_BUILD
+    wxMutexGuiEnter();
+    Gui->m_StatusBar->SetStatusText(L"Syncing...");
+    wxMutexGuiLeave();
+    #endif
     StartSyncList();
     wxCriticalSectionLocker  locker(m_cfolder->csect);
     #ifndef SHELL_BUILD
@@ -258,6 +268,10 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     wxString filename,filespec,Sep,temp;
     wxFileName file1,file2,sep;
     Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
 
     if(Parameter.TargedClear)
         ClearDirectories(Parameter.dir1, Parameter.dir2, Parameter.direction);
@@ -271,6 +285,11 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            #if defined(__WXGTK__) || defined(__WXX11)
+            tmp = Parameter.dir1 + Sep + filename;
+            lstat(tmp.fn_str(),&att);
+            if(!S_ISLNK(att.st_mode))
+            #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
                 if(wxDirExists(Parameter.dir1 + Sep + filename))
@@ -332,6 +351,11 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         bool cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            #if defined(__WXGTK__) || defined(__WXX11)
+            tmp = Parameter.dir2 + Sep + filename;
+            lstat(tmp.fn_str(),&att);
+            if(!S_ISLNK(att.st_mode))
+            #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
                 if(wxDirExists(Parameter.dir2 + Sep + filename))
@@ -412,6 +436,11 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
     wxString filename,filespec,Sep,temp;
     wxFileName file1,file2,sep;
     Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
+
 
 	int flags = wxDIR_FILES | wxDIR_DIRS;
 	if(Parameter.HiddenFiles)
@@ -422,6 +451,11 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            #if defined(__WXGTK__) || defined(__WXX11)
+            tmp = Path1 + Sep + filename;
+            lstat(tmp.fn_str(),&att);
+            if(!S_ISLNK(att.st_mode))
+            #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
                 if(wxDirExists(Path1 + Sep + filename))
@@ -485,6 +519,11 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         bool cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            #if defined(__WXGTK__) || defined(__WXX11)
+            tmp = Path2 + Sep + filename;
+            lstat(tmp.fn_str(),&att);
+            if(!S_ISLNK(att.st_mode))
+            #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
                 if(wxDirExists(Path2 + Sep + filename))
