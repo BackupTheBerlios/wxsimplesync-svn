@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // Name:        foldercomparedlg.cpp
-// Purpose:     
+// Purpose:
 // Author:      Pascal Schnurr aka BoscoWitch
 // Modified by:
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -136,7 +136,7 @@ void FolderCompareDlg::Init()
  */
 
 void FolderCompareDlg::CreateControls()
-{    
+{
 ////@begin FolderCompareDlg content construction
     FolderCompareDlg* itemDialog1 = this;
 
@@ -226,16 +226,25 @@ void FolderCompareDlg::CompareFolders() {
         // explaining the exact reason of the failure
         return;
     }
-    
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
+
     int flags = wxDIR_FILES | wxDIR_DIRS  | wxDIR_HIDDEN;
-    
+
     wxString filename,filespec,Sep,temp;
     wxFileName sep;
     Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
-    
+
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+                #if defined(__WXGTK__) || defined(__WXX11)
+                tmp = Dir1 + Sep + filename;
+                lstat(tmp.fn_str(),&att);
+                if(!S_ISLNK(att.st_mode)) {
+                #endif
                 if(wxDirExists(Dir1 + Sep + filename))
                 {
                     if(!wxDirExists(Dir2 + Sep + filename)) {
@@ -253,13 +262,27 @@ void FolderCompareDlg::CompareFolders() {
                          m_dir1->AppendText(filename + L"\n");
                     }
                 }
-                
+                #if defined(__WXGTK__) || defined(__WXX11)
+                } else {
+                    tmp = Dir2 + Sep + filename;
+                    if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                        m_dir1->AppendText(L"[LINK]" + filename + L"\n");
+                    }
+                }
+                #endif
+
+
                 cont = dir1.GetNext(&filename);
         }
-        
+
         cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+                #if defined(__WXGTK__) || defined(__WXX11)
+                tmp = Dir2 + Sep + filename;
+                lstat(tmp.fn_str(),&att);
+                if(!S_ISLNK(att.st_mode)) {
+                #endif
                 if(wxDirExists(Dir2 + Sep + filename))
                 {
                     if(!wxDirExists(Dir1 + Sep + filename)) {
@@ -277,9 +300,17 @@ void FolderCompareDlg::CompareFolders() {
                          m_dir2->AppendText(filename + L"\n");
                     }
                 }
-                
+                #if defined(__WXGTK__) || defined(__WXX11)
+                } else {
+                    tmp = Dir1 + Sep + filename;
+                    if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                        m_dir2->AppendText(L"[LINK]" + filename + L"\n");
+                    }
+                }
+                #endif
+
                 cont = dir2.GetNext(&filename);
-        
+
         }
 
 }
@@ -298,17 +329,26 @@ void FolderCompareDlg::CompareFoldersR(wxString folder, wxString Dir_1,wxString 
         // explaining the exact reason of the failure
         return;
     }
-    
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
+
     int flags = wxDIR_FILES | wxDIR_DIRS  | wxDIR_HIDDEN;
-    
+
     wxString filename,filespec,Sep,temp;
     wxFileName sep;
     Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
-    
+
     if(direction == L">") {
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+                #if defined(__WXGTK__) || defined(__WXX11)
+                tmp = Dir_1 + Sep + filename;
+                lstat(tmp.fn_str(),&att);
+                if(!S_ISLNK(att.st_mode)) {
+                #endif
                 if(wxDirExists(Dir_1 + Sep + filename))
                 {
                     if(!wxDirExists(Dir_2 + Sep + filename)) {
@@ -326,16 +366,29 @@ void FolderCompareDlg::CompareFoldersR(wxString folder, wxString Dir_1,wxString 
                          m_dir1->AppendText(folder +Sep+ filename + L"\n");
                     }
                 }
-                
+                #if defined(__WXGTK__) || defined(__WXX11)
+                } else {
+                    tmp = Dir_2 + Sep + filename;
+                    if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                        m_dir1->AppendText(L"[LINK]" + filename + L"\n");
+                    }
+                }
+                #endif
+
                 cont = dir1.GetNext(&filename);
         }
-        
-        
+
+
     }
     else if( direction == L"<") {
         bool cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+                #if defined(__WXGTK__) || defined(__WXX11)
+                tmp = Dir_2 + Sep + filename;
+                lstat(tmp.fn_str(),&att);
+                if(!S_ISLNK(att.st_mode)) {
+                #endif
                 if(wxDirExists(Dir_2 + Sep + filename))
                 {
                     if(!wxDirExists(Dir_1 + Sep + filename)) {
@@ -353,9 +406,17 @@ void FolderCompareDlg::CompareFoldersR(wxString folder, wxString Dir_1,wxString 
                          m_dir2->AppendText(folder +Sep+ filename + L"\n");
                     }
                 }
-                
+                #if defined(__WXGTK__) || defined(__WXX11)
+                } else {
+                    tmp = Dir_1 + Sep + filename;
+                    if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                        m_dir2->AppendText(L"[LINK]" + filename + L"\n");
+                    }
+                }
+                #endif
+
                 cont = dir2.GetNext(&filename);
-        
+
         }
     }
 }
@@ -372,6 +433,6 @@ void FolderCompareDlg::OnButtonCompareClick( wxCommandEvent& event )
 ////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTOn_COMPARE in FolderCompareDlg.
     // Before editing this code, remove the block markers.
     event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTOn_COMPARE in FolderCompareDlg. 
+////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTOn_COMPARE in FolderCompareDlg.
 }
 
