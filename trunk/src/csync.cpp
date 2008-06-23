@@ -66,6 +66,23 @@ void* CSyncThread::Entry(){
     return 0;
 }
 
+#if defined(__WXGTK__) || defined(__WXX11__)
+bool CSyncThread::CopySymlink(wxString linkfilepath,wxString target)
+{
+    char symlink_value[4096];
+    ssize_t res;
+
+    res = readlink (linkfilepath.fn_str(), symlink_value, sizeof (symlink_value) - 1);
+    if (res == -1)
+        return false;
+    symlink_value[res] =  0;
+    if (symlink (symlink_value, target.fn_str()) == -1)
+        return false;
+
+    return true;
+}
+#endif
+
 bool CSyncThread::RekrusiveDel(wxString Path)
 {
     wxDir dir1;
@@ -81,6 +98,11 @@ bool CSyncThread::RekrusiveDel(wxString Path)
     wxString filename,filespec,Sep,temp;
     wxFileName file1,sep;
     Sep = sep.GetPathSeparator();
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
+
 
 	int flags = wxDIR_FILES | wxDIR_DIRS | wxDIR_HIDDEN;
 
@@ -90,12 +112,22 @@ bool CSyncThread::RekrusiveDel(wxString Path)
 
             if(wxDirExists(Path + Sep + filename))
             {
+                #if defined(__WXGTK__) || defined(__WXX11)
+                tmp = Path + Sep + filename;
+                lstat(tmp.fn_str(),&att);
+                if(S_ISLNK(att.st_mode)) {
+                    wxRemoveFile(tmp);
+                } else {
+                #endif
                 temp = Path + Sep + filename;
                 #if defined(__WXMSW__)
                 SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                 #endif
                 RekrusiveDel(Path + Sep + filename);
                 wxRmdir(Path + Sep + filename);
+                #if defined(__WXGTK__) || defined(__WXX11)
+                }
+                #endif
             }
             else
             {
@@ -126,6 +158,11 @@ bool CSyncThread::ClearDirectories(wxString Pdir1,wxString Pdir2, wxString direc
         // explaining the exact reason of the failure
         return false;
     }
+    #if defined(__WXGTK__) || defined(__WXX11)
+    struct stat att;
+    wxString tmp;
+    #endif
+
 
     if(TestDestroy()) return false;
 
@@ -144,12 +181,22 @@ bool CSyncThread::ClearDirectories(wxString Pdir1,wxString Pdir2, wxString direc
             if(wxDirExists(Pdir2 + Sep + filename))
             {
                 if(!wxDirExists(Pdir1 + Sep + filename)) {
+                    #if defined(__WXGTK__) || defined(__WXX11)
+                    tmp = Pdir2 + Sep + filename;
+                    lstat(tmp.fn_str(),&att);
+                    if(S_ISLNK(att.st_mode)) {
+                        wxRemoveFile(tmp);
+                    } else {
+                    #endif
                     temp = Pdir2 + Sep + filename;
                     #if defined(__WXMSW__)
                     SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                     #endif
                     RekrusiveDel(Pdir2 + Sep + filename);
                     wxRmdir(Pdir2 + Sep + filename);
+                    #if defined(__WXGTK__) || defined(__WXX11)
+                    }
+                    #endif
                 }
                 else
                     ClearDirectories(Pdir1 + Sep + filename, Pdir2 + Sep + filename,direction);
@@ -181,11 +228,21 @@ bool CSyncThread::ClearDirectories(wxString Pdir1,wxString Pdir2, wxString direc
             if(wxDirExists(Pdir1 + Sep + filename))
             {
                 if(!wxDirExists(Pdir2 + Sep + filename)) {
+                    #if defined(__WXGTK__) || defined(__WXX11)
+                    tmp = Pdir1 + Sep + filename;
+                    lstat(tmp.fn_str(),&att);
+                    if(S_ISLNK(att.st_mode)) {
+                        wxRemoveFile(tmp);
+                    } else {
+                    #endif
                     temp = Pdir1 + Sep + filename;
                     #if defined(__WXMSW__)
                     SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                     #endif
                     RekrusiveDel(Pdir1 + Sep + filename); wxRmdir(Pdir1 + Sep + filename);
+                    #if defined(__WXGTK__) || defined(__WXX11)
+                    }
+                    #endif
                 }
                 else
                     ClearDirectories(Pdir1 + Sep + filename, Pdir2 + Sep + filename,direction);
@@ -249,6 +306,7 @@ bool CSyncThread::FilterCheck(wxString file, wxString filter, int mode)
 
 bool CSyncThread::SyncFolders(SyncParameters Parameter)
 {
+
     wxDir dir1;
     wxDir dir2;
     //Open directories
@@ -262,8 +320,6 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         return false;
     }
     wxLogMessage(wxString::Format(_("Syncing entry number:%i folders: ") + Parameter.dir1 + L" " + Parameter.direction + L" " + Parameter.dir2,Parameter.id+1));
-
-    if(TestDestroy()) return false;
 
     wxString filename,filespec,Sep,temp;
     wxFileName file1,file2,sep;
@@ -285,10 +341,11 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Parameter.dir1 + Sep + filename;
             lstat(tmp.fn_str(),&att);
-            if(!S_ISLNK(att.st_mode))
+            if(!S_ISLNK(att.st_mode)) {
             #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
@@ -343,6 +400,16 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                     }
                 }
             }
+            #if defined(__WXGTK__) || defined(__WXX11)
+            } else {
+                tmp = Parameter.dir2 + Sep + filename;
+                if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                    CopySymlink(Parameter.dir1 + Sep + filename, tmp);
+                }
+            }
+            #endif
+
+
             cont = dir1.GetNext(&filename);
         }
     }
@@ -351,10 +418,11 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
         bool cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Parameter.dir2 + Sep + filename;
             lstat(tmp.fn_str(),&att);
-            if(!S_ISLNK(att.st_mode))
+            if(!S_ISLNK(att.st_mode)) {
             #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
@@ -409,6 +477,14 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                     }
                 }
             }
+            #if defined(__WXGTK__) || defined(__WXX11)
+            } else {
+                tmp = Parameter.dir1 + Sep + filename;
+                if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                    CopySymlink(Parameter.dir2 + Sep + filename, tmp);
+                }
+            }
+            #endif
             cont = dir2.GetNext(&filename);
         }
     }
@@ -431,8 +507,6 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         return false;
     }
 
-    if(TestDestroy()) return false;
-
     wxString filename,filespec,Sep,temp;
     wxFileName file1,file2,sep;
     Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
@@ -451,10 +525,11 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Path1 + Sep + filename;
             lstat(tmp.fn_str(),&att);
-            if(!S_ISLNK(att.st_mode))
+            if(!S_ISLNK(att.st_mode)) {
             #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
@@ -511,6 +586,14 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                     }
                 }
             }
+            #if defined(__WXGTK__) || defined(__WXX11)
+            } else {
+                tmp = Path2 + Sep + filename;
+                if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                    CopySymlink(Path1 + Sep + filename, tmp);
+                }
+            }
+            #endif
             cont = dir1.GetNext(&filename);
         }
     }
@@ -519,10 +602,11 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         bool cont = dir2.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Path2 + Sep + filename;
             lstat(tmp.fn_str(),&att);
-            if(!S_ISLNK(att.st_mode))
+            if(!S_ISLNK(att.st_mode)) {
             #endif
             if(FilterCheck(filename,Parameter.Filters,Parameter.filter_mode))
             {
@@ -577,6 +661,14 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                     }
                 }
             }
+            #if defined(__WXGTK__) || defined(__WXX11)
+            } else {
+                tmp = Path1 + Sep + filename;
+                if(lstat(tmp.fn_str(),&att) == -1 || !S_ISLNK(att.st_mode)) {
+                    CopySymlink(Path2 + Sep + filename, tmp);
+                }
+            }
+            #endif
             cont = dir2.GetNext(&filename);
         }
     }

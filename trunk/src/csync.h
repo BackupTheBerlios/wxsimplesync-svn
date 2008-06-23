@@ -180,6 +180,10 @@ private:
     #ifndef SHELL_BUILD
     SimpleSyncDlg* Gui;
     #endif
+
+    #if defined(__WXGTK__) || defined(__WXX11__)
+	bool CopySymlink(wxString linkfilepath,wxString target);
+	#endif
 };
 
 
