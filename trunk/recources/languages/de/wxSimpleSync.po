@@ -563,11 +563,11 @@ msgstr "Wählen sie das zweite Verzeichnis"
 
 #: ../../../src/clogging.h:46
 msgid " Message: "
-msgstr "Nachricht:"
+msgstr " Naricht: "
 
 #: ../../../src/clogging.h:48
 msgid " Error: "
-msgstr "Fehler:"
+msgstr " Fehler: "
 
 #: ../../../src/wxSimpleSyncGui/fastsyncdlg.h:52
 msgid "FastSyncDlg"

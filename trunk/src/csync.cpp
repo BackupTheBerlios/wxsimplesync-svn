@@ -36,6 +36,7 @@
 #if defined(__WXGTK__) || defined(__WXX11)
 #include <sys/stat.h>
 #include <sys/types.h>
+
 #endif
 
 //STRANGE STUFF FOR THE wxArray
@@ -80,6 +81,14 @@ bool CSyncThread::CopySymlink(wxString linkfilepath,wxString target)
         return false;
 
     return true;
+}
+
+__time_t CSyncThread::file_modtime(wxString name) {
+    struct stat st;
+    if(stat(name.fn_str(), &st) < 0 ) {
+        wxLogError(L"Could not get Last Modification time of file:" + name);
+    }
+    return st.st_mtime;
 }
 #endif
 
@@ -371,8 +380,13 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
 
                     if(wxFileExists(file2.GetPath())) //File exists
                     {
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        if( file_modtime(file1.GetPath()) > file_modtime(file2.GetPath()) || Parameter.noTimeCheck)
+                        {
+                        #else
                         if( file1.GetModificationTime() > file2.GetModificationTime() || Parameter.noTimeCheck)
                         {
+                        #endif
                             #if defined(__WXMSW__)
                             temp = file2.GetPath();
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
@@ -448,8 +462,13 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
 
                     if(wxFileExists(file1.GetPath())) //File exists
                     {
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        if( file_modtime(file2.GetPath()) > file_modtime(file1.GetPath()) || Parameter.noTimeCheck)
+                        {
+                        #else
                         if( file2.GetModificationTime() > file1.GetModificationTime() || Parameter.noTimeCheck)
                         {
+                        #endif
                             #if defined(__WXMSW__)
                             temp = file1.GetPath();
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
@@ -557,8 +576,13 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
 
                     if(wxFileExists(file2.GetPath())) //File exists
                     {
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        if( file_modtime(file1.GetPath()) > file_modtime(file2.GetPath()) || Parameter.noTimeCheck)
+                        {
+                        #else
                         if( file1.GetModificationTime() > file2.GetModificationTime() || Parameter.noTimeCheck)
                         {
+                        #endif
                             #if defined(__WXMSW__)
                             temp = file2.GetPath();
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
@@ -632,8 +656,13 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
 
                     if(wxFileExists(file1.GetPath())) //File exists
                     {
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        if( file_modtime(file2.GetPath()) > file_modtime(file1.GetPath()) || Parameter.noTimeCheck)
+                        {
+                        #else
                         if( file2.GetModificationTime() > file1.GetModificationTime() || Parameter.noTimeCheck)
                         {
+                        #endif
                             #if defined(__WXMSW__)
                             temp = file1.GetPath();
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
