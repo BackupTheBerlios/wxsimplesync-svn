@@ -6,7 +6,7 @@
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SNYCENTRYDLG_H_
@@ -103,7 +103,7 @@ private:
  * SyncEntryDlg class declaration
  */
 
-class SyncEntryDlg: public wxDialog 
+class SyncEntryDlg: public wxDialog
 {
     DECLARE_DYNAMIC_CLASS( SyncEntryDlg )
     DECLARE_EVENT_TABLE()

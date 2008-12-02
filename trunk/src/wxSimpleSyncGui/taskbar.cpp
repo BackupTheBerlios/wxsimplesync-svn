@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 #include "simplesyncdlg.h"
@@ -30,10 +30,11 @@
 IMPLEMENT_DYNAMIC_CLASS( COwnTaskBar , wxTaskBarIcon )
 
 enum {
-    PU_RESTORE = 10001,
+    PU_RESTORE = 19001,
     PU_SYNCMENU,
     PU_EXIT,
-    PU_SYNCENTRYS_START
+    PU_SYNCENTRYS_START,
+    PU_SYNCENTRYS_MAX = 29000
 };
 BEGIN_EVENT_TABLE( COwnTaskBar , wxTaskBarIcon )
 
@@ -41,6 +42,7 @@ BEGIN_EVENT_TABLE( COwnTaskBar , wxTaskBarIcon )
     EVT_MENU(PU_RESTORE, COwnTaskBar::OnRestore )
     EVT_MENU( PU_EXIT , COwnTaskBar::OnExit)
     EVT_UPDATE_UI(PU_SYNCMENU, COwnTaskBar::OnMenuUISyncMenu)
+    EVT_MENU_RANGE(PU_SYNCENTRYS_START,PU_SYNCENTRYS_MAX,COwnTaskBar::OnSync)
 
 END_EVENT_TABLE()
 
@@ -84,11 +86,15 @@ void COwnTaskBar::OnRestore(wxCommandEvent&) {
 }
 void COwnTaskBar::OnMenuUISyncMenu(wxUpdateUIEvent &event) {
     for(int i=0; i<MainWindow->Sync->SyncList.GetCount(); i++) {
-        submenu->Append(PU_SYNCENTRYS_START+i, wxString::Format(L"%i ",i+1) + MainWindow->Sync->SyncList[i].dir1 + MainWindow->Sync->SyncList[i].direction + MainWindow->Sync->SyncList[i].dir2);
+        submenu->Append(PU_SYNCENTRYS_START + i, wxString::Format(L"%i ",i+1) + MainWindow->Sync->SyncList[i].dir1 + MainWindow->Sync->SyncList[i].direction + MainWindow->Sync->SyncList[i].dir2);
     }
-
 }
 
 void COwnTaskBar::OnExit(wxCommandEvent&) {
     MainWindow->Close();
+}
+
+void COwnTaskBar::OnSync(wxCommandEvent& ev) {
+    int list_index = ev.GetId() - PU_SYNCENTRYS_START;
+    MainWindow->Sync->SyncEntry(list_index);
 }

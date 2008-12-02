@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 #ifndef CSYNC
@@ -36,13 +36,14 @@
 #if defined(__WXGTK__) || defined(__WXX11)
 #include <sys/stat.h>
 #include <sys/types.h>
-
 #endif
 
 //STRANGE STUFF FOR THE wxArray
 #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
 WX_DEFINE_OBJARRAY(SyncParametersArray);
 //HAS TO BE DONE
+
+
 
 void* CSyncThread::Entry(){
     #ifndef SHELL_BUILD
@@ -58,8 +59,9 @@ void* CSyncThread::Entry(){
     Gui->m_Toolbar->EnableTool(10033,false);
     Gui->Menu->FindItem(10012)->Enable(false);
     Gui->Menu->FindItem(10011)->Enable(true);
-    Gui->m_StatusBar->SetStatusText(L"Finished Syncing");
+    Gui->m_StatusBar->SetStatusText(L"Ready");
     Gui->m_StatusBar->SetStatusText(L"",1);
+    Gui->m_StatusBar->PopStatusText(0);
     wxMutexGuiLeave();
     #endif
     m_cfolder->running=false;
@@ -91,6 +93,36 @@ __time_t CSyncThread::file_modtime(wxString name) {
     return st.st_mtime;
 }
 #endif
+void CSyncThread::CountFiles(wxString Path) {
+    wxDir dir1;
+    dir1.Open(Path);
+    //check if accesable
+    if ( !dir1.IsOpened())
+    {
+        // deal with the error here - wxDir would already log an error message
+        // explaining the exact reason of the failure
+        return;
+    }
+
+    wxString filename,filespec,temp;
+    wxFileName file1;
+    int flags = wxDIR_FILES | wxDIR_DIRS | wxDIR_HIDDEN;
+
+        bool cont = dir1.GetFirst(&filename, filespec, flags);
+        while ( cont )
+        {
+
+            if(wxDirExists(Path + Sep + filename))
+            {
+                CountFiles(Path + Sep + filename);
+            }
+            else
+            {
+                prefilecount++;
+            }
+            cont = dir1.GetNext(&filename);
+        }
+}
 
 bool CSyncThread::RekrusiveDel(wxString Path)
 {
@@ -104,9 +136,8 @@ bool CSyncThread::RekrusiveDel(wxString Path)
         return false;
     }
 
-    wxString filename,filespec,Sep,temp;
-    wxFileName file1,sep;
-    Sep = sep.GetPathSeparator();
+    wxString filename,filespec,temp;
+    wxFileName file1;
     #if defined(__WXGTK__) || defined(__WXX11)
     struct stat att;
     wxString tmp;
@@ -163,7 +194,7 @@ bool CSyncThread::ClearDirectories(wxString Pdir1,wxString Pdir2, wxString direc
     //check if both are accesable
     if ( !dir1.IsOpened() || !dir2.IsOpened() )
     {
-        // deal with the error here - wxDir would already log an error message
+        // deal with the error here - wxDir would alreadylog an error message
         // explaining the exact reason of the failure
         return false;
     }
@@ -175,9 +206,8 @@ bool CSyncThread::ClearDirectories(wxString Pdir1,wxString Pdir2, wxString direc
 
     if(TestDestroy()) return false;
 
-    wxString filename,filespec,Sep,temp;
-    wxFileName file1,file2,sep;
-    Sep = sep.GetPathSeparator();
+    wxString filename,filespec,temp;
+    wxFileName file1,file2;
 
 	int flags = wxDIR_FILES | wxDIR_DIRS | wxDIR_HIDDEN;
 
@@ -315,7 +345,6 @@ bool CSyncThread::FilterCheck(wxString file, wxString filter, int mode)
 
 bool CSyncThread::SyncFolders(SyncParameters Parameter)
 {
-
     wxDir dir1;
     wxDir dir2;
     //Open directories
@@ -330,9 +359,8 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     }
     wxLogMessage(wxString::Format(_("Syncing entry number:%i folders: ") + Parameter.dir1 + L" " + Parameter.direction + L" " + Parameter.dir2,Parameter.id+1));
 
-    wxString filename,filespec,Sep,temp;
-    wxFileName file1,file2,sep;
-    Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
+    wxString filename,filespec,temp;
+    wxFileName file1,file2;
     #if defined(__WXGTK__) || defined(__WXX11)
     struct stat att;
     wxString tmp;
@@ -349,7 +377,14 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     {
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
-        {
+        {/*
+            #ifndef SHELL_BUILD
+            double p = current_filecount/prefilecount;
+            int lo=p*100;
+            wxMutexGuiEnter();
+            Gui->m_StatusBar->SetStatusText( wxString::Format(_("Entry: %i, %i %i %"),Parameter.id+1,current_filecount, prefilecount,p) , 1);
+            wxMutexGuiLeave();
+            #endif*/
             if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Parameter.dir1 + Sep + filename;
@@ -375,6 +410,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                 }
                 else
                 {
+                    current_filecount++;
                     file1.SetPath(Parameter.dir1 + Sep + filename);
                     file2.SetPath(Parameter.dir2 + Sep + filename);
 
@@ -457,6 +493,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                 }
                 else
                 {
+                    current_filecount++;
                     file1.SetPath(Parameter.dir1 + Sep + filename);
                     file2.SetPath(Parameter.dir2 + Sep + filename);
 
@@ -526,9 +563,8 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         return false;
     }
 
-    wxString filename,filespec,Sep,temp;
-    wxFileName file1,file2,sep;
-    Sep = sep.GetPathSeparator(); // MAKE CLASS GLOBAL (PERFORMANCE)
+    wxString filename,filespec,temp;
+    wxFileName file1,file2;
     #if defined(__WXGTK__) || defined(__WXX11)
     struct stat att;
     wxString tmp;
@@ -571,6 +607,7 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                 }
                 else
                 {
+                    current_filecount++;
                     file1.SetPath(Path1 + Sep + filename);
                     file2.SetPath(Path2 + Sep + filename);
 
@@ -651,6 +688,7 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                 }
                 else
                 {
+                    current_filecount++;
                     file1.SetPath(Path1 + Sep + filename);
                     file2.SetPath(Path2 + Sep + filename);
 
@@ -711,14 +749,20 @@ void CSyncThread::StartSyncList()
     if( !ThreadList.IsEmpty())
     {
         for(int i=0; i<ThreadList.GetCount(); i++) {
+            if( ThreadList[i].direction == L"->")
+                CountFiles(ThreadList[i].dir1);
+            else
+                CountFiles(ThreadList[i].dir2);
             #ifndef SHELL_BUILD
             wxMutexGuiEnter();
             Gui->m_StatusBar->SetStatusText(_("Now Syncing..."));
+            Gui->m_StatusBar->PopStatusText();
             Gui->m_StatusBar->SetStatusText( wxString::Format(_("Syncing Entry: %i"),ThreadList[i].id+1) , 1);
             Gui->Menu->FindItem(10012)->Enable(true);
             Gui->Menu->FindItem(10011)->Enable(false);
             wxMutexGuiLeave();
             #endif
+            current_filecount=0;
             SyncFolders(ThreadList[i]);
         }
     }

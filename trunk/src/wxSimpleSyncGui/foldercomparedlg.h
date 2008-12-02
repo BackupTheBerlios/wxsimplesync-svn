@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // Name:        foldercomparedlg.h
-// Purpose:     
+// Purpose:
 // Author:      Pascal Schnurr aka BoscoWitch
 // Modified by:
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 #ifndef _FOLDERCOMPAREDLG_H_
@@ -53,10 +53,10 @@
 #define ID_BUTTON_COMPARE 10056
 #define ID_TEXTCTRL1 10060
 #define ID_TEXTCTRL2 10061
-#define SYMBOL_FOLDERCOMPAREDLG_STYLE wxCAPTION|wxRESIZE_BORDER|wxSYSTEM_MENU|wxCLOSE_BOX|wxTAB_TRAVERSAL
+#define SYMBOL_FOLDERCOMPAREDLG_STYLE wxCAPTION|wxRESIZE_BORDER|wxSYSTEM_MENU|wxCLOSE_BOX|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxTAB_TRAVERSAL
 #define SYMBOL_FOLDERCOMPAREDLG_TITLE _("Compare Folders")
 #define SYMBOL_FOLDERCOMPAREDLG_IDNAME ID_FOLDERCOMPAREDLG
-#define SYMBOL_FOLDERCOMPAREDLG_SIZE wxSize(500, 600)
+#define SYMBOL_FOLDERCOMPAREDLG_SIZE wxSize(500, 599)
 #define SYMBOL_FOLDERCOMPAREDLG_POSITION wxDefaultPosition
 ////@end control identifiers
 
@@ -66,7 +66,7 @@
  */
 
 class FolderCompareDlg: public wxDialog
-{    
+{
     DECLARE_DYNAMIC_CLASS( FolderCompareDlg )
     DECLARE_EVENT_TABLE()
 
@@ -110,11 +110,11 @@ public:
     wxTextCtrl* m_dir1;
     wxTextCtrl* m_dir2;
 ////@end FolderCompareDlg member variables
-    
+
     void CompareFolders();
     void CompareFoldersR(wxString folder, wxString Dir_1,wxString Dir_2, wxString direction);
 
-    
+
     wxString Dir1,Dir2;
 };
 

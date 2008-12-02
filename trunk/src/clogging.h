@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 
@@ -37,8 +37,8 @@ class CLogging : public wxLog
 public:
 
 	CLogging()
-	{MaxLogLines=400; LogFile.Create(wxT("log.txt")); LogFile.Open(wxT("log.txt"),wxConvUTF8); };
-	CLogging(wxString File, size_t MaxLinesCount = 400)
+	{MaxLogLines=90000; LogFile.Create(wxT("log.txt")); LogFile.Open(wxT("log.txt"),wxConvUTF8); };
+	CLogging(wxString File, size_t MaxLinesCount = 90000)
 	{MaxLogLines=MaxLinesCount; LogFile.Create(File); LogFile.Open(File,wxConvUTF8); };
 	~CLogging() { LogFile.Close();};
 

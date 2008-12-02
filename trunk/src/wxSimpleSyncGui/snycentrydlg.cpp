@@ -6,7 +6,7 @@
 // Created:     24.6.2007 05:20:26
 // RCS-ID:
 // Copyright: (c) 2007 by Pascal Schnurr aka BoscoWitch
-// Licence: 
+// Licence:
 /*   This file is part of wxSimpleSync.
 
     wxSimpleSync is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 #if defined(__GNUG__) && !defined(NO_GCC_PRAGMA)
@@ -299,7 +299,7 @@ void SyncEntryDlg::CreateControls()
 
     m_Dir1->SetDropTarget(new DnDFile(m_Dir1));
     m_Dir2->SetDropTarget(new DnDFile(m_Dir2));
-    
+
     FilterRadio[0] = itemRadioButton21;
     FilterRadio[1] = itemRadioButton23;
     FilterRadio[2] = itemRadioButton22;

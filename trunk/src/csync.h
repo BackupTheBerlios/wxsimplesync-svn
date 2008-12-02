@@ -20,12 +20,12 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with wxSimpleSync.  If not, see <http://www.gnu.org/licenses/>.
 *//////////////////////////////////////////////////////////////////////////////
 
 
 
-#include <iostream>
+
 #include <wx/wx.h>
 #include <wx/dir.h>
 #include <wx/frame.h>
@@ -48,6 +48,9 @@
 #include "clogging.h"
 #endif
 
+#ifdef SHELL_BUILD
+#include <iostream>
+#endif
 #ifndef SHELL_BUILD
 #include "wxSimpleSyncGui/simplesyncdlg.h"
 class SimpleSyncDlg;
@@ -157,15 +160,18 @@ class CSyncThread : public wxThread
 public:
     SyncParametersArray ThreadList;
 
-    CSyncThread(CFolderSyncer * mysyncer) { m_cfolder = mysyncer; };
+    CSyncThread(CFolderSyncer * mysyncer) { m_cfolder = mysyncer; wxFileName sep; Sep = sep.GetPathSeparator(); };
 
     #ifndef SHELL_BUILD
-    CSyncThread(CFolderSyncer * mysyncer, SimpleSyncDlg* Pointer) { m_cfolder = mysyncer; Gui = Pointer; };
+    CSyncThread(CFolderSyncer * mysyncer, SimpleSyncDlg* Pointer) { m_cfolder = mysyncer; Gui = Pointer; wxFileName sep; Sep = sep.GetPathSeparator(); };
     #endif
 
     CFolderSyncer *m_cfolder;
 
     wxCriticalSection csect;
+
+    //Progress "Bar" Functions
+    void CountFiles(wxString Path);
 
     bool SyncFolders(SyncParameters Parameter);
     bool SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Parameter);
@@ -177,6 +183,9 @@ public:
     virtual void* Entry();
     //virtual void* OnExit(){  };
 private:
+    wxString Sep;
+    int prefilecount;
+    int current_filecount;
     #ifndef SHELL_BUILD
     SimpleSyncDlg* Gui;
     #endif
