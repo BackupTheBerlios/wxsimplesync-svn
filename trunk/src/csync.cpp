@@ -93,7 +93,7 @@ __time_t CSyncThread::file_modtime(wxString name) {
     return st.st_mtime;
 }
 #endif
-void CSyncThread::CountFiles(wxString Path) {
+void CSyncThread::CountFiles(wxString Path,wxString Filters, int filter_mode) {
     wxDir dir1;
     dir1.Open(Path);
     //check if accesable
@@ -111,10 +111,10 @@ void CSyncThread::CountFiles(wxString Path) {
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
-
+            if(FilterCheck(filename,Filters,filter_mode))
             if(wxDirExists(Path + Sep + filename))
             {
-                CountFiles(Path + Sep + filename);
+                CountFiles(Path + Sep + filename,Filters,filter_mode);
             }
             else
             {
@@ -750,9 +750,9 @@ void CSyncThread::StartSyncList()
     {
         for(int i=0; i<ThreadList.GetCount(); i++) {
             if( ThreadList[i].direction == L"->")
-                CountFiles(ThreadList[i].dir1);
+                CountFiles(ThreadList[i].dir1,ThreadList[i].Filters,ThreadList[i].filter_mode);
             else
-                CountFiles(ThreadList[i].dir2);
+                CountFiles(ThreadList[i].dir2,ThreadList[i].Filters,ThreadList[i].filter_mode);
             #ifndef SHELL_BUILD
             wxMutexGuiEnter();
             Gui->m_StatusBar->SetStatusText(_("Now Syncing..."));

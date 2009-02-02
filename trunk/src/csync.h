@@ -171,7 +171,7 @@ public:
     wxCriticalSection csect;
 
     //Progress "Bar" Functions
-    void CountFiles(wxString Path);
+    void CountFiles(wxString Path,wxString Filters,int filter_mode);
 
     bool SyncFolders(SyncParameters Parameter);
     bool SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Parameter);
