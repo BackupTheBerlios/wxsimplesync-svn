@@ -184,8 +184,8 @@ public:
     //virtual void* OnExit(){  };
 private:
     wxString Sep;
-    int prefilecount;
-    int current_filecount;
+    unsigned int prefilecount;
+    unsigned int current_filecount;
     #ifndef SHELL_BUILD
     SimpleSyncDlg* Gui;
     #endif

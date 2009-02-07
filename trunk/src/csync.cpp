@@ -345,6 +345,7 @@ bool CSyncThread::FilterCheck(wxString file, wxString filter, int mode)
 
 bool CSyncThread::SyncFolders(SyncParameters Parameter)
 {
+    double pro=0;
     wxDir dir1;
     wxDir dir2;
     //Open directories
@@ -377,14 +378,15 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
     {
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
-        {/*
-            #ifndef SHELL_BUILD
-            double p = current_filecount/prefilecount;
-            int lo=p*100;
+        {
+            /*#ifndef SHELL_BUILD
+            pro=current_filecount/prefilecount;
+           // pro=pro*100;
             wxMutexGuiEnter();
-            Gui->m_StatusBar->SetStatusText( wxString::Format(_("Entry: %i, %i %i %"),Parameter.id+1,current_filecount, prefilecount,p) , 1);
+            Gui->m_StatusBar->SetStatusText( wxString::Format(_("Entry: %i, %i %i"),Parameter.id+1,current_filecount,prefilecount) , 1);
             wxMutexGuiLeave();
             #endif*/
+
             if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Parameter.dir1 + Sep + filename;
@@ -410,7 +412,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                 }
                 else
                 {
-                    current_filecount++;
+                    //current_filecount++;
                     file1.SetPath(Parameter.dir1 + Sep + filename);
                     file2.SetPath(Parameter.dir2 + Sep + filename);
 
@@ -493,7 +495,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                 }
                 else
                 {
-                    current_filecount++;
+                    //current_filecount++;
                     file1.SetPath(Parameter.dir1 + Sep + filename);
                     file2.SetPath(Parameter.dir2 + Sep + filename);
 
@@ -551,6 +553,7 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
 
 bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Parameter)
 {
+    double pro=0;
     wxDir dir1;
     wxDir dir2;
     //Open directories
@@ -580,6 +583,14 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
         bool cont = dir1.GetFirst(&filename, filespec, flags);
         while ( cont )
         {
+            /*#ifndef SHELL_BUILD
+            pro=current_filecount/prefilecount;
+
+            wxMutexGuiEnter();
+            Gui->m_StatusBar->SetStatusText( wxString::Format(_("Entry: %i,%i %i : %010.2f"),Parameter.id+1,current_filecount,prefilecount,pro) , 1);
+            wxMutexGuiLeave();
+            #endif*/
+
             if(TestDestroy()) return false;
             #if defined(__WXGTK__) || defined(__WXX11)
             tmp = Path1 + Sep + filename;
@@ -607,7 +618,7 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                 }
                 else
                 {
-                    current_filecount++;
+                    //current_filecount++;
                     file1.SetPath(Path1 + Sep + filename);
                     file2.SetPath(Path2 + Sep + filename);
 
@@ -688,7 +699,7 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                 }
                 else
                 {
-                    current_filecount++;
+                    //current_filecount++;
                     file1.SetPath(Path1 + Sep + filename);
                     file2.SetPath(Path2 + Sep + filename);
 
@@ -749,10 +760,10 @@ void CSyncThread::StartSyncList()
     if( !ThreadList.IsEmpty())
     {
         for(int i=0; i<ThreadList.GetCount(); i++) {
-            if( ThreadList[i].direction == L"->")
+            /*if( ThreadList[i].direction == L"->")
                 CountFiles(ThreadList[i].dir1,ThreadList[i].Filters,ThreadList[i].filter_mode);
             else
-                CountFiles(ThreadList[i].dir2,ThreadList[i].Filters,ThreadList[i].filter_mode);
+                CountFiles(ThreadList[i].dir2,ThreadList[i].Filters,ThreadList[i].filter_mode);*/
             #ifndef SHELL_BUILD
             wxMutexGuiEnter();
             Gui->m_StatusBar->SetStatusText(_("Now Syncing..."));
@@ -762,7 +773,7 @@ void CSyncThread::StartSyncList()
             Gui->Menu->FindItem(10011)->Enable(false);
             wxMutexGuiLeave();
             #endif
-            current_filecount=0;
+            //current_filecount=0;
             SyncFolders(ThreadList[i]);
         }
     }
