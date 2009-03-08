@@ -128,7 +128,7 @@ class SimpleSyncDlg: public wxFrame
 public:
     /// Constructors
     SimpleSyncDlg();
-    SimpleSyncDlg( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, wxString ShellProfile = wxT(""), const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
+    SimpleSyncDlg( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, wxString ShellProfile = wxT(""),wxString LOCATION = wxT(""), const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
 
     bool Create( wxWindow* parent, wxWindowID id = SYMBOL_SIMPLESYNCDLG_IDNAME, const wxString& caption = SYMBOL_SIMPLESYNCDLG_TITLE, const wxPoint& pos = SYMBOL_SIMPLESYNCDLG_POSITION, const wxSize& size = SYMBOL_SIMPLESYNCDLG_SIZE, long style = SYMBOL_SIMPLESYNCDLG_STYLE );
 
@@ -270,6 +270,7 @@ public:
     bool ShellProfileParameter;
     wxString ShellProfilePath;
     FastSyncDlg* FsDlg;
+    wxString APP_LOCATION;
 };
 
 class COwnTaskBar : wxTaskBarIcon

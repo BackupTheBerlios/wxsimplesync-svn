@@ -53,6 +53,18 @@ build/taskbar.o:src/wxSimpleSyncGui/taskbar.cpp
 clean:
 	rm build/*
 
+install:all
+	mkdir /usr/local/share/wxsimplesync -p
+	cp ./build/wxSimpleSync /usr/local/share/wxsimplesync
+	cp ./build/recources /usr/local/share/wxsimplesync -r
+	ln -s /usr/local/share/wxsimplesync/wxSimpleSync /usr/bin/wxsimplesync
+
+uninstall:
+	rm /usr/local/share/wxsimplesync -r
+	unlink /usr/bin/wxsimplesync
+	
+	
+
 
 
 

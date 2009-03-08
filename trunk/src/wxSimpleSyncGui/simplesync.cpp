@@ -47,6 +47,8 @@
 ////@begin XPM images
 ////@end XPM images
 
+#include <wx/stdpaths.h>
+
 
 
 /*!
@@ -98,7 +100,19 @@ void SimpleSyncApp::Init()
 
 bool SimpleSyncApp::OnInit()
 {
-    wxLocale::AddCatalogLookupPathPrefix(wxT("recources/languages"));
+    // Try appVariableName
+    wxString APP_LOCATION;
+
+
+    wxString wxstrCurrentWorkingDirectory = wxStandardPaths::Get().GetExecutablePath()  ;
+    std::wstring wstrReturnValue = wxstrCurrentWorkingDirectory.wc_str();
+    wxFileName sep;
+    APP_LOCATION  = wstrReturnValue.erase(wstrReturnValue.find_last_of(sep.GetPathSeparator())+1 , wstrReturnValue.length() - ( wstrReturnValue.find_last_of(sep.GetPathSeparator())+1)) ;
+
+
+    //wxMessageBox(APP_LOCATION);
+
+    wxLocale::AddCatalogLookupPathPrefix(APP_LOCATION + wxT("/recources/languages"));
 
 
 #ifdef __LINUX__
@@ -127,7 +141,7 @@ bool SimpleSyncApp::OnInit()
 
     parser.SetDesc(cmdLineDesc);
 
-    logger = new CLogging(wxT("log.txt"));
+    logger = new CLogging(APP_LOCATION + wxT("log.txt"));
 	wxLog::SetActiveTarget(logger);
 
 
@@ -194,7 +208,7 @@ bool SimpleSyncApp::OnInit()
     #if wxUSE_GIF
         wxImage::AddHandler(new wxGIFHandler);
     #endif
-        SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG , ProfilePath);
+        SimpleSyncDlg* mainWindow = new SimpleSyncDlg( NULL, ID_SIMPLESYNCDLG , ProfilePath, APP_LOCATION);
         mainWindow->Show(true);
     //	glob = mainWindow;
     ////@end SimpleSyncApp initialisation

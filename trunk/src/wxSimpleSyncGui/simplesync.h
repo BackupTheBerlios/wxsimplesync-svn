@@ -61,6 +61,8 @@
  */
 
 
+
+
 class SimpleSyncApp: public wxApp
 {
     DECLARE_CLASS( SimpleSyncApp )

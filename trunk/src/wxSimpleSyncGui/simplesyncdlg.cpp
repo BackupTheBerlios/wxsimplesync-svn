@@ -136,8 +136,9 @@ SimpleSyncDlg::SimpleSyncDlg()
     Init();
 }
 
-SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellProfile, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
+SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellProfile,wxString LOCATION, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
 {
+    APP_LOCATION = LOCATION;
     ShellProfileParameter = false;
     if(ShellProfile != wxT("")) {
         ShellProfilePath = ShellProfile;
@@ -194,7 +195,7 @@ void SimpleSyncDlg::Init()
 	Tray = new COwnTaskBar();
 	Tray->SetWindow(this);
 	second = 0;
-	if(!Sync->OpenSettings(wxT("wxSimpleSyncSettings.xml"))) {
+	if(!Sync->OpenSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"))) {
 	    logger->LogMessage(_("Could not Load Setting file wxSimpleSyncSettings.xml taking default settings"));
 	    Sync->Settings.AutoOpenProfile = false;
 	    Sync->Settings.AutoSync = true;
@@ -221,6 +222,7 @@ void SimpleSyncDlg::CreateControls()
 first = true;
 ////@begin SimpleSyncDlg content construction
     SimpleSyncDlg* itemFrame1 = this;
+
 
     wxMenuBar* menuBar = new wxMenuBar;
     wxMenu* itemMenu3 = new wxMenu;
@@ -454,32 +456,32 @@ wxBitmap SimpleSyncDlg::GetBitmapResource( const wxString& name )
     wxUnusedVar(name);
     if (name == _T("recources/PlusOver.png"))
     {
-        wxBitmap bitmap(_T("recources/PlusOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/PlusOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     else if (name == _T("recources/MinusOver.png"))
     {
-        wxBitmap bitmap(_T("recources/MinusOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/MinusOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     else if (name == _T("recources/UpOver.png"))
     {
-        wxBitmap bitmap(_T("recources/UpOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/UpOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     else if (name == _T("recources/DownOver.png"))
     {
-        wxBitmap bitmap(_T("recources/DownOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/DownOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     else if (name == _T("recources/SyncOver.png"))
     {
-        wxBitmap bitmap(_T("recources/SyncOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/SyncOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     else if (name == _T("recources/AbortOver.png"))
     {
-        wxBitmap bitmap(_T("recources/AbortOver.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/AbortOver.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     return wxNullBitmap;
@@ -497,7 +499,7 @@ wxIcon SimpleSyncDlg::GetIconResource( const wxString& name )
     wxUnusedVar(name);
     if (name == _T("recources/main.ico"))
     {
-        wxIcon icon(_T("recources/main.ico"), wxBITMAP_TYPE_ICO);
+        wxIcon icon( APP_LOCATION + _T("recources/main.ico"), wxBITMAP_TYPE_ICO);
         return icon;
     }
     return wxNullIcon;
@@ -516,7 +518,7 @@ void SimpleSyncDlg::OnMenuInfo12Click( wxCommandEvent& event )
     info.SetVersion(_("2.5"));
     info.SetDescription(_("Cross Platform Folder && File Syncer"));
     info.SetCopyright(_("(C) 2008 by BoscoWitch"));
-    wxBitmap bitmap(_T("recources/icon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap bitmap(APP_LOCATION + _T("recources/icon.png"), wxBITMAP_TYPE_PNG);
     wxIcon icon; icon.CopyFromBitmap(bitmap);
     info.SetIcon(icon);
 
