@@ -189,7 +189,7 @@ void SimpleSyncDlg::Init()
     m_Toolbar = NULL;
     m_ListCtrl = NULL;
 ////@end SimpleSyncDlg member initialisation
-    logger = new CLogging(wxT("log.txt"));
+    logger = new CLogging(APP_LOCATION + wxT("log.txt"));
 	Sync = new CFolderSyncer(logger,this);
 	wxLog::SetActiveTarget(logger);
 	Tray = new COwnTaskBar();
@@ -401,7 +401,7 @@ void SimpleSyncDlg::OnPaint( wxPaintEvent& event )
 void SimpleSyncDlg::OnToolAddClick( wxCommandEvent& event )
 {
     SyncEntryDlg entry;
-    entry.Create(this,-1,_("Entry"));
+    entry.Create(this,-1,_("Entry"), APP_LOCATION);
     //if(Sync->SyncList[SelectedItem] != NULL)
     if(entry.ShowModal() == 1) {
         SyncParameters Param;
@@ -588,7 +588,7 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
         Sync->Settings.WriteLogfile = settings.m_WriteLog->GetValue();
         Sync->Settings.StartasTray = settings.m_StartasTray->GetValue();
 
-        Sync->SaveSettings(L"wxSimpleSyncSettings.xml");
+        Sync->SaveSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"));
         m_StatusBar->Show(Sync->Settings.ShowStatusbar);
     }
 ////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SETTINGS in SimpleSyncDlg.
@@ -632,7 +632,7 @@ void SimpleSyncDlg::OnCloseWindow( wxCloseEvent& event )
                 return;
             }
         }
-        Sync->SaveSettings(L"wxSimpleSyncSettings.xml");
+        Sync->SaveSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"));
         delete Tray;
         event.Skip();
     }
@@ -718,7 +718,7 @@ void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
             }
     }
 
-        wxFileDialog filedlg(this,_("Open Profile"),L"",L"",L"*.xml | *.XML",wxFD_OPEN);
+        wxFileDialog filedlg(this,_("Open Profile"),L"",L"",L"*.xml;*.XML;*",wxFD_OPEN);
         if( filedlg.ShowModal() == wxID_OK) {
             Sync->OpenProfile(filedlg.GetPath());
             m_ListCtrl->DeleteAllItems();
@@ -976,7 +976,7 @@ void SimpleSyncDlg::OnSyncListctrlSelected( wxListEvent& event )
 void SimpleSyncDlg::OnMenuEditEntryClick( wxCommandEvent& event )
 {
     SyncEntryDlg entry;
-    entry.Create(this,-1,_("Entry"));
+    entry.Create(this,-1,_("Entry"),APP_LOCATION);
     //if(Sync->SyncList[SelectedItem] != NULL)
     if( m_ListCtrl->GetItemCount() > SelectedItem ) {
         entry.AutoSyncMode = Sync->SyncList[SelectedItem].SyncAuto;

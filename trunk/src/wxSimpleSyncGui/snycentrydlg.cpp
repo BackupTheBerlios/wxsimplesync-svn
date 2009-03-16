@@ -103,7 +103,7 @@ SyncEntryDlg::SyncEntryDlg()
 SyncEntryDlg::SyncEntryDlg( wxWindow* parent, wxWindowID id, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
 {
     Init();
-    Create(parent, id, caption, pos, size, style);
+    Create(parent, id, caption,L"", pos, size, style);
 }
 
 
@@ -111,8 +111,9 @@ SyncEntryDlg::SyncEntryDlg( wxWindow* parent, wxWindowID id, const wxString& cap
  * SnycEntryDlg creator
  */
 
-bool SyncEntryDlg::Create( wxWindow* parent, wxWindowID id, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
+bool SyncEntryDlg::Create( wxWindow* parent, wxWindowID id, const wxString& caption,wxString APP_PATH, const wxPoint& pos, const wxSize& size, long style )
 {
+    APP_LOCATION = APP_PATH;
 ////@begin SyncEntryDlg creation
     SetExtraStyle(wxWS_EX_BLOCK_EVENTS);
     wxDialog::Create( parent, id, caption, pos, size, style );
@@ -365,7 +366,7 @@ wxBitmap SyncEntryDlg::GetBitmapResource( const wxString& name )
     wxUnusedVar(name);
     if (name == _T("recources/FolderOpen.png"))
     {
-        wxBitmap bitmap(_T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION + _T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     return wxNullBitmap;
