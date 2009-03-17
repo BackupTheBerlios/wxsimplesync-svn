@@ -114,7 +114,7 @@ public:
     SyncEntryDlg( wxWindow* parent, wxWindowID id = SYMBOL_SYNCENTRYDLG_IDNAME, const wxString& caption = SYMBOL_SYNCENTRYDLG_TITLE, const wxPoint& pos = SYMBOL_SYNCENTRYDLG_POSITION, const wxSize& size = SYMBOL_SYNCENTRYDLG_SIZE, long style = SYMBOL_SYNCENTRYDLG_STYLE );
 
     /// Creation
-    bool Create( wxWindow* parent, wxWindowID id = SYMBOL_SYNCENTRYDLG_IDNAME, const wxString& caption = SYMBOL_SYNCENTRYDLG_TITLE,wxString APP_PATH = NULL, const wxPoint& pos = SYMBOL_SYNCENTRYDLG_POSITION, const wxSize& size = SYMBOL_SYNCENTRYDLG_SIZE, long style = SYMBOL_SYNCENTRYDLG_STYLE );
+    bool Create( wxWindow* parent, wxWindowID id = SYMBOL_SYNCENTRYDLG_IDNAME, const wxString& caption = SYMBOL_SYNCENTRYDLG_TITLE,wxString APP_PATH = L"", const wxPoint& pos = SYMBOL_SYNCENTRYDLG_POSITION, const wxSize& size = SYMBOL_SYNCENTRYDLG_SIZE, long style = SYMBOL_SYNCENTRYDLG_STYLE );
 
     /// Destructor
     ~SyncEntryDlg();

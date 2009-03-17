@@ -428,11 +428,6 @@ void SimpleSyncDlg::OnToolAddClick( wxCommandEvent& event )
         m_ListCtrl->SetItem(Param.id,3, Param.dir2 );
 
     }
-
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_ADD in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_ADD in SimpleSyncDlg.
 }
 
 
@@ -523,10 +518,6 @@ void SimpleSyncDlg::OnMenuInfo12Click( wxCommandEvent& event )
     info.SetIcon(icon);
 
     wxAboutBox(info);
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM12 in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM12 in SimpleSyncDlg.
 }
 
 
@@ -591,10 +582,6 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
         Sync->SaveSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"));
         m_StatusBar->Show(Sync->Settings.ShowStatusbar);
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SETTINGS in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SETTINGS in SimpleSyncDlg.
 }
 
 
@@ -633,6 +620,7 @@ void SimpleSyncDlg::OnCloseWindow( wxCloseEvent& event )
             }
         }
         Sync->SaveSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"));
+        if(Taskbar)
         delete Tray;
         event.Skip();
     }
@@ -669,10 +657,6 @@ void SimpleSyncDlg::OnMenuEditProfileClick( wxCommandEvent& event )
         Sync->ProfileName = profile.m_ProfileName->GetValue();
         m_StatusBar->SetStatusText(_("Changed Pfofile Settings"));
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_EDIT_PROFILE in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_EDIT_PROFILE in SimpleSyncDlg.
 }
 
 
@@ -685,11 +669,6 @@ void SimpleSyncDlg::OnMenuitemNewProfileClick( wxCommandEvent& event )
     Sync->ProfileName = _("New Pofile");
     m_ListCtrl->DeleteAllItems();
     Sync->SyncList.Empty();
-
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_NEW_PROFILE in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_NEW_PROFILE in SimpleSyncDlg.
 }
 
 
@@ -729,11 +708,6 @@ void SimpleSyncDlg::OnMenuitemOpenProfileClick( wxCommandEvent& event )
                 m_ListCtrl->SetItem(i,3, Sync->SyncList[i].dir2 );
             }
         }
-
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_OPEN_PROFILE in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_OPEN_PROFILE in SimpleSyncDlg.
 }
 
 
@@ -752,10 +726,6 @@ void SimpleSyncDlg::OnMenuitemSaveProfileClick( wxCommandEvent& event )
             Sync->SaveProfile(filedlg.GetPath());
         }
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SAVE_PROFILE in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SAVE_PROFILE in SimpleSyncDlg.
 }
 
 
@@ -769,10 +739,6 @@ void SimpleSyncDlg::OnMenuitemSaveProfileAsClick( wxCommandEvent& event )
     if( filedlg.ShowModal() == wxID_OK) {
         Sync->SaveProfile(filedlg.GetPath());
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SAVE_PROFILE_AS in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SAVE_PROFILE_AS in SimpleSyncDlg.
 }
 
 
@@ -784,10 +750,6 @@ void SimpleSyncDlg::OnMenuitemExitClick( wxCommandEvent& event )
 {
     Taskbar = false;
     Close();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_EXIT in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_EXIT in SimpleSyncDlg.
 }
 
 
@@ -799,10 +761,6 @@ void SimpleSyncDlg::OnMenuitemAddSyncEntryClick( wxCommandEvent& event )
 {
     wxCommandEvent evt;
     OnToolAddClick(evt);
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_ADD_SYNC_ENTRY in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_ADD_SYNC_ENTRY in SimpleSyncDlg.
 }
 
 
@@ -814,10 +772,6 @@ void SimpleSyncDlg::OnMenuitemStartSyncClick( wxCommandEvent& event )
 {
     wxCommandEvent evt;
     OnToolSyncAllClick(evt);
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_START_SYNC in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_START_SYNC in SimpleSyncDlg.
 }
 
 
@@ -829,10 +783,6 @@ void SimpleSyncDlg::OnMenuitemCancelSyncClick( wxCommandEvent& event )
 {
     m_StatusBar->SetStatusText(_("Aborting Sync Process, Please Wait"));
     Sync->AbortSync();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_CANCEL_SYNC in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_CANCEL_SYNC in SimpleSyncDlg.
 }
 
 
@@ -845,10 +795,6 @@ void SimpleSyncDlg::OnMenuitemAktivateAutosyncClick( wxCommandEvent& event )
     Menu->FindItem(ID_MENUITEM_AKTIVATE_AUTOSYNC)->Enable(false);
     Menu->FindItem(ID_MENUITEM_DEAKTIVATE_AUTOSYNC)->Enable(true);
     Sync->StartAutoSync();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_AKTIVATE_ATUSYNC in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_AKTIVATE_ATUSYNC in SimpleSyncDlg.
 }
 
 
@@ -861,10 +807,6 @@ void SimpleSyncDlg::OnMenuitemDeaktivateAutosyncClick( wxCommandEvent& event )
     Menu->FindItem(ID_MENUITEM_AKTIVATE_AUTOSYNC)->Enable(true);
     Menu->FindItem(ID_MENUITEM_DEAKTIVATE_AUTOSYNC)->Enable(false);
     Sync->StopAutoSync();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_DEAKTIVATE_AUTOSYNC in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_DEAKTIVATE_AUTOSYNC in SimpleSyncDlg.
 }
 
 
@@ -880,10 +822,6 @@ void SimpleSyncDlg::OnToolRemoveClick( wxCommandEvent& event )
     }
 
     //TODO UPDATE NUMBERS
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_REMOVE in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_REMOVE in SimpleSyncDlg.
 }
 
 
@@ -914,10 +852,6 @@ void SimpleSyncDlg::OnToolMoveUpClick( wxCommandEvent& event )
         m_ListCtrl->SetItem(SelectedItem-1,2, Sync->SyncList[SelectedItem-1].direction );
         m_ListCtrl->SetItem(SelectedItem-1,3, Sync->SyncList[SelectedItem-1].dir2 );
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_MOVE_UP in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_MOVE_UP in SimpleSyncDlg.
 }
 
 
@@ -948,10 +882,6 @@ void SimpleSyncDlg::OnToolMoveDownClick( wxCommandEvent& event )
         m_ListCtrl->SetItem(SelectedItem+1,2, Sync->SyncList[SelectedItem+1].direction );
         m_ListCtrl->SetItem(SelectedItem+1,3, Sync->SyncList[SelectedItem+1].dir2 );
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_MOVE_DOWN in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_MOVE_DOWN in SimpleSyncDlg.
 }
 
 
@@ -1019,10 +949,6 @@ void SimpleSyncDlg::OnMenuEditEntryClick( wxCommandEvent& event )
             Sync->ProfileModified = true;
         }
     }
-////@begin wxEVT_LEFT_DCLICK event handler for ID_SYNC_LISTCTRL in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_LEFT_DCLICK event handler for ID_SYNC_LISTCTRL in SimpleSyncDlg.
 }
 
 
@@ -1033,10 +959,6 @@ void SimpleSyncDlg::OnMenuEditEntryClick( wxCommandEvent& event )
 void SimpleSyncDlg::OnToolSyncAllClick( wxCommandEvent& event )
 {
     Sync->SyncAllEntrys();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_SYNC_ALL in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_SYNC_ALL in SimpleSyncDlg.
 }
 
 
@@ -1050,10 +972,6 @@ void SimpleSyncDlg::OnLeftDClick( wxListEvent& event )
 {
     wxCommandEvent event1;
     OnMenuEditEntryClick(event1);
-////@begin wxEVT_COMMAND_LIST_ITEM_ACTIVATED event handler for ID_SYNC_LISTCTRL in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_LIST_ITEM_ACTIVATED event handler for ID_SYNC_LISTCTRL in SimpleSyncDlg.
 }
 
 
@@ -1064,10 +982,6 @@ void SimpleSyncDlg::OnLeftDClick( wxListEvent& event )
 void SimpleSyncDlg::OnToolAbortSyncClick( wxCommandEvent& event )
 {
     OnMenuitemCancelSyncClick( event );
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_ABORT_SYNC in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_TOOL_ABORT_SYNC in SimpleSyncDlg.
 }
 
 
@@ -1084,10 +998,6 @@ void SimpleSyncDlg::OnMenuitemCompareFoldersClick( wxCommandEvent& event )
         cfdlg.Dir2=Sync->SyncList[SelectedItem].dir2;
         cfdlg.ShowModal();
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_COMPARE_FOLDERS in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_COMPARE_FOLDERS in SimpleSyncDlg.
 }
 
 
@@ -1100,10 +1010,6 @@ void SimpleSyncDlg::OnMenuitemSyncSelectedClick( wxCommandEvent& event )
     if( m_ListCtrl->GetItemCount() > SelectedItem ) {
         Sync->SyncEntry(SelectedItem);
     }
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_SYNC_SELECTED in SimpleSyncDlg.
 }
 
 
@@ -1118,10 +1024,6 @@ void SimpleSyncDlg::OnMenuitemFastsyncdlgClick( wxCommandEvent& event )
     FsDlg->Sync = Sync;
     FsDlg->Create(this, -1, _("Fast Sync Dialog"));
     FsDlg->Show();
-////@begin wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_MENU_SELECTED event handler for ID_MENUITEM_FASTSYNCDLG in SimpleSyncDlg.
 }
 
 
