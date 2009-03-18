@@ -1034,11 +1034,11 @@ void SimpleSyncDlg::OnMenuitemFastsyncdlgClick( wxCommandEvent& event )
 void SimpleSyncDlg::OnListCtrlContextMenu( wxContextMenuEvent& event )
 {
     wxMenu *menu = new wxMenu;
-    menu->Append(ID_MENUITEM_SYNC_SELECTED, _T("&Sync Selected Entry"));
-    menu->Append(ID_MENUITEM,_T("&Edit Selected Entry"));
-    menu->Append(ID_MENUITEM_COMPARE_FOLDERS, _T("&Compare Folders of Selected Entry"));
+    menu->Append(ID_MENUITEM_SYNC_SELECTED, _("&Sync Selected Entry"));
+    menu->Append(ID_MENUITEM,_("&Edit Selected Entry"));
+    menu->Append(ID_MENUITEM_COMPARE_FOLDERS, _("&Compare Folders of Selected Entry"));
     menu->AppendSeparator();
-    menu->Append(ID_MENUITEM_START_SYNC, _T("Sync &All Entrys"));
+    menu->Append(ID_MENUITEM_START_SYNC, _("Sync &All Entrys"));
     PopupMenu(menu);
 }
 
