@@ -414,8 +414,8 @@ void SimpleSyncDlg::OnToolAddClick( wxCommandEvent& event )
         Param.time.SetHour(entry.m_Hour->GetValue());
         Param.time.SetMinute(entry.m_Minute->GetValue());
         Param.HiddenFiles = entry.m_HiddenFiles->GetValue();
-        Param.lastSynced.SetHour(0);
-        Param.lastSynced.SetMinute(0);
+        Param.lastSynced.SetHour( wxDateTime::Now().GetHour() - Param.time.GetHour() );
+        Param.lastSynced.SetMinute(wxDateTime::Now().GetMinute() - Param.time.GetMinute());
         Param.filter_mode = entry.Filtermode;
         Param.Filters = entry.m_FilterString->GetValue();
         Param.noTimeCheck = entry.m_NoTimeCheck->GetValue();

@@ -913,9 +913,11 @@ void CFolderSyncer::Notify()
                 }
                 else if( SyncList[i].SyncAuto == 2) {
                     //TODO ( init lastchek with HOUR = 0 MINUTE = 0 )
-                    if( ((SyncList[i].time.GetHour() * 60) + SyncList[i].time.GetMinute()) >=
-                        ((SyncList[i].lastSynced.GetHour() - now.GetHour()) * 60 + SyncList[i].lastSynced.GetMinute() - now.GetMinute())) {
+                    if( ((SyncList[i].time.GetHour() * 60) + SyncList[i].time.GetMinute()) <=
+                        ((now.GetHour() - SyncList[i].lastSynced.GetHour()) * 60 + (now.GetMinute() - SyncList[i].lastSynced.GetMinute()))) {
                             wxLogMessage(_("Starting AutoSync(Mode 2 TimeSpan)"));
+                            wxLogMessage(wxString::Format(L"%i",(SyncList[i].time.GetHour() * 60 + SyncList[i].time.GetMinute())));
+                            wxLogMessage(wxString::Format(L"%i",(SyncList[i].lastSynced.GetHour() - now.GetHour()) * 60 +(SyncList[i].lastSynced.GetMinute() - now.GetMinute())));
                             SyncEntry(i);
                             SyncList[i].lastSynced = now;
                     }
@@ -945,6 +947,8 @@ bool CFolderSyncer::OpenProfile(wxString file)
             InP.SyncAuto = In.GetEntryNumber(L"AUTO_SYNC");
             InP.time = In.GetEntryDate(L"TIME");
             //InP.lastchecked =  In.GetEntryDate(L"LASTCHECKED");
+            InP.lastSynced.SetHour(wxDateTime::Now().GetHour() - InP.time.GetHour());
+            InP.lastSynced.SetMinute(wxDateTime::Now().GetMinute() - InP.time.GetMinute());
             InP.HiddenFiles =  In.GetEntryBoolean(L"SYNC_HIDDENFILES");
             InP.filter_mode =  In.GetEntryNumber(L"FILTERMODE");
             InP.Filters =  In.GetEntryValue(L"FILTER");
