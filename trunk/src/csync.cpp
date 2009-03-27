@@ -916,8 +916,8 @@ void CFolderSyncer::Notify()
                     if( ((SyncList[i].time.GetHour() * 60) + SyncList[i].time.GetMinute()) <=
                         ((now.GetHour() - SyncList[i].lastSynced.GetHour()) * 60 + (now.GetMinute() - SyncList[i].lastSynced.GetMinute()))) {
                             wxLogMessage(_("Starting AutoSync(Mode 2 TimeSpan)"));
-                            wxLogMessage(wxString::Format(L"%i",(SyncList[i].time.GetHour() * 60 + SyncList[i].time.GetMinute())));
-                            wxLogMessage(wxString::Format(L"%i",(SyncList[i].lastSynced.GetHour() - now.GetHour()) * 60 +(SyncList[i].lastSynced.GetMinute() - now.GetMinute())));
+                            //wxLogMessage(wxString::Format(L"%i",(SyncList[i].time.GetHour() * 60 + SyncList[i].time.GetMinute())));
+                            //wxLogMessage(wxString::Format(L"%i",(SyncList[i].lastSynced.GetHour() - now.GetHour()) * 60 +(SyncList[i].lastSynced.GetMinute() - now.GetMinute())));
                             SyncEntry(i);
                             SyncList[i].lastSynced = now;
                     }

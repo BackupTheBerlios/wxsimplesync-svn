@@ -267,6 +267,7 @@ public:
 ////@end SimpleSyncDlg member variables
 
     bool Taskbar;
+    bool Exit;
     bool ShellProfileParameter;
     wxString ShellProfilePath;
     FastSyncDlg* FsDlg;

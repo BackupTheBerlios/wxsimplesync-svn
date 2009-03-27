@@ -145,6 +145,7 @@ SimpleSyncDlg::SimpleSyncDlg( wxWindow* parent, wxWindowID id, wxString ShellPro
         ShellProfileParameter = true;
     }
     Taskbar = true;
+    Exit = false;
     Init();
     Create( parent, id, caption, pos, size, style );
 }
@@ -591,7 +592,7 @@ void SimpleSyncDlg::OnMenuitemSettingsClick( wxCommandEvent& event )
 
 void SimpleSyncDlg::OnCloseWindow( wxCloseEvent& event )
 {
-    if( Sync->Settings.InTray == Tray::CLOSE && event.CanVeto() && Taskbar )
+    if( Sync->Settings.InTray == Tray::CLOSE && event.CanVeto() && Taskbar && !Exit)
     {
         event.Veto(true);
         Tray->MinimizeInTaskBar();
@@ -748,7 +749,8 @@ void SimpleSyncDlg::OnMenuitemSaveProfileAsClick( wxCommandEvent& event )
 
 void SimpleSyncDlg::OnMenuitemExitClick( wxCommandEvent& event )
 {
-    Taskbar = false;
+    //Taskbar = false;
+    Exit = true;
     Close();
 }
 
