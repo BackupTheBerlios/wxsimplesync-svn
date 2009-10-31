@@ -193,7 +193,7 @@ void SimpleSyncDlg::Init()
     logger = new CLogging(APP_LOCATION + wxT("log.txt"));
 	Sync = new CFolderSyncer(logger,this);
 	wxLog::SetActiveTarget(logger);
-	Tray = new COwnTaskBar();
+	Tray = new COwnTaskBar(APP_LOCATION);
 	Tray->SetWindow(this);
 	second = 0;
 	if(!Sync->OpenSettings(APP_LOCATION + wxT("wxSimpleSyncSettings.xml"))) {

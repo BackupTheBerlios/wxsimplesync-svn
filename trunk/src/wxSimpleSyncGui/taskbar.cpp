@@ -51,14 +51,14 @@ wxMenu *COwnTaskBar::CreatePopupMenu()
     // Try creating menus different ways
     // TODO: Probably try calling SetBitmap with some XPMs here
     wxMenu *menu = new wxMenu;
-    menu->Append(PU_RESTORE, _T("&Restore wxSS"));
+    menu->Append(PU_RESTORE, _("&Restore wxSS"));
 
     submenu = new wxMenu;
-    menu->Append(PU_SYNCMENU, _T("Sync Entry"), submenu);
+    menu->Append(PU_SYNCMENU, _("Sync Entry"), submenu);
 
 #ifndef __WXMAC_OSX__ /*Mac has built-in quit menu*/
     menu->AppendSeparator();
-    menu->Append(PU_EXIT,    _T("E&xit"));
+    menu->Append(PU_EXIT,    _("E&xit"));
 #endif
     return menu;
 }
@@ -72,7 +72,7 @@ void  COwnTaskBar::OnTaskIconDClick(wxTaskBarIconEvent &event) {
 
 void COwnTaskBar::MinimizeInTaskBar()
 {
-    wxIcon icon(_T("recources/mainicon.png"), wxBITMAP_TYPE_PNG);
+    wxIcon icon(APP_LOCATION + _T("recources/mainicon.png"), wxBITMAP_TYPE_PNG);
     SetIcon(icon,wxT("wxSimpleSync"));
     inTaskBar = true;
     MainWindow->Show(!inTaskBar);

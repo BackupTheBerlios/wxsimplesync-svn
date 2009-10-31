@@ -277,6 +277,11 @@ public:
 class COwnTaskBar : wxTaskBarIcon
 {
 public:
+    COwnTaskBar(wxString APP_LOCATION_PATH) {
+        inTaskBar = false;
+        APP_LOCATION = APP_LOCATION_PATH;
+    };
+
     COwnTaskBar() {
         inTaskBar = false;
     };
@@ -302,6 +307,7 @@ public:
 
 
 private:
+    wxString APP_LOCATION;
     bool inTaskBar;
     SimpleSyncDlg* MainWindow;
 
