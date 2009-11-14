@@ -54,13 +54,18 @@ clean:
 	rm build/*
 
 install:all
-	mkdir /usr/local/share/wxsimplesync -p
-	cp ./build/wxSimpleSync /usr/local/share/wxsimplesync
-	cp ./build/recources /usr/local/share/wxsimplesync -r
-	ln -s /usr/local/share/wxsimplesync/wxSimpleSync /usr/bin/wxsimplesync
+	mkdir /usr/share/wxsimplesync -p
+	cp ./build/wxSimpleSync /usr/share/wxsimplesync
+	cp ./build/recources /usr/share/wxsimplesync -r
+	ln -s /usr/share/wxsimplesync/wxSimpleSync /usr/bin/wxsimplesync
+	touch /usr/share/wxsimplesync/wxSimpleSyncSettings.xml
+	touch /usr/share/wxsimplesync/log.txt
+	chmod 777 /usr/share/wxsimplesync/log.txt
+	chmod 777 /usr/share/wxsimplesync/wxSimpleSyncSettings.xml
+	chmod +w /usr/share/wxsimplesync	
 
 uninstall:
-	rm /usr/local/share/wxsimplesync -r
+	rm /usr/share/wxsimplesync -r
 	unlink /usr/bin/wxsimplesync
 	
 	
