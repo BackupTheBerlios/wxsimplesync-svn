@@ -161,7 +161,7 @@ bool SimpleSyncDlg::Create( wxWindow* parent, wxWindowID id, const wxString& cap
     wxFrame::Create( parent, id, caption, pos, size, style );
 
     CreateControls();
-    SetIcon(GetIconResource(wxT("recources/main.ico")));
+    SetIcon(GetIconResource(_T("recources/main.ico")));
     Centre();
 ////@end SimpleSyncDlg creation
      return true;
