@@ -297,7 +297,7 @@ first = true;
     wxSize rect = m_ListCtrl->GetClientSize();
     m_ListCtrl->InsertColumn(0,_("Nr"),30);
     m_ListCtrl->InsertColumn(1,_("Dir 1"),rect.GetWidth()/2-60);
-    m_ListCtrl->InsertColumn(2,_("Sync Direction"),90);
+    m_ListCtrl->InsertColumn(2,_("Direction"),90);
     m_ListCtrl->InsertColumn(3,_("Dir 2"),rect.GetWidth()-rect.GetWidth()/2-60);
 
     if(Sync->IsAutoSync()) {
@@ -348,10 +348,8 @@ void SimpleSyncDlg::OnIconize( wxIconizeEvent& event )
     if( IsIconized() && Sync->Settings.InTray == Tray::MINIMIZE) {
         Tray->MinimizeInTaskBar();
     }
-////@begin wxEVT_ICONIZE event handler for ID_SIMPLESYNCDLG in SimpleSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_ICONIZE event handler for ID_SIMPLESYNCDLG in SimpleSyncDlg.
+    else
+        event.Skip();
 }
 
 

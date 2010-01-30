@@ -45,6 +45,7 @@
 #define ID_BUTTON_RIGHT 10058
 #define ID_BUTTON_LEFT 10062
 #define ID_BUTTON_BOTH 10063
+#define ID_BUTTON_COMPARE_FOLDERS 10002
 #define ID_TEXTCTRL2_DIR2 10064
 #define ID_CHECKBOX 10000
 #define ID_CHECKBOX1 10001
@@ -107,6 +108,9 @@ public:
 
     /// wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_BOTH
     void OnButtonBothClick( wxCommandEvent& event );
+
+    /// wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_COMPARE_FOLDERS
+    void OnButtonCompareFoldersClick( wxCommandEvent& event );
 
 ////@end FastSyncDlg event handler declarations
 

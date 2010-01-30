@@ -179,7 +179,7 @@ void SyncEntryDlg::CreateControls()
     wxStaticText* itemStaticText4 = new wxStaticText( itemDialog1, wxID_STATIC, _("Dir 1:"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer3->Add(itemStaticText4, 0, wxALIGN_CENTER_VERTICAL|wxALL, 7);
 
-    m_Dir1 = new wxTextCtrl( itemDialog1, ID_TEXTCTRL_DIR1, _T(""), wxDefaultPosition, wxDefaultSize, 0 );
+    m_Dir1 = new wxTextCtrl( itemDialog1, ID_TEXTCTRL_DIR1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer3->Add(m_Dir1, 2, wxGROW|wxALL, 7);
 
     wxBitmapButton* itemBitmapButton6 = new wxBitmapButton( itemDialog1, ID_BITMAPBUTTON_CHOOSE_DIR1, itemDialog1->GetBitmapResource(wxT("recources/FolderOpen.png")), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -191,7 +191,7 @@ void SyncEntryDlg::CreateControls()
     wxStaticText* itemStaticText8 = new wxStaticText( itemDialog1, wxID_STATIC, _("Dir 2:"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer7->Add(itemStaticText8, 0, wxALIGN_CENTER_VERTICAL|wxALL, 7);
 
-    m_Dir2 = new wxTextCtrl( itemDialog1, ID_TEXTCTRL_DIR2, _T(""), wxDefaultPosition, wxDefaultSize, 0 );
+    m_Dir2 = new wxTextCtrl( itemDialog1, ID_TEXTCTRL_DIR2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer7->Add(m_Dir2, 2, wxGROW|wxALL, 7);
 
     wxBitmapButton* itemBitmapButton10 = new wxBitmapButton( itemDialog1, ID_BITMAPBUTTON_CHOOSE_DIR2, itemDialog1->GetBitmapResource(wxT("recources/FolderOpen.png")), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -250,7 +250,7 @@ void SyncEntryDlg::CreateControls()
     wxStaticText* itemStaticText24 = new wxStaticText( itemDialog1, wxID_STATIC, _("following filter words (seperated with ; semicolon  )"), wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticBoxSizer19->Add(itemStaticText24, 0, wxALIGN_LEFT|wxALL, 5);
 
-    m_FilterString = new wxTextCtrl( itemDialog1, ID_TEXTCTRL3, _T(""), wxDefaultPosition, wxDefaultSize, 0 );
+    m_FilterString = new wxTextCtrl( itemDialog1, ID_TEXTCTRL3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
     itemStaticBoxSizer19->Add(m_FilterString, 0, wxGROW|wxALL, 0);
 
     wxStaticBox* itemStaticBoxSizer26Static = new wxStaticBox(itemDialog1, wxID_ANY, _("Automatic Syncing Shedule"));
@@ -366,7 +366,7 @@ wxBitmap SyncEntryDlg::GetBitmapResource( const wxString& name )
     wxUnusedVar(name);
     if (name == _T("recources/FolderOpen.png"))
     {
-        wxBitmap bitmap(APP_LOCATION + _T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(_T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     return wxNullBitmap;

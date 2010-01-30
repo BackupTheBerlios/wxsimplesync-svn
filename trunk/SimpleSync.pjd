@@ -7,7 +7,7 @@
     <string name="author">""</string>
     <string name="description">""</string>
     <string name="xrc_filename">"ssres"</string>
-    <bool name="convert_images_to_xpm">0</bool>
+    <long name="image_mode">0</long>
     <bool name="inline_images">0</bool>
     <bool name="generate_cpp_for_xrc">0</bool>
     <long name="working_mode">1</long>
@@ -21,8 +21,10 @@
     <bool name="use_two_step_construction">0</bool>
     <bool name="use_enums">0</bool>
     <bool name="generate_for_xrced">0</bool>
+    <bool name="generate_virtual_eventhandlers">0</bool>
     <string name="current_platform">"__WXMSW__"</string>
     <string name="target_wx_version">"2.8.3"</string>
+    <string name="app_kind">"Standard"</string>
     <string name="cpp_header_comment">"/////////////////////////////////////////////////////////////////////////////
 // Name:        %HEADER-FILENAME%
 // Purpose:     
@@ -146,41 +148,53 @@
         <string name="Modularity">"Modular"</string>
         <string name="GUI mode">"GUI"</string>
         <string name="Toolkit">"wxMSW"</string>
+        <string name="Processor type">"Default"</string>
         <string name="Runtime linking">"Dynamic"</string>
         <string name="Use exceptions">"Yes"</string>
         <string name="Use ODBC">"No"</string>
+        <string name="Use XRC">"Yes"</string>
         <string name="Use OpenGL">"No"</string>
-        <string name="wxWidgets version">"%WXVERSION%"</string>
+        <string name="Use wxMediaCtrl">"No"</string>
+        <string name="Use wxRichTextCtrl">"Yes"</string>
+        <string name="Use wxHTML">"Yes"</string>
+        <string name="Use wxPropertyGrid">"Yes"</string>
+        <string name="Use wxAUI">"Yes"</string>
+        <string name="Use wxSTC">"Yes"</string>
+        <string name="Use wxRibbonControl">"Yes"</string>
         <string name="Executable name">"%EXECUTABLE%"</string>
         <string name="Program arguments">""</string>
         <string name="Working path">"%AUTO%"</string>
         <string name="Output path">"%AUTO%"</string>
         <string name="Objects path">"%AUTO%"</string>
-        <string name="Compiler location">"%AUTO%"</string>
-        <string name="wxWidgets location">"%AUTO%"</string>
-        <string name="C++ command">"%AUTO%"</string>
-        <string name="C command">"%AUTO%"</string>
-        <string name="Resource compiler">"%AUTO%"</string>
-        <string name="Make command">"%AUTO%"</string>
         <string name="Project makefile">"%AUTO%"</string>
+        <string name="wxWidgets version">"%WXVERSION%"</string>
         <string name="wxWidgets makefile">"%AUTO%"</string>
+        <string name="wxWidgets location">"%AUTO%"</string>
+        <string name="wxWidgets build path">"%AUTO%"</string>
+        <string name="wxWidgets build command">"%AUTO%"</string>
+        <string name="wxWidgets clean command">"%AUTO%"</string>
+        <string name="CFG">""</string>
+        <string name="Compiler location">"%AUTO%"</string>
         <string name="Compiler bin path">"%AUTO%"</string>
         <string name="Compiler include path">"%AUTO%"</string>
         <string name="Compiler lib path">"%AUTO%"</string>
+        <string name="PATH variable">"%AUTO%"</string>
+        <string name="C++ command">"%AUTO%"</string>
+        <string name="C command">"%AUTO%"</string>
+        <string name="Linker command">"%AUTO%"</string>
+        <string name="Resource compiler">"%AUTO%"</string>
+        <string name="Make command">"%AUTO%"</string>
         <string name="Preprocessor flags">"%AUTO%"</string>
         <string name="Optimizations">"%AUTO%"</string>
         <string name="Warnings">"%AUTO%"</string>
         <string name="Debug flags">"%AUTO%"</string>
+        <string name="Extra compile flags">"%AUTO%"</string>
         <string name="Libraries">"%AUTO%"</string>
         <string name="Library path">"%AUTO%"</string>
         <string name="Linker flags">"%AUTO%"</string>
         <string name="Include path">"%AUTO%"</string>
         <string name="Resource flags">"%AUTO%"</string>
         <string name="Resource path">"%AUTO%"</string>
-        <string name="wxWidgets build path">"%AUTO%"</string>
-        <string name="wxWidgets build command">"%AUTO%"</string>
-        <string name="wxWidgets clean command">"%AUTO%"</string>
-        <string name="PATH variable">"%AUTO%"</string>
         <bool name="Suppress source rules">0</bool>
         <bool name="Enable makefile generation">1</bool>
         <document>
@@ -202,47 +216,59 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Use wx-config">"Yes"</string>
           <string name="Use installed wxWidgets">"No"</string>
-          <string name="Enable universal binaries">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build/%AUTO%"</string>
           <string name="Objects path">"build/%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
           <string name="Command for wx-config">"%AUTO%"</string>
+          <string name="Libiconv path">"%AUTO%"</string>
           <string name="SDK path">"%AUTO%"</string>
           <string name="Minimum OS version">"%AUTO%"</string>
           <string name="Info.plist location">"%AUTO%"</string>
@@ -258,7 +284,7 @@
           <long name="title-mode">0</long>
           <long name="locked">0</long>
           <string name="template-name">"VC++"</string>
-          <bool name="dirty">0</bool>
+          <bool name="dirty">1</bool>
           <long name="makefile-last-written">4286447616</long>
           <string name="Compiler name">"VC++"</string>
           <string name="Build mode">"Release"</string>
@@ -267,44 +293,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Static"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"wxSimpleSync.exe"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build\VCRelease"</string>
           <string name="Objects path">"build\VCRelease"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
           <string name="Ignore libraries">"%AUTO%"</string>
         </document>
         <document>
@@ -326,44 +363,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"build\%AUTO%"</string>
           <string name="Output path">"build\%AUTO%"</string>
           <string name="Objects path">"%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
         </document>
         <document>
           <string name="title">"MinGW Release"</string>
@@ -384,44 +432,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build\%AUTO%"</string>
           <string name="Objects path">"build\%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
         </document>
         <document>
           <string name="title">"MinGW Unicode Debug"</string>
@@ -442,44 +501,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build\%AUTO%"</string>
           <string name="Objects path">"build\%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
         </document>
         <document>
           <string name="title">"MinGW Unicode Release"</string>
@@ -500,44 +570,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build\MinGWUnicodeRelease"</string>
           <string name="Objects path">"build\MinGWUnicodeRelease"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
         </document>
         <document>
           <string name="title">"GCC Release Linux"</string>
@@ -558,47 +639,59 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxGTK+2"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Dynamic"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Use wx-config">"Yes"</string>
           <string name="Use installed wxWidgets">"No"</string>
-          <string name="Enable universal binaries">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build/%AUTO%"</string>
           <string name="Objects path">"build/%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
           <string name="Command for wx-config">"%AUTO%"</string>
+          <string name="Libiconv path">"%AUTO%"</string>
           <string name="SDK path">"%AUTO%"</string>
           <string name="Minimum OS version">"%AUTO%"</string>
           <string name="Info.plist location">"%AUTO%"</string>
@@ -623,47 +716,59 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxGTK+2"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Static"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Use wx-config">"Yes"</string>
           <string name="Use installed wxWidgets">"No"</string>
-          <string name="Enable universal binaries">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"build/%AUTO%"</string>
           <string name="Objects path">"build/%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
           <string name="Command for wx-config">"%AUTO%"</string>
+          <string name="Libiconv path">"%AUTO%"</string>
           <string name="SDK path">"%AUTO%"</string>
           <string name="Minimum OS version">"%AUTO%"</string>
           <string name="Info.plist location">"%AUTO%"</string>
@@ -679,7 +784,7 @@
           <long name="title-mode">0</long>
           <long name="locked">0</long>
           <string name="template-name">"VC++"</string>
-          <bool name="dirty">0</bool>
+          <bool name="dirty">1</bool>
           <long name="makefile-last-written">4286447616</long>
           <string name="Compiler name">"VC++"</string>
           <string name="Build mode">"Debug"</string>
@@ -688,44 +793,55 @@
           <string name="Modularity">"Modular"</string>
           <string name="GUI mode">"GUI"</string>
           <string name="Toolkit">"wxMSW"</string>
+          <string name="Processor type">"Default"</string>
           <string name="Runtime linking">"Static"</string>
           <string name="Use exceptions">"Yes"</string>
           <string name="Use ODBC">"No"</string>
+          <string name="Use XRC">"Yes"</string>
           <string name="Use OpenGL">"No"</string>
-          <string name="wxWidgets version">"%WXVERSION%"</string>
+          <string name="Use wxMediaCtrl">"No"</string>
+          <string name="Use wxRichTextCtrl">"Yes"</string>
+          <string name="Use wxHTML">"Yes"</string>
+          <string name="Use wxPropertyGrid">"Yes"</string>
+          <string name="Use wxAUI">"Yes"</string>
+          <string name="Use wxSTC">"Yes"</string>
+          <string name="Use wxRibbonControl">"Yes"</string>
           <string name="Executable name">"%EXECUTABLE%"</string>
           <string name="Program arguments">""</string>
           <string name="Working path">"%AUTO%"</string>
           <string name="Output path">"%AUTO%"</string>
           <string name="Objects path">"%AUTO%"</string>
-          <string name="Compiler location">"%AUTO%"</string>
-          <string name="wxWidgets location">"%AUTO%"</string>
-          <string name="C++ command">"%AUTO%"</string>
-          <string name="C command">"%AUTO%"</string>
-          <string name="Resource compiler">"%AUTO%"</string>
-          <string name="Make command">"%AUTO%"</string>
           <string name="Project makefile">"%AUTO%"</string>
+          <string name="wxWidgets version">"%WXVERSION%"</string>
           <string name="wxWidgets makefile">"%AUTO%"</string>
+          <string name="wxWidgets location">"%AUTO%"</string>
+          <string name="wxWidgets build path">"%AUTO%"</string>
+          <string name="wxWidgets build command">"%AUTO%"</string>
+          <string name="wxWidgets clean command">"%AUTO%"</string>
+          <string name="CFG">""</string>
+          <string name="Compiler location">"%AUTO%"</string>
           <string name="Compiler bin path">"%AUTO%"</string>
           <string name="Compiler include path">"%AUTO%"</string>
           <string name="Compiler lib path">"%AUTO%"</string>
+          <string name="PATH variable">"%AUTO%"</string>
+          <string name="C++ command">"%AUTO%"</string>
+          <string name="C command">"%AUTO%"</string>
+          <string name="Linker command">"%AUTO%"</string>
+          <string name="Resource compiler">"%AUTO%"</string>
+          <string name="Make command">"%AUTO%"</string>
           <string name="Preprocessor flags">"%AUTO%"</string>
           <string name="Optimizations">"%AUTO%"</string>
           <string name="Warnings">"%AUTO%"</string>
           <string name="Debug flags">"%AUTO%"</string>
+          <string name="Extra compile flags">"%AUTO%"</string>
           <string name="Libraries">"%AUTO%"</string>
           <string name="Library path">"%AUTO%"</string>
           <string name="Linker flags">"%AUTO%"</string>
           <string name="Include path">"%AUTO%"</string>
           <string name="Resource flags">"%AUTO%"</string>
           <string name="Resource path">"%AUTO%"</string>
-          <string name="wxWidgets build path">"%AUTO%"</string>
-          <string name="wxWidgets build command">"%AUTO%"</string>
-          <string name="wxWidgets clean command">"%AUTO%"</string>
-          <string name="PATH variable">"%AUTO%"</string>
           <bool name="Suppress source rules">0</bool>
           <bool name="Enable makefile generation">1</bool>
-          <string name="CFG">""</string>
           <string name="Ignore libraries">"%AUTO%"</string>
         </document>
       </document>
@@ -767,6 +883,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="event-handler-0">"wxEVT_CLOSE_WINDOW|OnCloseWindow|NONE||SimpleSyncDlg"</string>
@@ -814,6 +931,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -882,6 +1000,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -904,6 +1023,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -939,6 +1059,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -961,6 +1082,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -983,6 +1105,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1018,6 +1141,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1053,6 +1177,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
             </document>
@@ -1091,6 +1216,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1113,6 +1239,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1148,6 +1275,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1170,6 +1298,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1192,6 +1321,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1227,6 +1357,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1249,6 +1380,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1284,6 +1416,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
               <document>
@@ -1306,6 +1439,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
             </document>
@@ -1344,6 +1478,7 @@
                 <bool name="proxy-Enabled">1</bool>
                 <string name="proxy-Help text">""</string>
                 <string name="proxy-Bitmap">""</string>
+                <string name="proxy-Bitmap unchecked">""</string>
                 <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
               </document>
             </document>
@@ -1384,6 +1519,7 @@
             <bool name="proxy-wxNO_BORDER">1</bool>
             <bool name="proxy-wxSIMPLE_BORDER">0</bool>
             <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+            <bool name="proxy-wxBORDER_THEME">0</bool>
             <bool name="proxy-wxSUNKEN_BORDER">0</bool>
             <bool name="proxy-wxRAISED_BORDER">0</bool>
             <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -1465,6 +1601,7 @@
             <bool name="proxy-wxNO_BORDER">0</bool>
             <bool name="proxy-wxSIMPLE_BORDER">0</bool>
             <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+            <bool name="proxy-wxBORDER_THEME">0</bool>
             <bool name="proxy-wxSUNKEN_BORDER">0</bool>
             <bool name="proxy-wxRAISED_BORDER">0</bool>
             <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -1706,6 +1843,7 @@
             <bool name="proxy-wxLC_USER_TEXT">0</bool>
             <bool name="proxy-wxLC_EDIT_LABELS">0</bool>
             <bool name="proxy-wxLC_NO_HEADER">0</bool>
+            <bool name="proxy-wxLC_NO_SORT_HEADER">0</bool>
             <bool name="proxy-wxLC_SINGLE_SEL">0</bool>
             <bool name="proxy-wxLC_SORT_ASCENDING">0</bool>
             <bool name="proxy-wxLC_SORT_DESCENDING">0</bool>
@@ -1714,6 +1852,7 @@
             <bool name="proxy-wxNO_BORDER">0</bool>
             <bool name="proxy-wxSIMPLE_BORDER">0</bool>
             <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+            <bool name="proxy-wxBORDER_THEME">0</bool>
             <bool name="proxy-wxSUNKEN_BORDER">0</bool>
             <bool name="proxy-wxRAISED_BORDER">0</bool>
             <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -1758,6 +1897,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Class">"SimpleSyncApp"</string>
@@ -1777,13 +1917,13 @@
           <long name="owns-file">1</long>
           <long name="title-mode">0</long>
           <long name="locked">0</long>
-          <string name="created">"3/9/2007"</string>
           <string name="proxy-type">"wbDialogProxy"</string>
           <long name="base-id">10000</long>
           <bool name="use-id-prefix">0</bool>
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Id name">"ID_SNYCENTRYDLG"</string>
@@ -1826,6 +1966,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -1858,14 +1999,6 @@
             <string name="proxy-type">"wbBoxSizerProxy"</string>
             <string name="proxy-Orientation">"Vertical"</string>
             <string name="proxy-Member variable name">""</string>
-            <string name="proxy-AlignH">"Centre"</string>
-            <string name="proxy-AlignV">"Centre"</string>
-            <long name="proxy-Stretch factor">0</long>
-            <long name="proxy-Border">5</long>
-            <bool name="proxy-wxLEFT">1</bool>
-            <bool name="proxy-wxRIGHT">1</bool>
-            <bool name="proxy-wxTOP">1</bool>
-            <bool name="proxy-wxBOTTOM">1</bool>
             <bool name="proxy-wxSHAPED">0</bool>
             <bool name="proxy-wxADJUST_MINSIZE">0</bool>
             <bool name="proxy-wxFIXED_MINSIZE">0</bool>
@@ -1879,7 +2012,6 @@
               <long name="owns-file">1</long>
               <long name="title-mode">0</long>
               <long name="locked">0</long>
-              <string name="created">"3/9/2007"</string>
               <string name="proxy-type">"wbBoxSizerProxy"</string>
               <string name="proxy-Orientation">"Horizontal"</string>
               <string name="proxy-Member variable name">""</string>
@@ -1904,7 +2036,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbStaticTextProxy"</string>
                 <string name="proxy-Id name">"wxID_STATIC"</string>
                 <long name="proxy-Id value">5105</long>
@@ -1940,6 +2071,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -1974,7 +2106,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbTextCtrlProxy"</string>
                 <string name="proxy-Id name">"ID_TEXTCTRL_DIR1"</string>
                 <long name="proxy-Id value">10023</long>
@@ -2022,6 +2153,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -2056,7 +2188,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbBitmapButtonProxy"</string>
                 <string name="event-handler-0">"wxEVT_COMMAND_BUTTON_CLICKED|OnBitmapbuttonChooseDir1Click|NONE||SyncEntryDlg"</string>
                 <string name="proxy-Id name">"ID_BITMAPBUTTON_CHOOSE_DIR1"</string>
@@ -2128,7 +2259,6 @@
               <long name="owns-file">1</long>
               <long name="title-mode">0</long>
               <long name="locked">0</long>
-              <string name="created">"3/9/2007"</string>
               <string name="proxy-type">"wbBoxSizerProxy"</string>
               <string name="proxy-Orientation">"Horizontal"</string>
               <string name="proxy-Member variable name">""</string>
@@ -2153,7 +2283,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbStaticTextProxy"</string>
                 <string name="proxy-Id name">"wxID_STATIC"</string>
                 <long name="proxy-Id value">5105</long>
@@ -2189,6 +2318,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -2223,7 +2353,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbTextCtrlProxy"</string>
                 <string name="proxy-Id name">"ID_TEXTCTRL_DIR2"</string>
                 <long name="proxy-Id value">10025</long>
@@ -2271,6 +2400,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -2305,7 +2435,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbBitmapButtonProxy"</string>
                 <string name="event-handler-0">"wxEVT_COMMAND_BUTTON_CLICKED|OnBitmapbuttonChooseDir2Click|NONE||SyncEntryDlg"</string>
                 <string name="proxy-Id name">"ID_BITMAPBUTTON_CHOOSE_DIR2"</string>
@@ -2377,7 +2506,6 @@
               <long name="owns-file">1</long>
               <long name="title-mode">0</long>
               <long name="locked">0</long>
-              <string name="created">"3/9/2007"</string>
               <string name="proxy-type">"wbStaticBoxSizerProxy"</string>
               <string name="proxy-Id name">"wxID_ANY"</string>
               <long name="proxy-Id value">-1</long>
@@ -2411,7 +2539,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbBoxSizerProxy"</string>
                 <string name="proxy-Orientation">"Horizontal"</string>
                 <string name="proxy-Member variable name">""</string>
@@ -2436,7 +2563,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"3/9/2007"</string>
                   <string name="proxy-type">"wbRadioButtonProxy"</string>
                   <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonBothdirectionSelected|NONE||SyncEntryDlg"</string>
                   <string name="proxy-Id name">"ID_RADIOBUTTON_BOTHDIRECTION"</string>
@@ -2499,7 +2625,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"3/9/2007"</string>
                   <string name="proxy-type">"wbRadioButtonProxy"</string>
                   <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonRightdirectionSelected|NONE||SyncEntryDlg"</string>
                   <string name="proxy-Id name">"ID_RADIOBUTTON_RIGHTDIRECTION"</string>
@@ -2562,7 +2687,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"3/9/2007"</string>
                   <string name="proxy-type">"wbRadioButtonProxy"</string>
                   <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonLeftdirectionSelected|NONE||SyncEntryDlg"</string>
                   <string name="proxy-Id name">"ID_RADIOBUTTON_LEFTDIRECTION"</string>
@@ -2626,7 +2750,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbCheckBoxProxy"</string>
                 <string name="proxy-Id name">"ID_CHECKBOX7"</string>
                 <long name="proxy-Id value">10041</long>
@@ -2690,7 +2813,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbCheckBoxProxy"</string>
                 <string name="proxy-Id name">"ID_CHECKBOX_HIDDENFILES"</string>
                 <long name="proxy-Id value">10042</long>
@@ -2754,7 +2876,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbCheckBoxProxy"</string>
                 <string name="proxy-Id name">"ID_CHECKBOX9"</string>
                 <long name="proxy-Id value">10043</long>
@@ -2818,7 +2939,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"3/9/2007"</string>
                 <string name="proxy-type">"wbStaticBoxSizerProxy"</string>
                 <string name="proxy-Id name">"wxID_ANY"</string>
                 <long name="proxy-Id value">-1</long>
@@ -2852,7 +2972,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"4/9/2007"</string>
                   <string name="proxy-type">"wbBoxSizerProxy"</string>
                   <string name="proxy-Orientation">"Horizontal"</string>
                   <string name="proxy-Member variable name">""</string>
@@ -2877,7 +2996,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonFilterOffSelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_FILTER_OFF"</string>
@@ -2940,7 +3058,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonFilterOnSelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_FILTER_ON"</string>
@@ -3003,7 +3120,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonFilterOnlySelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_FILTER_ONLY"</string>
@@ -3067,7 +3183,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"4/9/2007"</string>
                   <string name="proxy-type">"wbStaticTextProxy"</string>
                   <string name="proxy-Id name">"wxID_STATIC"</string>
                   <long name="proxy-Id value">5105</long>
@@ -3103,6 +3218,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3137,7 +3253,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"4/9/2007"</string>
                   <string name="proxy-type">"wbTextCtrlProxy"</string>
                   <string name="proxy-Id name">"ID_TEXTCTRL3"</string>
                   <long name="proxy-Id value">10045</long>
@@ -3185,6 +3300,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3220,7 +3336,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"4/9/2007"</string>
                 <string name="proxy-type">"wbStaticBoxSizerProxy"</string>
                 <string name="proxy-Id name">"wxID_ANY"</string>
                 <long name="proxy-Id value">-1</long>
@@ -3254,7 +3369,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"4/9/2007"</string>
                   <string name="proxy-type">"wbBoxSizerProxy"</string>
                   <string name="proxy-Orientation">"Horizontal"</string>
                   <string name="proxy-Member variable name">""</string>
@@ -3279,7 +3393,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonAutoOffSelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_AUTO_OFF"</string>
@@ -3342,7 +3455,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonAutoExactSelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_AUTO_EXACT"</string>
@@ -3405,7 +3517,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbRadioButtonProxy"</string>
                     <string name="event-handler-0">"wxEVT_COMMAND_RADIOBUTTON_SELECTED|OnRadiobuttonAutoIntervallSelected|NONE||SyncEntryDlg"</string>
                     <string name="proxy-Id name">"ID_RADIOBUTTON_AUTO_INTERVALL"</string>
@@ -3469,7 +3580,6 @@
                   <long name="owns-file">1</long>
                   <long name="title-mode">0</long>
                   <long name="locked">0</long>
-                  <string name="created">"4/9/2007"</string>
                   <string name="proxy-type">"wbBoxSizerProxy"</string>
                   <string name="proxy-Orientation">"Horizontal"</string>
                   <string name="proxy-Member variable name">""</string>
@@ -3494,7 +3604,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbStaticTextProxy"</string>
                     <string name="proxy-Id name">"wxID_STATIC"</string>
                     <long name="proxy-Id value">5105</long>
@@ -3530,6 +3639,7 @@
                     <bool name="proxy-wxNO_BORDER">0</bool>
                     <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                     <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                    <bool name="proxy-wxBORDER_THEME">0</bool>
                     <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                     <bool name="proxy-wxRAISED_BORDER">0</bool>
                     <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3564,7 +3674,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbSpinCtrlProxy"</string>
                     <string name="proxy-Id name">"ID_SPINCTRL1"</string>
                     <long name="proxy-Id value">10051</long>
@@ -3599,6 +3708,7 @@
                     <bool name="proxy-wxNO_BORDER">0</bool>
                     <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                     <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                    <bool name="proxy-wxBORDER_THEME">0</bool>
                     <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                     <bool name="proxy-wxRAISED_BORDER">0</bool>
                     <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3633,7 +3743,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbStaticTextProxy"</string>
                     <string name="proxy-Id name">"wxID_STATIC"</string>
                     <long name="proxy-Id value">5105</long>
@@ -3669,6 +3778,7 @@
                     <bool name="proxy-wxNO_BORDER">0</bool>
                     <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                     <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                    <bool name="proxy-wxBORDER_THEME">0</bool>
                     <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                     <bool name="proxy-wxRAISED_BORDER">0</bool>
                     <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3703,7 +3813,6 @@
                     <long name="owns-file">1</long>
                     <long name="title-mode">0</long>
                     <long name="locked">0</long>
-                    <string name="created">"4/9/2007"</string>
                     <string name="proxy-type">"wbSpinCtrlProxy"</string>
                     <string name="proxy-Id name">"ID_SPINCTRL2"</string>
                     <long name="proxy-Id value">10049</long>
@@ -3738,6 +3847,7 @@
                     <bool name="proxy-wxNO_BORDER">0</bool>
                     <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                     <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                    <bool name="proxy-wxBORDER_THEME">0</bool>
                     <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                     <bool name="proxy-wxRAISED_BORDER">0</bool>
                     <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -3775,7 +3885,6 @@
               <long name="owns-file">1</long>
               <long name="title-mode">0</long>
               <long name="locked">0</long>
-              <string name="created">"30/9/2007"</string>
               <string name="proxy-type">"wbBoxSizerProxy"</string>
               <string name="proxy-Orientation">"Horizontal"</string>
               <string name="proxy-Member variable name">""</string>
@@ -3800,7 +3909,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"30/9/2007"</string>
                 <string name="proxy-type">"wbButtonProxy"</string>
                 <string name="event-handler-0">"wxEVT_COMMAND_BUTTON_CLICKED|OnOkcheckClick|NONE||SyncEntryDlg"</string>
                 <string name="proxy-Id name">"ID_OKCHECK"</string>
@@ -3867,7 +3975,6 @@
                 <long name="owns-file">1</long>
                 <long name="title-mode">0</long>
                 <long name="locked">0</long>
-                <string name="created">"30/9/2007"</string>
                 <string name="proxy-type">"wbButtonProxy"</string>
                 <string name="proxy-Id name">"wxID_CANCEL"</string>
                 <long name="proxy-Id value">5101</long>
@@ -3943,6 +4050,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Id name">"ID_SETTINGSDLG"</string>
@@ -3985,6 +4093,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -4017,14 +4126,6 @@
             <string name="proxy-type">"wbBoxSizerProxy"</string>
             <string name="proxy-Orientation">"Vertical"</string>
             <string name="proxy-Member variable name">""</string>
-            <string name="proxy-AlignH">"Centre"</string>
-            <string name="proxy-AlignV">"Centre"</string>
-            <long name="proxy-Stretch factor">0</long>
-            <long name="proxy-Border">5</long>
-            <bool name="proxy-wxLEFT">1</bool>
-            <bool name="proxy-wxRIGHT">1</bool>
-            <bool name="proxy-wxTOP">1</bool>
-            <bool name="proxy-wxBOTTOM">1</bool>
             <bool name="proxy-wxSHAPED">0</bool>
             <bool name="proxy-wxADJUST_MINSIZE">0</bool>
             <bool name="proxy-wxFIXED_MINSIZE">0</bool>
@@ -4133,6 +4234,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -4289,6 +4391,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -4509,6 +4612,7 @@
                     <bool name="proxy-wxNO_BORDER">0</bool>
                     <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                     <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                    <bool name="proxy-wxBORDER_THEME">0</bool>
                     <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                     <bool name="proxy-wxRAISED_BORDER">0</bool>
                     <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5107,6 +5211,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Id name">"ID_PROFILEDLG"</string>
@@ -5149,6 +5254,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5182,14 +5288,6 @@
             <string name="proxy-type">"wbBoxSizerProxy"</string>
             <string name="proxy-Orientation">"Vertical"</string>
             <string name="proxy-Member variable name">""</string>
-            <string name="proxy-AlignH">"Centre"</string>
-            <string name="proxy-AlignV">"Centre"</string>
-            <long name="proxy-Stretch factor">0</long>
-            <long name="proxy-Border">5</long>
-            <bool name="proxy-wxLEFT">1</bool>
-            <bool name="proxy-wxRIGHT">1</bool>
-            <bool name="proxy-wxTOP">1</bool>
-            <bool name="proxy-wxBOTTOM">1</bool>
             <bool name="proxy-wxSHAPED">0</bool>
             <bool name="proxy-wxADJUST_MINSIZE">0</bool>
             <bool name="proxy-wxFIXED_MINSIZE">0</bool>
@@ -5264,6 +5362,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5346,6 +5445,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5549,6 +5649,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Id name">"ID_FOLDERCOMPAREDLG"</string>
@@ -5591,6 +5692,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5623,14 +5725,6 @@
             <string name="proxy-type">"wbBoxSizerProxy"</string>
             <string name="proxy-Orientation">"Vertical"</string>
             <string name="proxy-Member variable name">""</string>
-            <string name="proxy-AlignH">"Centre"</string>
-            <string name="proxy-AlignV">"Centre"</string>
-            <long name="proxy-Stretch factor">0</long>
-            <long name="proxy-Border">5</long>
-            <bool name="proxy-wxLEFT">1</bool>
-            <bool name="proxy-wxRIGHT">1</bool>
-            <bool name="proxy-wxTOP">1</bool>
-            <bool name="proxy-wxBOTTOM">1</bool>
             <bool name="proxy-wxSHAPED">0</bool>
             <bool name="proxy-wxADJUST_MINSIZE">0</bool>
             <bool name="proxy-wxFIXED_MINSIZE">0</bool>
@@ -5889,6 +5983,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -5971,6 +6066,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6067,6 +6163,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6149,6 +6246,7 @@
                   <bool name="proxy-wxNO_BORDER">0</bool>
                   <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                   <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                  <bool name="proxy-wxBORDER_THEME">0</bool>
                   <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                   <bool name="proxy-wxRAISED_BORDER">0</bool>
                   <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6194,6 +6292,7 @@
           <string name="id-prefix">""</string>
           <bool name="use-id-suffix">0</bool>
           <string name="id-suffix">""</string>
+          <string name="app-kind">"Standard"</string>
           <long name="use-xrc">0</long>
           <long name="working-mode">0</long>
           <string name="proxy-Id name">"ID_FASTSYNCDLG"</string>
@@ -6236,6 +6335,7 @@
           <bool name="proxy-wxNO_BORDER">0</bool>
           <bool name="proxy-wxSIMPLE_BORDER">0</bool>
           <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+          <bool name="proxy-wxBORDER_THEME">0</bool>
           <bool name="proxy-wxSUNKEN_BORDER">0</bool>
           <bool name="proxy-wxRAISED_BORDER">0</bool>
           <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6268,14 +6368,6 @@
             <string name="proxy-type">"wbBoxSizerProxy"</string>
             <string name="proxy-Orientation">"Vertical"</string>
             <string name="proxy-Member variable name">""</string>
-            <string name="proxy-AlignH">"Centre"</string>
-            <string name="proxy-AlignV">"Centre"</string>
-            <long name="proxy-Stretch factor">0</long>
-            <long name="proxy-Border">5</long>
-            <bool name="proxy-wxLEFT">1</bool>
-            <bool name="proxy-wxRIGHT">1</bool>
-            <bool name="proxy-wxTOP">1</bool>
-            <bool name="proxy-wxBOTTOM">1</bool>
             <bool name="proxy-wxSHAPED">0</bool>
             <bool name="proxy-wxADJUST_MINSIZE">0</bool>
             <bool name="proxy-wxFIXED_MINSIZE">0</bool>
@@ -6362,6 +6454,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6613,6 +6706,72 @@
                   <string name="proxy-Custom arguments">""</string>
                   <string name="proxy-Custom ctor arguments">""</string>
                 </document>
+                <document>
+                  <string name="title">"wxButton: ID_BUTTON_COMPARE_FOLDERS"</string>
+                  <string name="type">"dialog-control-document"</string>
+                  <string name="filename">""</string>
+                  <string name="icon-name">"dialogcontrol"</string>
+                  <long name="is-transient">0</long>
+                  <long name="owns-file">1</long>
+                  <long name="title-mode">0</long>
+                  <long name="locked">0</long>
+                  <string name="proxy-type">"wbButtonProxy"</string>
+                  <string name="event-handler-0">"wxEVT_COMMAND_BUTTON_CLICKED|OnButtonCompareFoldersClick|NONE||FastSyncDlg"</string>
+                  <string name="proxy-Id name">"ID_BUTTON_COMPARE_FOLDERS"</string>
+                  <long name="proxy-Id value">10002</long>
+                  <string name="proxy-Name">""</string>
+                  <string name="proxy-Class">"wxButton"</string>
+                  <string name="proxy-Base class">"wxButton"</string>
+                  <bool name="proxy-External implementation">1</bool>
+                  <bool name="proxy-Separate files">0</bool>
+                  <string name="proxy-Implementation filename">""</string>
+                  <string name="proxy-Header filename">""</string>
+                  <string name="proxy-Member variable name">""</string>
+                  <string name="proxy-Label">"compare folders"</string>
+                  <bool name="proxy-Default">0</bool>
+                  <string name="proxy-Help text">""</string>
+                  <string name="proxy-Tooltip text">""</string>
+                  <string name="proxy-Data variable">""</string>
+                  <string name="proxy-Data validator">""</string>
+                  <string name="proxy-Data source">""</string>
+                  <string name="proxy-Data class name">""</string>
+                  <string name="proxy-Data class implementation filename">""</string>
+                  <string name="proxy-Data class header filename">""</string>
+                  <string name="proxy-Data class manager window">""</string>
+                  <string name="proxy-Background colour">""</string>
+                  <string name="proxy-Foreground colour">""</string>
+                  <string name="proxy-Font">""</string>
+                  <bool name="proxy-Hidden">0</bool>
+                  <bool name="proxy-Enabled">1</bool>
+                  <string name="proxy-Platform">"&lt;Any platform&gt;"</string>
+                  <bool name="proxy-wxBU_LEFT">0</bool>
+                  <bool name="proxy-wxBU_RIGHT">0</bool>
+                  <bool name="proxy-wxBU_TOP">0</bool>
+                  <bool name="proxy-wxBU_BOTTOM">0</bool>
+                  <bool name="proxy-wxBU_EXACTFIT">0</bool>
+                  <bool name="proxy-wxNO_BORDER">0</bool>
+                  <bool name="proxy-wxWANTS_CHARS">0</bool>
+                  <bool name="proxy-wxNO_FULL_REPAINT_ON_RESIZE">0</bool>
+                  <bool name="proxy-wxFULL_REPAINT_ON_RESIZE">0</bool>
+                  <string name="proxy-Custom styles">""</string>
+                  <long name="proxy-X">-1</long>
+                  <long name="proxy-Y">-1</long>
+                  <long name="proxy-Width">-1</long>
+                  <long name="proxy-Height">-1</long>
+                  <string name="proxy-AlignH">"Centre"</string>
+                  <string name="proxy-AlignV">"Centre"</string>
+                  <long name="proxy-Stretch factor">0</long>
+                  <long name="proxy-Border">5</long>
+                  <bool name="proxy-wxLEFT">1</bool>
+                  <bool name="proxy-wxRIGHT">1</bool>
+                  <bool name="proxy-wxTOP">1</bool>
+                  <bool name="proxy-wxBOTTOM">1</bool>
+                  <bool name="proxy-wxSHAPED">0</bool>
+                  <bool name="proxy-wxADJUST_MINSIZE">0</bool>
+                  <bool name="proxy-wxFIXED_MINSIZE">0</bool>
+                  <string name="proxy-Custom arguments">""</string>
+                  <string name="proxy-Custom ctor arguments">""</string>
+                </document>
               </document>
               <document>
                 <string name="title">"wxTextCtrl: ID_TEXTCTRL2_DIR2"</string>
@@ -6671,6 +6830,7 @@
                 <bool name="proxy-wxNO_BORDER">0</bool>
                 <bool name="proxy-wxSIMPLE_BORDER">0</bool>
                 <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+                <bool name="proxy-wxBORDER_THEME">0</bool>
                 <bool name="proxy-wxSUNKEN_BORDER">0</bool>
                 <bool name="proxy-wxRAISED_BORDER">0</bool>
                 <bool name="proxy-wxSTATIC_BORDER">0</bool>
@@ -6742,6 +6902,7 @@
               <bool name="proxy-wxNO_BORDER">0</bool>
               <bool name="proxy-wxSIMPLE_BORDER">0</bool>
               <bool name="proxy-wxDOUBLE_BORDER">0</bool>
+              <bool name="proxy-wxBORDER_THEME">0</bool>
               <bool name="proxy-wxSUNKEN_BORDER">0</bool>
               <bool name="proxy-wxRAISED_BORDER">0</bool>
               <bool name="proxy-wxSTATIC_BORDER">0</bool>

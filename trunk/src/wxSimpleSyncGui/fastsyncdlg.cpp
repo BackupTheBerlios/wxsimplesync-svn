@@ -53,6 +53,8 @@ BEGIN_EVENT_TABLE( FastSyncDlg, wxDialog )
 
     EVT_BUTTON( ID_BUTTON_BOTH, FastSyncDlg::OnButtonBothClick )
 
+    EVT_BUTTON( ID_BUTTON_COMPARE_FOLDERS, FastSyncDlg::OnButtonCompareFoldersClick )
+
 ////@end FastSyncDlg event table entries
 
 END_EVENT_TABLE()
@@ -151,23 +153,26 @@ void FastSyncDlg::CreateControls()
     wxButton* itemButton8 = new wxButton( itemDialog1, ID_BUTTON_BOTH, _("<->"), wxDefaultPosition, wxDefaultSize, 0 );
     itemBoxSizer5->Add(itemButton8, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
+    wxButton* itemButton9 = new wxButton( itemDialog1, ID_BUTTON_COMPARE_FOLDERS, _("compare folders"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemBoxSizer5->Add(itemButton9, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+
     m_Dir2 = new wxTextCtrl( itemDialog1, ID_TEXTCTRL2_DIR2, _("Drop Dir2 here"), wxDefaultPosition, wxSize(100, 75), wxTE_MULTILINE );
     itemBoxSizer3->Add(m_Dir2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxStaticText* itemStaticText10 = new wxStaticText( itemDialog1, wxID_STATIC, _("Drag the folders you want so sync onto the textfields for Dir 1 and 2 and click an direction button  to start the Syncing."), wxDefaultPosition, wxDefaultSize, 0 );
-    itemStaticText10->Wrap(300);
-    itemBoxSizer2->Add(itemStaticText10, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxStaticText* itemStaticText11 = new wxStaticText( itemDialog1, wxID_STATIC, _("Drag the folders you want so sync onto the textfields for Dir 1 and 2 and click an direction button  to start the Syncing."), wxDefaultPosition, wxDefaultSize, 0 );
+    itemStaticText11->Wrap(300);
+    itemBoxSizer2->Add(itemStaticText11, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
-    wxBoxSizer* itemBoxSizer11 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer2->Add(itemBoxSizer11, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
+    wxBoxSizer* itemBoxSizer12 = new wxBoxSizer(wxVERTICAL);
+    itemBoxSizer2->Add(itemBoxSizer12, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5);
 
     m_ClearTarged = new wxCheckBox( itemDialog1, ID_CHECKBOX, _("Delete old files in Targed Directory"), wxDefaultPosition, wxDefaultSize, 0 );
     m_ClearTarged->SetValue(true);
-    itemBoxSizer11->Add(m_ClearTarged, 0, wxALIGN_LEFT|wxALL, 5);
+    itemBoxSizer12->Add(m_ClearTarged, 0, wxALIGN_LEFT|wxALL, 5);
 
     m_HiddenFiles = new wxCheckBox( itemDialog1, ID_CHECKBOX1, _("Sync Hidden Files"), wxDefaultPosition, wxDefaultSize, 0 );
     m_HiddenFiles->SetValue(true);
-    itemBoxSizer11->Add(m_HiddenFiles, 0, wxALIGN_LEFT|wxALL, 5);
+    itemBoxSizer12->Add(m_HiddenFiles, 0, wxALIGN_LEFT|wxALL, 5);
 
 ////@end FastSyncDlg content construction
     m_Dir1->SetDropTarget(new DnDFile(m_Dir1));
@@ -218,10 +223,6 @@ wxIcon FastSyncDlg::GetIconResource( const wxString& name )
 void FastSyncDlg::OnButtonRightClick( wxCommandEvent& event )
 {
     Sync->SyncPath(wxT("->"),m_Dir1->GetValue(),m_Dir2->GetValue(),m_HiddenFiles->GetValue(),m_ClearTarged->GetValue());
-////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_RIGHT in FastSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_RIGHT in FastSyncDlg.
 }
 
 
@@ -232,10 +233,6 @@ void FastSyncDlg::OnButtonRightClick( wxCommandEvent& event )
 void FastSyncDlg::OnButtonLeftClick( wxCommandEvent& event )
 {
     Sync->SyncPath(wxT("<-"),m_Dir1->GetValue(),m_Dir2->GetValue(),m_HiddenFiles->GetValue(),m_ClearTarged->GetValue());
-////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_LEFT in FastSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_LEFT in FastSyncDlg.
 }
 
 
@@ -246,9 +243,21 @@ void FastSyncDlg::OnButtonLeftClick( wxCommandEvent& event )
 void FastSyncDlg::OnButtonBothClick( wxCommandEvent& event )
 {
     Sync->SyncPath(wxT("<->"),m_Dir1->GetValue(),m_Dir2->GetValue(),m_HiddenFiles->GetValue(),false);
-////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_BOTH in FastSyncDlg.
-    // Before editing this code, remove the block markers.
-    event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_BOTH in FastSyncDlg.
+}
+
+
+/*!
+ * wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_COMPARE
+ */
+
+void FastSyncDlg::OnButtonCompareFoldersClick( wxCommandEvent& event )
+{
+    if(wxDir::Exists(m_Dir1->GetValue()) && wxDir::Exists(m_Dir2->GetValue())) {
+        FolderCompareDlg cfdlg;
+        cfdlg.Create(this,-1,_("Compare Sync Folders"));
+        cfdlg.Dir1=m_Dir1->GetValue();
+        cfdlg.Dir2=m_Dir2->GetValue();
+        cfdlg.ShowModal();
+    }
 }
 

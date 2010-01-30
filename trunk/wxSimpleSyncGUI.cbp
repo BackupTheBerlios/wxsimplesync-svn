@@ -29,6 +29,7 @@
 				<Compiler>
 					<Add option="`wx-config --wxcfg=gcc_lib/mswu --cxxflags`" />
 					<Add directory="C:\wxWidgets-2.8.7\include" />
+					<Add directory="/usr/include/wx-2.8" />
 				</Compiler>
 				<Linker>
 					<Add option="`wx-config --wxcfg=gcc_lib/mswu --libs`" />
