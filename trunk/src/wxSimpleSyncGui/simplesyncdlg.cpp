@@ -313,6 +313,19 @@ first = true;
 
     m_StatusBar->Show(Sync->Settings.ShowStatusbar);
 
+    wxAcceleratorEntry entries[8];
+    entries[0].Set(wxACCEL_CTRL,  (int) 'N',     ID_TOOL_ADD);
+    entries[1].Set(wxACCEL_NORMAL,  WXK_DELETE,  ID_TOOL_REMOVE);
+    entries[2].Set(wxACCEL_CTRL,  WXK_UP,     ID_TOOL_MOVE_UP);
+    entries[3].Set(wxACCEL_CTRL,  WXK_DOWN,     ID_TOOL_MOVE_DOWN);
+    entries[4].Set(wxACCEL_CTRL, (int) 'E',     ID_MENUITEM);
+    entries[5].Set(wxACCEL_CTRL, (int) 'S',     ID_TOOL_SYNC_ALL);
+    entries[6].Set(wxACCEL_CTRL, (int) 'A',     ID_TOOL_ABORT_SYNC);
+    entries[7].Set(wxACCEL_CTRL, (int) 'Q',     ID_MENUITEM_EXIT);
+    wxAcceleratorTable accel(8, entries);
+
+    SetAcceleratorTable(accel);
+
     //Check if user gave a Profile Path as Parameter
     if(ShellProfileParameter) {
         Sync->OpenProfile(wxFileName(ShellProfilePath).GetFullPath());
