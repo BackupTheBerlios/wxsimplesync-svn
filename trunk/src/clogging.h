@@ -29,7 +29,7 @@
 #include <wx/datetime.h>
 
 
-//TODO a initial check if file exists andis already over MAXLOGLINES
+//TODO a initial check if file exists and if is already over MAXLOGLINES
 
 class CLogging : public wxLog
 {

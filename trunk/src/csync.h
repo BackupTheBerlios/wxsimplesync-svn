@@ -193,6 +193,7 @@ private:
     #if defined(__WXGTK__) || defined(__WXX11__)
 	bool CopySymlink(wxString linkfilepath,wxString target);
 	__time_t file_modtime(wxString name);
+	void copy_filetimes(wxFileName from_file, wxFileName to_file);
 	#endif
 };
 

@@ -36,6 +36,7 @@
 #if defined(__WXGTK__) || defined(__WXX11)
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <utime.h>
 #endif
 
 //STRANGE STUFF FOR THE wxArray
@@ -91,6 +92,16 @@ __time_t CSyncThread::file_modtime(wxString name) {
         wxLogError(L"Could not get Last Modification time of file:" + name);
     }
     return st.st_mtime;
+}
+
+void CSyncThread::copy_filetimes(wxFileName from_file, wxFileName to_file) {
+    __time_t f1t = file_modtime(from_file.GetPath());
+
+
+    struct utimbuf f2;
+    f2.modtime = f1t;
+    utime(to_file.GetPath().fn_str(), &f2);
+    return;
 }
 #endif
 void CSyncThread::CountFiles(wxString Path,wxString Filters, int filter_mode) {
@@ -430,7 +441,9 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                             #endif
                             wxCopyFile(file1.GetPath(),file2.GetPath(),true);
-                            #if defined(__WXMSW__)
+                            #if defined(__WXGTK__) || defined(__WXX11__)
+                            copy_filetimes(file1,file2);
+                            #else //if defined(__WXMSW__)
                             temp = file1.GetPath();
                             //MSW PLATFORM CODE ONLY
                             DWORD att = GetFileAttributes(temp.c_str());
@@ -442,7 +455,9 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                     else
                     {
                         wxCopyFile(file1.GetPath(),file2.GetPath(),true);
-                        #if defined(__WXMSW__)
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                            copy_filetimes(file1,file2);
+                        #else //if defined(__WXMSW__)
                         temp = file1.GetPath();
                         //MSW PLATFORM CODE ONLY
                         DWORD att = GetFileAttributes(temp.c_str());
@@ -513,7 +528,9 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                             #endif
                             wxCopyFile(file2.GetPath(),file1.GetPath(),true);
-                            #if defined(__WXMSW__)
+                            #if defined(__WXGTK__) || defined(__WXX11__)
+                            copy_filetimes(file2,file1);
+                            #else //if defined(__WXMSW__)
                             temp = file2.GetPath();
                             //MSW PLATFORM CODE ONLY
                             DWORD att = GetFileAttributes(temp.c_str());
@@ -525,7 +542,9 @@ bool CSyncThread::SyncFolders(SyncParameters Parameter)
                     else
                     {
                         wxCopyFile(file2.GetPath(),file1.GetPath(),true);
-                        #if defined(__WXMSW__)
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        copy_filetimes(file2,file1);
+                        #else //if defined(__WXMSW__)
                         temp = file2.GetPath();
                         //MSW PLATFORM CODE ONLY
                         DWORD att = GetFileAttributes(temp.c_str());
@@ -636,7 +655,9 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                             #endif
                             wxCopyFile(file1.GetPath(),file2.GetPath(),true);
-                            #if defined(__WXMSW__)
+                            #if defined(__WXGTK__) || defined(__WXX11__)
+                            copy_filetimes(file1,file2);
+                            #else //if defined(__WXMSW__)
                             temp = file1.GetPath();
                             //MSW PLATFORM CODE ONLY
                             DWORD att = GetFileAttributes(temp.c_str());
@@ -648,7 +669,9 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                     else
                     {
                         wxCopyFile(file1.GetPath(),file2.GetPath(),true);
-                        #if defined(__WXMSW__)
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        copy_filetimes(file1,file2);
+                        #else //if defined(__WXMSW__)
                         temp = file1.GetPath();
                         //MSW PLATFORM CODE ONLY
                         DWORD att = GetFileAttributes(temp.c_str());
@@ -717,7 +740,9 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                             SetFileAttributes(temp.c_str(),FILE_ATTRIBUTE_NORMAL);
                             #endif
                             wxCopyFile(file2.GetPath(),file1.GetPath(),true);
-                            #if defined(__WXMSW__)
+                            #if defined(__WXGTK__) || defined(__WXX11__)
+                            copy_filetimes(file2,file1);
+                            #else //if defined(__WXMSW__)
                             temp = file2.GetPath();
                             //MSW PLATFORM CODE ONLY
                             DWORD att = GetFileAttributes(temp.c_str());
@@ -729,7 +754,9 @@ bool CSyncThread::SyncFoldersR(wxString Path1,wxString Path2,SyncParameters Para
                     else
                     {
                         wxCopyFile(file2.GetPath(),file1.GetPath(),true);
-                        #if defined(__WXMSW__)
+                        #if defined(__WXGTK__) || defined(__WXX11__)
+                        copy_filetimes(file2,file1);
+                        #else //if defined(__WXMSW__)
                         temp = file2.GetPath();
                         //MSW PLATFORM CODE ONLY
                         DWORD att = GetFileAttributes(temp.c_str());
@@ -838,6 +865,7 @@ bool CFolderSyncer::SyncPath(wxString Diection, wxString Dir1, wxString Dir2, bo
         temp.filter_mode = 0;
         temp.TargedClear = DeleteOld;
         temp.SyncAuto = false;
+        temp.noTimeCheck = false;
 
         if(!running) {
             Syncer = new CSyncThread(this, Gui);

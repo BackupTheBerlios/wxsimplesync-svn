@@ -62,7 +62,7 @@ install:all
 	touch /usr/share/wxsimplesync/log.txt
 	chmod 777 /usr/share/wxsimplesync/log.txt
 	chmod 777 /usr/share/wxsimplesync/wxSimpleSyncSettings.xml
-	chmod +w /usr/share/wxsimplesync	
+	chmod a+w /usr/share/wxsimplesync	
 
 uninstall:
 	rm /usr/share/wxsimplesync -r

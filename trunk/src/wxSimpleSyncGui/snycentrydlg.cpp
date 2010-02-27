@@ -366,7 +366,7 @@ wxBitmap SyncEntryDlg::GetBitmapResource( const wxString& name )
     wxUnusedVar(name);
     if (name == _T("recources/FolderOpen.png"))
     {
-        wxBitmap bitmap(_T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
+        wxBitmap bitmap(APP_LOCATION+_T("recources/FolderOpen.png"), wxBITMAP_TYPE_PNG);
         return bitmap;
     }
     return wxNullBitmap;
@@ -438,10 +438,9 @@ void SyncEntryDlg::OnRadiobuttonBothdirectionSelected( wxCommandEvent& event )
     m_ClearTarged->Enable(false);
     m_NoTimeCheck->SetValue(false);
     m_NoTimeCheck->Enable(false);
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON1 in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON1 in SyncEntryDlg.
+
 }
 
 
@@ -454,10 +453,8 @@ void SyncEntryDlg::OnRadiobuttonRightdirectionSelected( wxCommandEvent& event )
     SyncDirection= L"->";
     m_ClearTarged->Enable(true);
     m_NoTimeCheck->Enable(true);
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_RIGHTDIRECTION in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_RIGHTDIRECTION in SyncEntryDlg.
 }
 
 
@@ -470,10 +467,8 @@ void SyncEntryDlg::OnRadiobuttonLeftdirectionSelected( wxCommandEvent& event )
     SyncDirection= L"<-";
     m_ClearTarged->Enable(true);
     m_NoTimeCheck->Enable(true);
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_LEFTDIRECTION in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_LEFTDIRECTION in SyncEntryDlg.
 }
 
 
@@ -487,10 +482,8 @@ void SyncEntryDlg::OnBitmapbuttonChooseDir1Click( wxCommandEvent& event )
     if(dir1.ShowModal() == wxID_OK ) {
         m_Dir1->SetValue(dir1.GetPath());
     }
-////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BITMAPBUTTON_CHOOSE_DIR1 in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BITMAPBUTTON_CHOOSE_DIR1 in SyncEntryDlg.
 }
 
 
@@ -504,10 +497,8 @@ void SyncEntryDlg::OnBitmapbuttonChooseDir2Click( wxCommandEvent& event )
     if(dir2.ShowModal() == wxID_OK ) {
         m_Dir2->SetValue(dir2.GetPath());
     }
-////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BITMAPBUTTON_CHOOSE_DIR2 in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BITMAPBUTTON_CHOOSE_DIR2 in SyncEntryDlg.
 }
 
 
@@ -518,10 +509,8 @@ void SyncEntryDlg::OnBitmapbuttonChooseDir2Click( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonFilterOffSelected( wxCommandEvent& event )
 {
     Filtermode = 0;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_OFF in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_OFF in SyncEntryDlg.
 }
 
 
@@ -532,10 +521,8 @@ void SyncEntryDlg::OnRadiobuttonFilterOffSelected( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonFilterOnSelected( wxCommandEvent& event )
 {
     Filtermode = 2;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_ON in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_ON in SyncEntryDlg.
 }
 
 
@@ -546,10 +533,8 @@ void SyncEntryDlg::OnRadiobuttonFilterOnSelected( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonFilterOnlySelected( wxCommandEvent& event )
 {
     Filtermode = 1;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_ONLY in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_FILTER_ONLY in SyncEntryDlg.
 }
 
 
@@ -560,10 +545,8 @@ void SyncEntryDlg::OnRadiobuttonFilterOnlySelected( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonAutoOffSelected( wxCommandEvent& event )
 {
     AutoSyncMode = 0;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_OFF in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_OFF in SyncEntryDlg.
 }
 
 
@@ -574,10 +557,8 @@ void SyncEntryDlg::OnRadiobuttonAutoOffSelected( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonAutoExactSelected( wxCommandEvent& event )
 {
     AutoSyncMode = 1;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_EXACT in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_EXACT in SyncEntryDlg.
 }
 
 
@@ -588,9 +569,7 @@ void SyncEntryDlg::OnRadiobuttonAutoExactSelected( wxCommandEvent& event )
 void SyncEntryDlg::OnRadiobuttonAutoIntervallSelected( wxCommandEvent& event )
 {
     AutoSyncMode = 2;
-////@begin wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_INTERVALL in SyncEntryDlg.
-    // Before editing this code, remove the block markers.
+
     event.Skip();
-////@end wxEVT_COMMAND_RADIOBUTTON_SELECTED event handler for ID_RADIOBUTTON_AUTO_INTERVALL in SyncEntryDlg.
 }
 
